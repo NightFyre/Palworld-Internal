@@ -1,0 +1,39 @@
+#pragma once
+
+// Dumped with Dumper-7!
+
+
+namespace SDK
+{
+//---------------------------------------------------------------------------------------------------------------------
+// CLASSES
+//---------------------------------------------------------------------------------------------------------------------
+
+// 0x0 (0xC0 - 0xC0)
+// BlueprintGeneratedClass BP_PalPlayerDataCharacterMake.BP_PalPlayerDataCharacterMake_C
+class UBP_PalPlayerDataCharacterMake_C : public UPalPlayerDataCharacterMake
+{
+public:
+
+	static class UClass* StaticClass();
+	static class UBP_PalPlayerDataCharacterMake_C* GetDefaultObj();
+
+	void GetRandomRawNameByDataTable(class UDataTable* DataTable, class FName* RawName, class FName Temp_name_Variable, TArray<class FName>& CallFunc_GetDataTableRowNames_OutRowNames, class FName CallFunc_Array_Random_OutItem, int32 CallFunc_Array_Random_OutIndex, bool CallFunc_Array_RemoveItem_ReturnValue);
+	class FName GetRandomHeadMeshName(class FName CallFunc_GetRandomRawNameByDataTable_RawName);
+	class FName GetRandomHairMeshName(class FName CallFunc_GetRandomRawNameByDataTable_RawName);
+	class FName GetRandomBodyMeshName(class FName CallFunc_GetRandomRawNameByDataTable_RawName);
+	void ConvertMakeInfo_RGBToHSV(const struct FPalPlayerDataCharacterMakeInfo& MakeInfo, double SVLimitValur, struct FPalPlayerDataCharacterMakeInfo* ConvertedMakeInfo, const struct FLinearColor& CallFunc_GetBodyShiftRGB_OutRGB, const struct FLinearColor& CallFunc_RGBToHSV_OutHSV, const struct FLinearColor& CallFunc_CalcSubsurfaceColor_SubsurfaceRGB, const struct FLinearColor& CallFunc_RGBToHSV_OutHSV_1, const struct FLinearColor& CallFunc_RGBToHSV_OutHSV_2, const struct FLinearColor& CallFunc_RecalcHSV_OutHSV, const struct FLinearColor& CallFunc_RGBToHSV_OutHSV_3, const struct FLinearColor& CallFunc_GetHairShiftRGB_OutRGB, const struct FLinearColor& CallFunc_GetEyeShiftRGB_OutRGB, const struct FLinearColor& CallFunc_RecalcHSV_OutHSV_1, const struct FLinearColor& CallFunc_RecalcHSV_OutHSV_2, const struct FLinearColor& CallFunc_GetBrowShiftRGB_OutRGB, const struct FLinearColor& CallFunc_RecalcHSV_OutHSV_3, const struct FPalPlayerDataCharacterMakeInfo& K2Node_MakeStruct_PalPlayerDataCharacterMakeInfo);
+	void CalcSubsurfaceColor(const struct FLinearColor& OriginalRGB, struct FLinearColor* SubsurfaceRGB, float CallFunc_BreakColor_R, float CallFunc_BreakColor_G, float CallFunc_BreakColor_B, float CallFunc_BreakColor_A, double CallFunc_MultiplyMultiply_FloatFloat_ReturnValue, double CallFunc_MultiplyMultiply_FloatFloat_ReturnValue_1, double CallFunc_MultiplyMultiply_FloatFloat_ReturnValue_2, const struct FLinearColor& K2Node_MakeStruct_LinearColor, const struct FLinearColor& CallFunc_Multiply_LinearColorLinearColor_ReturnValue, double CallFunc_MultiplyMultiply_FloatFloat_Base_ImplicitCast, double CallFunc_MultiplyMultiply_FloatFloat_Base_ImplicitCast_1, double CallFunc_MultiplyMultiply_FloatFloat_Base_ImplicitCast_2, float K2Node_MakeStruct_R_ImplicitCast, float K2Node_MakeStruct_B_ImplicitCast, float K2Node_MakeStruct_G_ImplicitCast);
+	void RecalcHSV(const struct FLinearColor& BaseHSV, const struct FLinearColor& ShiftRGB, double SVLimit, struct FLinearColor* OutHSV, float CallFunc_BreakColor_R, float CallFunc_BreakColor_G, float CallFunc_BreakColor_B, float CallFunc_BreakColor_A, const struct FLinearColor& CallFunc_RGBLinearToHSV_ReturnValue, double CallFunc_Multiply_DoubleDouble_ReturnValue, float CallFunc_BreakColor_R_1, float CallFunc_BreakColor_G_1, float CallFunc_BreakColor_B_1, float CallFunc_BreakColor_A_1, double CallFunc_Multiply_DoubleDouble_ReturnValue_1, double CallFunc_Divide_DoubleDouble_ReturnValue, double CallFunc_Subtract_DoubleDouble_ReturnValue, const struct FLinearColor& K2Node_MakeStruct_LinearColor, double CallFunc_Subtract_DoubleDouble_B_ImplicitCast, double CallFunc_Multiply_DoubleDouble_A_ImplicitCast, double CallFunc_Multiply_DoubleDouble_A_ImplicitCast_1, float K2Node_MakeStruct_B_ImplicitCast, double CallFunc_Divide_DoubleDouble_A_ImplicitCast, float K2Node_MakeStruct_G_ImplicitCast, float K2Node_MakeStruct_R_ImplicitCast);
+	void GetEyeShiftRGB(class FName HeadMeshName, class FName EyeMaterialName, struct FLinearColor* OutRGB, const struct FFormatArgumentData& K2Node_MakeStruct_FormatArgumentData, const struct FPalCharacterCreationEyeMaterialDataRow& CallFunc_GetDataTableRowFromName_OutRow, bool CallFunc_GetDataTableRowFromName_ReturnValue, TArray<struct FFormatArgumentData>& K2Node_MakeArray_Array, class FText CallFunc_Format_ReturnValue, const class FString& CallFunc_Conv_TextToString_ReturnValue, bool CallFunc_NotEqual_NameName_ReturnValue, const struct FPalCharacterCreationMeshPresetDataRow& CallFunc_GetDataTableRowFromName_OutRow_1, bool CallFunc_GetDataTableRowFromName_ReturnValue_1, const struct FFormatArgumentData& K2Node_MakeStruct_FormatArgumentData_1, TArray<struct FFormatArgumentData>& K2Node_MakeArray_Array_1, class FText CallFunc_Format_ReturnValue_1, const class FString& CallFunc_Conv_TextToString_ReturnValue_1);
+	void GetBrowShiftRGB(class FName HaorMeshName, struct FLinearColor* OutRGB, const struct FPalCharacterCreationMeshPresetDataRow& CallFunc_GetDataTableRowFromName_OutRow, bool CallFunc_GetDataTableRowFromName_ReturnValue, const struct FFormatArgumentData& K2Node_MakeStruct_FormatArgumentData, TArray<struct FFormatArgumentData>& K2Node_MakeArray_Array, class FText CallFunc_Format_ReturnValue, const class FString& CallFunc_Conv_TextToString_ReturnValue);
+	void GetHairShiftRGB(class FName HaorMeshName, struct FLinearColor* OutRGB, const struct FPalCharacterCreationMeshPresetDataRow& CallFunc_GetDataTableRowFromName_OutRow, bool CallFunc_GetDataTableRowFromName_ReturnValue, const struct FFormatArgumentData& K2Node_MakeStruct_FormatArgumentData, TArray<struct FFormatArgumentData>& K2Node_MakeArray_Array, class FText CallFunc_Format_ReturnValue, const class FString& CallFunc_Conv_TextToString_ReturnValue);
+	void GetBodyShiftRGB(class FName BodyMeshName, struct FLinearColor* OutRGB, const struct FPalCharacterCreationMeshPresetDataRow& CallFunc_GetDataTableRowFromName_OutRow, bool CallFunc_GetDataTableRowFromName_ReturnValue, const struct FFormatArgumentData& K2Node_MakeStruct_FormatArgumentData, TArray<struct FFormatArgumentData>& K2Node_MakeArray_Array, class FText CallFunc_Format_ReturnValue, const class FString& CallFunc_Conv_TextToString_ReturnValue);
+	void RGBtoHSV(const struct FLinearColor& InRGB, struct FLinearColor* OutHSV, const struct FLinearColor& CallFunc_RGBLinearToHSV_ReturnValue, double CallFunc_Divide_DoubleDouble_ReturnValue, const struct FLinearColor& K2Node_MakeStruct_LinearColor, double CallFunc_Divide_DoubleDouble_A_ImplicitCast, float K2Node_MakeStruct_R_ImplicitCast);
+	void GetOriginalPresetMakeInfo(class FName PresetName, struct FPalPlayerDataCharacterMakeInfo* OutMakeInfo, const struct FPalPlayerDataCharacterMakeInfo& K2Node_MakeStruct_PalPlayerDataCharacterMakeInfo, class FText CallFunc_Conv_NameToText_ReturnValue, const struct FFormatArgumentData& K2Node_MakeStruct_FormatArgumentData, const struct FPalCharacterCreationPresetDataRow& CallFunc_GetDataTableRowFromName_OutRow, bool CallFunc_GetDataTableRowFromName_ReturnValue, TArray<struct FFormatArgumentData>& K2Node_MakeArray_Array, class FText CallFunc_Format_ReturnValue, const class FString& CallFunc_Conv_TextToString_ReturnValue);
+	void GetPresetMakeInfo(class UObject* WorldContextObject, class FName& PresetName, struct FPalPlayerDataCharacterMakeInfo* OutMakeInfo, const struct FPalPlayerDataCharacterMakeInfo& CallFunc_GetOriginalPresetMakeInfo_OutMakeInfo, bool CallFunc_IsValid_ReturnValue, class UPalGameSetting* CallFunc_GetGameSetting_ReturnValue, const struct FPalPlayerDataCharacterMakeInfo& CallFunc_ConvertMakeInfo_RGBToHSV_ConvertedMakeInfo, double CallFunc_ConvertMakeInfo_RGBToHSV_SVLimitValur_ImplicitCast);
+};
+
+}
+
+

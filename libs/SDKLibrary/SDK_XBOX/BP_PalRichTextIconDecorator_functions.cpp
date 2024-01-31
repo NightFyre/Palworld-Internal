@@ -1,0 +1,44 @@
+#pragma once
+
+// Dumped with Dumper-7!
+
+
+#include "../SDK.hpp"
+
+namespace SDK
+{
+//---------------------------------------------------------------------------------------------------------------------
+// FUNCTIONS
+//---------------------------------------------------------------------------------------------------------------------
+
+
+// BlueprintGeneratedClass BP_PalRichTextIconDecorator.BP_PalRichTextIconDecorator_C
+// (None)
+
+class UClass* UBP_PalRichTextIconDecorator_C::StaticClass()
+{
+	static class UClass* Clss = nullptr;
+
+	if (!Clss)
+		Clss = UObject::FindClassFast("BP_PalRichTextIconDecorator_C");
+
+	return Clss;
+}
+
+
+// BP_PalRichTextIconDecorator_C BP_PalRichTextIconDecorator.Default__BP_PalRichTextIconDecorator_C
+// (Public, ClassDefaultObject, ArchetypeObject, WasLoaded, LoadCompleted)
+
+class UBP_PalRichTextIconDecorator_C* UBP_PalRichTextIconDecorator_C::GetDefaultObj()
+{
+	static class UBP_PalRichTextIconDecorator_C* Default = nullptr;
+
+	if (!Default)
+		Default = static_cast<UBP_PalRichTextIconDecorator_C*>(UBP_PalRichTextIconDecorator_C::StaticClass()->DefaultObject);
+
+	return Default;
+}
+
+}
+
+

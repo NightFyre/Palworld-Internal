@@ -1,0 +1,44 @@
+#pragma once
+
+// Dumped with Dumper-7!
+
+
+#include "../SDK.hpp"
+
+namespace SDK
+{
+//---------------------------------------------------------------------------------------------------------------------
+// FUNCTIONS
+//---------------------------------------------------------------------------------------------------------------------
+
+
+// BlueprintGeneratedClass BP_PropMug.BP_PropMug_C
+// (Actor)
+
+class UClass* ABP_PropMug_C::StaticClass()
+{
+	static class UClass* Clss = nullptr;
+
+	if (!Clss)
+		Clss = UObject::FindClassFast("BP_PropMug_C");
+
+	return Clss;
+}
+
+
+// BP_PropMug_C BP_PropMug.Default__BP_PropMug_C
+// (Public, ClassDefaultObject, ArchetypeObject, WasLoaded, LoadCompleted)
+
+class ABP_PropMug_C* ABP_PropMug_C::GetDefaultObj()
+{
+	static class ABP_PropMug_C* Default = nullptr;
+
+	if (!Default)
+		Default = static_cast<ABP_PropMug_C*>(ABP_PropMug_C::StaticClass()->DefaultObject);
+
+	return Default;
+}
+
+}
+
+
