@@ -26,7 +26,7 @@ public:
 	class UWBP_PalInvisibleButton_C*             WBP_PalInvisibleButton;                            // 0x2C0(0x8)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	FMulticastInlineDelegateProperty_            OnClicked;                                         // 0x2C8(0x10)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	enum class E_UICharacterMakeCategory         BindCategory;                                      // 0x2D8(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_364D[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4A66[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TMap<enum class E_UICharacterMakeCategory, struct FDataTableRowHandle> MsgIDMap;                                          // 0x2E0(0x50)(Edit, BlueprintVisible, DisableEditOnInstance)
 
 	static class UClass* StaticClass();

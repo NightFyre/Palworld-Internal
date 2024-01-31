@@ -14,7 +14,7 @@ namespace SDK
 class UBP_ActionRandomRest_C : public UPalActionBase
 {
 public:
-	uint8                                        Pad_751[0x8];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3FC3[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x140(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	class UAnimMontage*                          CurrentMontage;                                    // 0x148(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	struct FPalRandomRestInfo                    CurrentRestInfo;                                   // 0x150(0x18)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor)

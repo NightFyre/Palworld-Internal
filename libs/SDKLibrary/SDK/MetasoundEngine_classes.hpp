@@ -15,14 +15,14 @@ class UMetaSoundSettings : public UDeveloperSettings
 {
 public:
 	bool                                         bAutoUpdateEnabled;                                // 0x38(0x1)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_19FB[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_2B3F[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TArray<struct FMetasoundFrontendClassName>   AutoUpdateDenylist;                                // 0x40(0x10)(Edit, ZeroConstructor, Config, NativeAccessSpecifierPublic)
 	TArray<struct FDefaultMetaSoundAssetAutoUpdateSettings> AutoUpdateAssetDenylist;                           // 0x50(0x10)(Edit, ZeroConstructor, Config, NativeAccessSpecifierPublic)
 	bool                                         bAutoUpdateLogWarningOnDroppedConnection;          // 0x60(0x1)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1A00[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_2B41[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TArray<struct FDirectoryPath>                DirectoriesToRegister;                             // 0x68(0x10)(Edit, ZeroConstructor, Config, NativeAccessSpecifierPublic)
 	int32                                        DenyListCacheChangeID;                             // 0x78(0x4)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1A01[0x4];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_2B43[0x4];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UMetaSoundSettings* GetDefaultObj();
@@ -45,7 +45,7 @@ public:
 class UMetaSoundPatch : public UObject
 {
 public:
-	uint8                                        Pad_1A08[0x68];                                    // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_2B95[0x68];                                    // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FMetasoundFrontendDocument            RootMetaSoundDocument;                             // 0x90(0x1C8)(Edit, Protected, NativeAccessSpecifierProtected)
 	TSet<class FString>                          ReferencedAssetClassKeys;                          // 0x258(0x50)(Protected, NativeAccessSpecifierProtected)
 	TSet<class UObject*>                         ReferencedAssetClassObjects;                       // 0x2A8(0x50)(Protected, UObjectWrapper, NativeAccessSpecifierProtected)
@@ -62,9 +62,9 @@ public:
 class UMetaSoundAssetSubsystem : public UEngineSubsystem
 {
 public:
-	uint8                                        Pad_1A1A[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_2B9E[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TArray<struct FMetaSoundAsyncAssetDependencies> LoadingDependencies;                               // 0x38(0x10)(ZeroConstructor, Transient, NativeAccessSpecifierPrivate)
-	uint8                                        Pad_1A1C[0x198];                                   // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_2B9F[0x198];                                   // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UMetaSoundAssetSubsystem* GetDefaultObj();
@@ -78,15 +78,15 @@ public:
 class UMetaSoundSource : public USoundWaveProcedural
 {
 public:
-	uint8                                        Pad_1A21[0x68];                                    // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_2BA1[0x68];                                    // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FMetasoundFrontendDocument            RootMetaSoundDocument;                             // 0x508(0x1C8)(Edit, Protected, NativeAccessSpecifierProtected)
 	TSet<class FString>                          ReferencedAssetClassKeys;                          // 0x6D0(0x50)(Protected, NativeAccessSpecifierProtected)
 	TSet<class UObject*>                         ReferencedAssetClassObjects;                       // 0x720(0x50)(Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 	TSet<struct FSoftObjectPath>                 ReferenceAssetClassCache;                          // 0x770(0x50)(Protected, NativeAccessSpecifierProtected)
 	enum class EMetasoundSourceAudioFormat       OutputFormat;                                      // 0x7C0(0x1)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1A24[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_2BA2[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FGuid                                 AssetClassID;                                      // 0x7C4(0x10)(ZeroConstructor, IsPlainOldData, NoDestructor, AssetRegistrySearchable, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1A25[0xC];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_2BA3[0xC];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UMetaSoundSource* GetDefaultObj();

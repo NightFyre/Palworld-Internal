@@ -14,7 +14,7 @@ namespace SDK
 class UBP_PalIncidentInvaderEnemy_C : public UBP_PalIncidentInvaderBase_C
 {
 public:
-	uint8                                        Pad_2727[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_251[0x7];                                      // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x288(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	double                                       MarchTimer;                                        // 0x290(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FPalInvaderDatabaseRow                ChosenInvaderData;                                 // 0x298(0x70)(Edit, BlueprintVisible, DisableEditOnInstance)

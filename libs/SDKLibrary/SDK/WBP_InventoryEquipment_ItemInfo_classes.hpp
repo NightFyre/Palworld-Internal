@@ -69,7 +69,7 @@ public:
 	class UWBP_ShopSellPrice_C*                  WBP_ShopSellPrice;                                 // 0x5A8(0x8)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	enum class E_PalUIItemInfoWindowDIsplayType  NowDisplayType;                                    // 0x5B0(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	enum class E_PalUIItemInfoWindowDIsplayType  DefaultDisplayType;                                // 0x5B1(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_196F[0x6];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_1080[0x6];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TMap<enum class EPalItemTypeA, struct FDataTableRowHandle> MainParamMsgIDMap;                                 // 0x5B8(0x50)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance)
 	TMap<enum class EPalItemTypeA, struct FDataTableRowHandle> SubParamMsgIDMap;                                  // 0x608(0x50)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance)
 	struct FDataTableRowHandle                   MainParamShieldOverrideMsgID;                      // 0x658(0x10)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance, NoDestructor)

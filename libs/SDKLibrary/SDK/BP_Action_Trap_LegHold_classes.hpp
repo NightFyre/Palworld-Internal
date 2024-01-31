@@ -14,7 +14,7 @@ namespace SDK
 class UBP_Action_Trap_LegHold_C : public UPalActionBase
 {
 public:
-	uint8                                        Pad_27FB[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3BD3[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x140(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 
 	static class UClass* StaticClass();

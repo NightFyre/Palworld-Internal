@@ -26,7 +26,7 @@ public:
 class UMovieSceneGeometryCacheTrack : public UMovieSceneNameableTrack
 {
 public:
-	uint8                                        Pad_17D4[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_27A5[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TArray<class UMovieSceneSection*>            AnimationSections;                                 // 0xA0(0x10)(ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
 
 	static class UClass* StaticClass();

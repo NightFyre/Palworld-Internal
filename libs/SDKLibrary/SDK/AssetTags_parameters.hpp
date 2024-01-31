@@ -73,7 +73,7 @@ struct UAssetTagsSubsystem_CollectionExists_Params
 public:
 	class FName                                  Name;                                              // 0x0(0x8)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         ReturnValue;                                       // 0x8(0x1)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1999[0x3];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_29E7[0x3];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 }

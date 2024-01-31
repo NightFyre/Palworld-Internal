@@ -17,7 +17,7 @@ public:
 	struct FLiveLinkSubjectPreset                SubjectPreset;                                     // 0xF0(0x38)(NoDestructor, NativeAccessSpecifierPublic)
 	TArray<bool>                                 ChannelMask;                                       // 0x128(0x10)(ZeroConstructor, NativeAccessSpecifierPublic)
 	TArray<class UMovieSceneLiveLinkSubSection*> SubSections;                                       // 0x138(0x10)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
-	uint8                                        Pad_7ED[0x10];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_BD3[0x10];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class FName                                  SubjectName;                                       // 0x158(0x8)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FLiveLinkFrameData                    TemplateToPush;                                    // 0x160(0x90)(Deprecated, NativeAccessSpecifierPublic)
 	struct FLiveLinkRefSkeleton                  RefSkeleton;                                       // 0x1F0(0x20)(Deprecated, NativeAccessSpecifierPublic)
@@ -36,7 +36,7 @@ class UMovieSceneLiveLinkSubSection : public UObject
 public:
 	struct FLiveLinkSubSectionData               SubSectionData;                                    // 0x28(0x10)(NativeAccessSpecifierPublic)
 	TSubclassOf<class ULiveLinkRole>             SubjectRole;                                       // 0x38(0x8)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_7F6[0x10];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_BD4[0x10];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UMovieSceneLiveLinkSubSection* GetDefaultObj();
@@ -48,7 +48,7 @@ public:
 class UMovieSceneLiveLinkSubSectionAnimation : public UMovieSceneLiveLinkSubSection
 {
 public:
-	uint8                                        Pad_800[0x10];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_BD6[0x10];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UMovieSceneLiveLinkSubSectionAnimation* GetDefaultObj();
@@ -60,7 +60,7 @@ public:
 class UMovieSceneLiveLinkSubSectionBasicRole : public UMovieSceneLiveLinkSubSection
 {
 public:
-	uint8                                        Pad_804[0x10];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_BD8[0x10];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UMovieSceneLiveLinkSubSectionBasicRole* GetDefaultObj();
@@ -72,7 +72,7 @@ public:
 class UMovieSceneLiveLinkSubSectionProperties : public UMovieSceneLiveLinkSubSection
 {
 public:
-	uint8                                        Pad_80B[0x10];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_BDB[0x10];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UMovieSceneLiveLinkSubSectionProperties* GetDefaultObj();
@@ -84,7 +84,7 @@ public:
 class UMovieSceneLiveLinkTrack : public UMovieScenePropertyTrack
 {
 public:
-	uint8                                        Pad_80F[0x8];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_BE1[0x8];                                      // Fixing Size After Last Property  [ Dumper-7 ]
 	TSubclassOf<class ULiveLinkRole>             TrackRole;                                         // 0xD0(0x8)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 	static class UClass* StaticClass();

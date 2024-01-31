@@ -19,7 +19,7 @@ public:
 	class UBP_PalTimerPointLightComponent_C*     PlayerLight;                                       // 0x9E0(0x8)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
 	class UPalRiderComponent*                    Rider_Component;                                   // 0x9E8(0x8)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
 	bool                                         bIsInCapturedCage;                                 // 0x9F0(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_BF5[0x7];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_2317[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class ABP_Lamp_C*                            Lantern;                                           // 0x9F8(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 
 	static class UClass* StaticClass();

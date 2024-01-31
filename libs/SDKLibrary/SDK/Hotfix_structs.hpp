@@ -61,7 +61,7 @@ public:
 	bool                                         bCheckAvailabilityOnly;                            // 0x11(0x1)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bPatchCheckEnabled;                                // 0x12(0x1)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bPlatformEnvironmentDetectionEnabled;              // 0x13(0x1)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_EE8[0x4];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_1522[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TSet<class FString>                          AdditionalTags;                                    // 0x18(0x50)(Config, NativeAccessSpecifierPublic)
 };
 

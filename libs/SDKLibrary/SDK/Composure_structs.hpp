@@ -93,7 +93,7 @@ public:
 	class UMaterialInterface*                    Material;                                          // 0xF0(0x8)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TMap<class FName, class FName>               ParamPassMappings;                                 // 0xF8(0x50)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	TMap<class FName, struct FNamedCompMaterialParam> RequiredMaterialParams;                            // 0x148(0x50)(Edit, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	uint8                                        Pad_D43[0x8];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_16F5[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class UMaterialInstanceDynamic*              CachedMID;                                         // 0x1A0(0x8)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 };
 
@@ -118,7 +118,7 @@ public:
 	struct FVector2D                             DisplacementDecodeParameters;                      // 0x100(0x10)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UTexture*                              DisplacementTexture;                               // 0x110(0x8)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                        bUseDisplacementBlueAndAlphaChannels : 1;          // Mask: 0x1, PropSize: 0x10x118(0x1)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_D48[0x7];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_16F6[0x7];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 // 0x14 (0x14 - 0x0)
@@ -128,7 +128,7 @@ struct FMovieSceneComposureExportPass
 public:
 	class FName                                  TransformPassName;                                 // 0x0(0x8)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bRenamePass;                                       // 0x8(0x1)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_D4A[0x3];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_16F7[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class FName                                  ExportedAs;                                        // 0xC(0x8)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 
@@ -138,7 +138,7 @@ struct FMovieSceneComposureExportSectionTemplate : public FMovieSceneEvalTemplat
 {
 public:
 	struct FMovieSceneComposureExportPass        Pass;                                              // 0x20(0x14)(NoDestructor, NativeAccessSpecifierPrivate)
-	uint8                                        Pad_D4B[0x4];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_16F8[0x4];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 // 0x668 (0x6A0 - 0x38)
@@ -151,7 +151,7 @@ public:
 	struct FMovieSceneFloatChannel               RotationAngle;                                     // 0x478(0x110)(NativeAccessSpecifierPrivate)
 	struct FMovieSceneFloatChannel               Scale;                                             // 0x588(0x110)(NativeAccessSpecifierPrivate)
 	enum class EMovieSceneBlendType              BlendType;                                         // 0x698(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                        Pad_D52[0x7];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_16FA[0x7];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 }

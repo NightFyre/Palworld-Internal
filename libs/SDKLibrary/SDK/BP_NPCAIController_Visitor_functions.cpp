@@ -329,12 +329,12 @@ void ABP_NPCAIController_Visitor_C::OnStuck()
 // int32                              EntryPoint                                                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // FDelegateProperty_                 K2Node_CreateDelegate_OutputDelegate                             (ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // FDelegateProperty_                 K2Node_CreateDelegate_OutputDelegate_1                           (ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// class UBP_AIAction_Visitor_TravelToBaseCamp_C*K2Node_CustomEvent_action_1                                      (ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// class UBP_AIAction_Visitor_WaitInBaseCamp_C*K2Node_CustomEvent_action                                        (ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// class UBP_AIAction_Visitor_TravelToBaseCamp_C*K2Node_CustomEvent_Action_1                                      (ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// class UBP_AIAction_Visitor_WaitInBaseCamp_C*K2Node_CustomEvent_Action                                        (ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // bool                               K2Node_SwitchEnum_CmpSuccess                                     (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // FDelegateProperty_                 K2Node_CreateDelegate_OutputDelegate_2                           (ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 
-void ABP_NPCAIController_Visitor_C::ExecuteUbergraph_BP_NPCAIController_Visitor(int32 EntryPoint, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate_1, class UBP_AIAction_Visitor_TravelToBaseCamp_C* K2Node_CustomEvent_action_1, class UBP_AIAction_Visitor_WaitInBaseCamp_C* K2Node_CustomEvent_action, bool K2Node_SwitchEnum_CmpSuccess, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate_2)
+void ABP_NPCAIController_Visitor_C::ExecuteUbergraph_BP_NPCAIController_Visitor(int32 EntryPoint, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate_1, class UBP_AIAction_Visitor_TravelToBaseCamp_C* K2Node_CustomEvent_Action_1, class UBP_AIAction_Visitor_WaitInBaseCamp_C* K2Node_CustomEvent_Action, bool K2Node_SwitchEnum_CmpSuccess, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate_2)
 {
 	static class UFunction* Func = nullptr;
 
@@ -346,8 +346,8 @@ void ABP_NPCAIController_Visitor_C::ExecuteUbergraph_BP_NPCAIController_Visitor(
 	Parms.EntryPoint = EntryPoint;
 	Parms.K2Node_CreateDelegate_OutputDelegate = K2Node_CreateDelegate_OutputDelegate;
 	Parms.K2Node_CreateDelegate_OutputDelegate_1 = K2Node_CreateDelegate_OutputDelegate_1;
-	Parms.K2Node_CustomEvent_action_1 = K2Node_CustomEvent_action_1;
-	Parms.K2Node_CustomEvent_action = K2Node_CustomEvent_action;
+	Parms.K2Node_CustomEvent_Action_1 = K2Node_CustomEvent_Action_1;
+	Parms.K2Node_CustomEvent_Action = K2Node_CustomEvent_Action;
 	Parms.K2Node_SwitchEnum_CmpSuccess = K2Node_SwitchEnum_CmpSuccess;
 	Parms.K2Node_CreateDelegate_OutputDelegate_2 = K2Node_CreateDelegate_OutputDelegate_2;
 

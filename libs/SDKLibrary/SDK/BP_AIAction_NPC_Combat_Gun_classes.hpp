@@ -14,12 +14,12 @@ namespace SDK
 class UBP_AIAction_NPC_Combat_Gun_C : public UBP_AIAction_NPC_CombatBase_C
 {
 public:
-	uint8                                        Pad_2BD5[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3FA1[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x188(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	TMap<enum class EPal_NPC_CombatGunState, class UClass*> StateMap;                                          // 0x190(0x50)(Edit, BlueprintVisible, DisableEditOnInstance)
 	enum class EPal_NPC_CombatGunState           CurrentState;                                      // 0x1E0(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsStopTick;                                        // 0x1E1(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2BD7[0x6];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3FA2[0x6];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	double                                       Timer;                                             // 0x1E8(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                       RandomMoveTime;                                    // 0x1F0(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                       SideMoveTime;                                      // 0x1F8(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)

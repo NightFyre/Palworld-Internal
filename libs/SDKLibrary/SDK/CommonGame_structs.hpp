@@ -45,7 +45,7 @@ enum class ELocalMultiplayerInteractionMode : uint8
 struct FMeasuredText
 {
 public:
-	uint8                                        Pad_D94[0x30];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_13AE[0x30];                                    // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 // 0x18 (0x18 - 0x0)
@@ -56,7 +56,7 @@ public:
 	class ULocalPlayer*                          LocalPlayer;                                       // 0x0(0x8)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UPrimaryGameLayout*                    RootLayout;                                        // 0x8(0x8)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bAddedToViewport;                                  // 0x10(0x1)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_D97[0x7];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_13AF[0x7];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 // 0x20 (0x20 - 0x0)
@@ -65,7 +65,7 @@ struct FConfirmationDialogAction
 {
 public:
 	enum class ECommonMessagingResult            Result;                                            // 0x0(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_D9A[0x7];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_13B1[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class FText                                  OptionalDisplayText;                               // 0x8(0x18)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 };
 

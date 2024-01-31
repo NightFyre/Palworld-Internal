@@ -17,10 +17,10 @@ public:
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x278(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	class UWBP_OptionSettings_ListContent_C*     WBP_OptionSettings_Language;                       // 0x280(0x8)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	struct FPalOptionAudioSettings               AudioSettingCache;                                 // 0x288(0x1C)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor)
-	uint8                                        Pad_2F7B[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_46F6[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TArray<struct FDataTableRowHandle>           LangMsgIds;                                        // 0x2A8(0x10)(Edit, BlueprintVisible, DisableEditOnInstance)
 	bool                                         SomethingChanged;                                  // 0x2B8(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2F7D[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_46F7[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPalOptionAudioSettings               OriginalSettingCache;                              // 0x2BC(0x1C)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor)
 	class FString                                NewLang;                                           // 0x2D8(0x10)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
 	TMap<class FString, struct FDataTableRowHandle> LangMap;                                           // 0x2E8(0x50)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance)

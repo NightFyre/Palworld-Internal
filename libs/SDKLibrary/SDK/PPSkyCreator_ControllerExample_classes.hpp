@@ -20,11 +20,11 @@ public:
 	class USceneComponent*                       DefaultSceneRoot;                                  // 0x2A8(0x8)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
 	class APPSkyCreator*                         SkyCreatorTarget;                                  // 0x2B0(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	bool                                         bRealtimeTimeOfDay;                                // 0x2B8(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_326D[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_32B0[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	double                                       RealtimeTimeOfDayStart;                            // 0x2C0(0x8)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                       RealtimeTimeOfDayDuration;                         // 0x2C8(0x8)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         bRealtimeWeatherChange;                            // 0x2D0(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_326E[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_32B1[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	double                                       ChangeIntervalTimeMin;                             // 0x2D8(0x8)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                       ChangeIntervalTimeMax;                             // 0x2E0(0x8)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	class UPPSkyCreatorWeatherPreset*            StartWeatherPreset;                                // 0x2E8(0x8)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
@@ -32,7 +32,7 @@ public:
 	double                                       InterpolateDurationTimeMax;                        // 0x2F8(0x8)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	TArray<class UPPSkyCreatorWeatherPreset*>    RandomWeatherPresets;                              // 0x300(0x10)(Edit, BlueprintVisible)
 	bool                                         DrawDebugMessages;                                 // 0x310(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_326F[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_32B2[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class USoundCue*                             Rain;                                              // 0x318(0x8)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	class UPPSkyCreatorWeatherPreset*            NextWeatherPreset;                                 // 0x320(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	struct FPPSkyCreatorWeatherSettings          CurrentWeatherSettings;                            // 0x328(0x458)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor)
@@ -43,7 +43,7 @@ public:
 	struct FTimerHandle                          Timer_WeatherInterpolateDuration;                  // 0xBF0(0x8)(Edit, BlueprintVisible, Net, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	struct FTimerHandle                          Timer_WeatherChangeInterval;                       // 0xBF8(0x8)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	bool                                         bEnableRandomWind;                                 // 0xC00(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_3270[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_32B3[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	double                                       CloudWindSpeedMin;                                 // 0xC08(0x8)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                       CloudWindSpeedMax;                                 // 0xC10(0x8)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FPPSkyCreatorWindSettings             CurrentWindSettings;                               // 0xC18(0x1C)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor)

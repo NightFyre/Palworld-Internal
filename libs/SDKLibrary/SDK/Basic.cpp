@@ -1,6 +1,8 @@
 #pragma once
 
 // Dumped with Dumper-7!
+
+
 #include "../pch.h"
 
 namespace SDK
@@ -60,3 +62,5 @@ bool FWeakObjectPtr::operator!=(const class UObject* Other) const
 	return ObjectIndex != Other->Index;
 }
 }
+
+

@@ -210,7 +210,7 @@ public:
 	uint8                                        bCtrl : 1;                                         // Mask: 0x2, PropSize: 0x10x18(0x1)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                        bAlt : 1;                                          // Mask: 0x4, PropSize: 0x10x18(0x1)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                        bCmd : 1;                                          // Mask: 0x8, PropSize: 0x10x18(0x1)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1C86[0x7];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_3130[0x7];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 // 0x20 (0x20 - 0x0)
@@ -256,7 +256,7 @@ public:
 	TMap<class FName, struct FCustomizedToolMenuSection> Sections;                                          // 0x58(0x50)(NativeAccessSpecifierPublic)
 	TMap<class FName, struct FCustomizedToolMenuNameArray> EntryOrder;                                        // 0xA8(0x50)(NativeAccessSpecifierPublic)
 	TArray<class FName>                          SectionOrder;                                      // 0xF8(0x10)(ZeroConstructor, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1CA9[0xE8];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_3149[0xE8];                                    // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 }

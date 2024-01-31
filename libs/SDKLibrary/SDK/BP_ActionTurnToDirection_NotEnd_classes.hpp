@@ -14,7 +14,7 @@ namespace SDK
 class UBP_ActionTurnToDirection_NotEnd_C : public UPalActionBase
 {
 public:
-	uint8                                        Pad_2E9A[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3A6C[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x140(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	double                                       SpeedRate;                                         // 0x148(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 

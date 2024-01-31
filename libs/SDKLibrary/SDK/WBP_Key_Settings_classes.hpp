@@ -18,23 +18,23 @@ public:
 	class UVerticalBox*                          VerticalBox_GP;                                    // 0x280(0x8)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class UVerticalBox*                          VerticalBox_KM;                                    // 0x288(0x8)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	bool                                         SomethingChanged;                                  // 0x290(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2B1F[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_22AB[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TArray<class UVerticalBox*>                  VerticalBoxs;                                      // 0x298(0x10)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
 	TArray<class UWBP_PalCommonButtonBase_C*>    FirstRows;                                         // 0x2A8(0x10)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
 	int32                                        Current;                                           // 0x2B8(0x4)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2B20[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_22AC[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TMap<class FName, class UWBP_OptionSettings_ListContent_C*> InputActionsMap_KM;                                // 0x2C0(0x50)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
 	TMap<class FName, class UWBP_OptionSettings_ListContent_C*> InputActionsMap_GP;                                // 0x310(0x50)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
 	struct FPalKeyConfigSettings                 KeyConfigSettingsCache;                            // 0x360(0xC0)(Edit, BlueprintVisible, DisableEditOnInstance)
 	TMap<class FName, struct FPalKeyAction>      AxisMap;                                           // 0x420(0x50)(Edit, BlueprintVisible, DisableEditOnInstance)
 	TMap<struct FPalKeyAction, class FName>      ReverseAxisMap;                                    // 0x470(0x50)(Edit, BlueprintVisible, DisableEditOnInstance)
 	bool                                         BackFromSetting;                                   // 0x4C0(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2B22[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_22AD[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FKey                                  CachedSettingKey;                                  // 0x4C8(0x18)(Edit, BlueprintVisible, DisableEditOnInstance, HasGetValueTypeHash)
 	TArray<class FName>                          FilterActionKeys;                                  // 0x4E0(0x10)(Edit, BlueprintVisible, DisableEditOnInstance)
 	bool                                         KeyConflict_KM;                                    // 0x4F0(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         KeyConflict_GP;                                    // 0x4F1(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2B24[0x6];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_22AE[0x6];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TMap<class FName, class FName>               MultiKeyMap;                                       // 0x4F8(0x50)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance)
 
 	static class UClass* StaticClass();

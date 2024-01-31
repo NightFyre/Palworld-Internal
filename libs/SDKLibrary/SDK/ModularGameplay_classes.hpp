@@ -36,7 +36,7 @@ public:
 class UGameFrameworkComponentManager : public UGameInstanceSubsystem
 {
 public:
-	uint8                                        Pad_253[0x208];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_86C[0x208];                                    // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UGameFrameworkComponentManager* GetDefaultObj();

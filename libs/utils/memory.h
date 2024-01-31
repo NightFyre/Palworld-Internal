@@ -74,7 +74,7 @@ public:
 
 	signature(const std::string& sig);
 
-	signature import(const std::string& module_name = ("PalWorld-Win64-Shipping.exe"));
+	signature import(const std::string& module_name = ("PalWorld-WinGDK-Shipping.exe"));
 
 	signature add(uint32_t offset);
 	signature sub(uint32_t offset);

@@ -54,9 +54,9 @@ public:
 struct FMetaSoundAsyncAssetDependencies
 {
 public:
-	uint8                                        Pad_1A28[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_2BA4[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class UObject*                               Metasound;                                         // 0x8(0x8)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1A2A[0x20];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_2BA5[0x20];                                    // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 }

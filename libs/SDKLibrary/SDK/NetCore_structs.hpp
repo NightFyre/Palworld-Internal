@@ -158,11 +158,11 @@ enum class ENetCloseResult : uint8
 struct FFastArraySerializer
 {
 public:
-	uint8                                        Pad_D9B[0x54];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3521[0x54];                                    // Fixing Size After Last Property  [ Dumper-7 ]
 	int32                                        ArrayReplicationKey;                               // 0x54(0x4)(ZeroConstructor, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_D9D[0xA8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3522[0xA8];                                    // Fixing Size After Last Property  [ Dumper-7 ]
 	enum class EFastArraySerializerDeltaFlags    DeltaFlags;                                        // 0x100(0x1)(ZeroConstructor, Transient, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                        Pad_D9E[0x7];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_3523[0x7];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 // 0xC (0xC - 0x0)
@@ -182,7 +182,7 @@ struct FNetAnalyticsDataConfig
 public:
 	class FName                                  DataName;                                          // 0x0(0x8)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bEnabled;                                          // 0x8(0x1)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_DA9[0x3];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_3526[0x3];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 // 0x18 (0x18 - 0x0)
@@ -190,7 +190,7 @@ public:
 struct FStateStruct
 {
 public:
-	uint8                                        Pad_DAC[0x8];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3527[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class FString                                StateName;                                         // 0x8(0x10)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 };
 
@@ -204,7 +204,7 @@ public:
 	int16                                        CooloffTime;                                       // 0x1A(0x2)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int16                                        AutoEscalateTime;                                  // 0x1C(0x2)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int8                                         HighestTimePeriod;                                 // 0x1E(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                        Pad_DB0[0x1];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_352A[0x1];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TArray<int8>                                 AllTimePeriods;                                    // 0x20(0x10)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
 };
 
@@ -214,14 +214,14 @@ struct FNetFaultState : public FEscalationState
 {
 public:
 	bool                                         bCloseConnection;                                  // 0x30(0x1)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_DB2[0x1];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_352C[0x1];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	int16                                        EscalateQuotaFaultsPerPeriod;                      // 0x32(0x2)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int8                                         EscalateQuotaFaultPercentPerPeriod;                // 0x34(0x1)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_DB4[0x1];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_352E[0x1];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	int16                                        DescalateQuotaFaultsPerPeriod;                     // 0x36(0x2)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int8                                         DescalateQuotaFaultPercentPerPeriod;               // 0x38(0x1)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int8                                         EscalateQuotaTimePeriod;                           // 0x39(0x1)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_DB7[0x6];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_3531[0x6];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 }

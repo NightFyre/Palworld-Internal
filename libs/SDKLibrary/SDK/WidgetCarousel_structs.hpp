@@ -19,7 +19,7 @@ namespace SDK
 struct FWidgetCarouselNavigationButtonStyle : public FSlateWidgetStyle
 {
 public:
-	uint8                                        Pad_232C[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3A64[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FButtonStyle                          InnerButtonStyle;                                  // 0x10(0x3F0)(NativeAccessSpecifierPublic)
 	struct FSlateBrush                           NavigationButtonLeftImage;                         // 0x400(0xD0)(NativeAccessSpecifierPublic)
 	struct FSlateBrush                           NavigationButtonRightImage;                        // 0x4D0(0xD0)(NativeAccessSpecifierPublic)
@@ -30,7 +30,7 @@ public:
 struct FWidgetCarouselNavigationBarStyle : public FSlateWidgetStyle
 {
 public:
-	uint8                                        Pad_232E[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3A65[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FSlateBrush                           HighlightBrush;                                    // 0x10(0xD0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	struct FButtonStyle                          LeftButtonStyle;                                   // 0xE0(0x3F0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	struct FButtonStyle                          CenterButtonStyle;                                 // 0x4D0(0x3F0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)

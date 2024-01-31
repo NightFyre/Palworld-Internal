@@ -264,7 +264,7 @@ public:
 	float                                        SnowSizeMin;                                       // 0x74(0x4)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                        SnowSizeMax;                                       // 0x78(0x4)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         EnableLightnings;                                  // 0x7C(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_C4D[0x3];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_11C5[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	float                                        LightningSpawnIntervalMin;                         // 0x80(0x4)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                        LightningSpawnIntervalMax;                         // 0x84(0x4)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FLinearColor                          LightningColorMin;                                 // 0x88(0x10)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -352,7 +352,7 @@ public:
 	struct FSkyCreatorMoonLightSettings          MoonLightSettings;                                 // 0x1C0(0x48)(Edit, BlueprintVisible, Interp, NoDestructor, NativeAccessSpecifierPublic)
 	struct FSkyCreatorExponentialHeightFogSettings ExponentialHeightFogSettings;                      // 0x208(0x64)(Edit, BlueprintVisible, Interp, NoDestructor, NativeAccessSpecifierPublic)
 	struct FSkyCreatorStarMapSettings            StarMapSettings;                                   // 0x26C(0x48)(Edit, BlueprintVisible, Interp, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                        Pad_C74[0x4];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_11E0[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FSkyCreatorWeatherFXSettings          WeatherFXSettings;                                 // 0x2B8(0x110)(Edit, BlueprintVisible, Interp, NoDestructor, NativeAccessSpecifierPublic)
 	struct FSkyCreatorWeatherMaterialFXSettings  WeatherMaterialFXSettings;                         // 0x3C8(0x68)(Edit, BlueprintVisible, Interp, NoDestructor, NativeAccessSpecifierPublic)
 	struct FSkyCreatorWindSettings               WindSettings;                                      // 0x430(0x1C)(Edit, BlueprintVisible, Interp, NoDestructor, NativeAccessSpecifierPublic)

@@ -14,7 +14,7 @@ namespace SDK
 class UBP_Action_NPC_MeleeAttack_C : public UPalActionBase
 {
 public:
-	uint8                                        Pad_3215[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_408B[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x140(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	class UAnimMontage*                          AttackAnime;                                       // 0x148(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 

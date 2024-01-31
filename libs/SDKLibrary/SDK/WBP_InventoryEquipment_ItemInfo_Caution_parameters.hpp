@@ -27,7 +27,7 @@ struct UWBP_InventoryEquipment_ItemInfo_Caution_C_ExecuteUbergraph_WBP_Inventory
 {
 public:
 	int32                                        EntryPoint;                                        // 0x0(0x4)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_3A54[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4BDD[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class FText                                  K2Node_CustomEvent_Name;                           // 0x8(0x18)(None)
 };
 

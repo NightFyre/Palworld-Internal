@@ -9,14 +9,9 @@
 #error "ERROR: DEBUG BUILDS NOT REQUIRED"
 #endif
 
-
-
 #ifndef XBOX_VER
-#define XBOX_VER false
+#define XBOX_VER true
 #endif
 
-#if XBOX_VER
-#pragma message("ATTENTION: XBOX MODULE NOT YET IMPLEMENTED")
-#endif
-constexpr bool isDebug = _DEBUG;
+constexpr bool isDebug = false;
 constexpr bool isXbox = XBOX_VER;

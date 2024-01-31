@@ -16,11 +16,11 @@ class UBP_AIAction_SpawnItemBase_C : public UPalAIActionBase
 public:
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x130(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	int32                                        SpawnCount;                                        // 0x138(0x4)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2DCB[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_41D2[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class APalCharacter*                         ActionCharacter;                                   // 0x140(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	struct FPalStaticItemIdAndNum                SpawnItemInfo;                                     // 0x148(0xC)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor)
 	class FName                                  SpawnSocketName;                                   // 0x154(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2DCE[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_41D3[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FVector                               SpawnLocationOffset;                               // 0x160(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FRotator                              SpawnItemRotator;                                  // 0x178(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor)
 
@@ -43,7 +43,7 @@ public:
 	void OnActionNotify(class UPalActionBase* Action, class FName NotifyName);
 	void OnCompleteItemSpawn();
 	void PlaySpawnItemAction();
-	void ExecuteUbergraph_BP_AIAction_SpawnItemBase(int32 EntryPoint, class APawn* K2Node_Event_ControlledPawn_3, class APawn* K2Node_Event_ControlledPawn_2, class APawn* K2Node_Event_ControlledPawn_1, enum class EPawnActionResult K2Node_Event_WithResult, class APawn* K2Node_Event_ControlledPawn, float K2Node_Event_DeltaSeconds, bool CallFunc_CanSpawnItem_ReturnValue, class UPalActionBase* K2Node_CustomEvent_action, class FName K2Node_CustomEvent_NotifyName, class UPalActionComponent* CallFunc_GetActionComponent_ReturnValue, bool CallFunc_IsActionRunning_IsRunning, bool CallFunc_PlayAction_ReturnValue, class UPalActionComponent* CallFunc_GetActionComponent_ReturnValue_1, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate);
+	void ExecuteUbergraph_BP_AIAction_SpawnItemBase(int32 EntryPoint, class APawn* K2Node_Event_ControlledPawn_3, class APawn* K2Node_Event_ControlledPawn_2, class APawn* K2Node_Event_ControlledPawn_1, enum class EPawnActionResult K2Node_Event_WithResult, class APawn* K2Node_Event_ControlledPawn, float K2Node_Event_DeltaSeconds, bool CallFunc_CanSpawnItem_ReturnValue, class UPalActionBase* K2Node_CustomEvent_Action, class FName K2Node_CustomEvent_NotifyName, class UPalActionComponent* CallFunc_GetActionComponent_ReturnValue, bool CallFunc_IsActionRunning_IsRunning, bool CallFunc_PlayAction_ReturnValue, class UPalActionComponent* CallFunc_GetActionComponent_ReturnValue_1, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate);
 };
 
 }

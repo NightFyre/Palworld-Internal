@@ -14,7 +14,7 @@ namespace SDK
 class UBP_Status_Darkness_C : public UBP_Status_WithVisualEffect_C
 {
 public:
-	uint8                                        Pad_2312[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3B93[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x60(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 
 	static class UClass* StaticClass();

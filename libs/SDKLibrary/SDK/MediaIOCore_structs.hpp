@@ -124,7 +124,7 @@ struct FMediaCaptureOptions
 public:
 	enum class EMediaCaptureOverrunAction        OverrunAction;                                     // 0x0(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	enum class EMediaCaptureCroppingType         Crop;                                              // 0x1(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_52C[0x2];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_12B[0x2];                                      // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FIntPoint                             CustomCapturePoint;                                // 0x4(0x8)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bResizeSourceBuffer;                               // 0xC(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bSkipFrameWhenRunningExpensiveTasks;               // 0xD(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -132,7 +132,7 @@ public:
 	bool                                         bForceAlphaToOneOnConversion;                      // 0xF(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bApplyLinearToSRGBConversion;                      // 0x10(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bAutostopOnCapture;                                // 0x11(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_52F[0x2];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_12C[0x2];                                      // Fixing Size After Last Property  [ Dumper-7 ]
 	int32                                        NumberOfFramesToCapture;                           // 0x14(0x4)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 
@@ -143,7 +143,7 @@ struct FMediaIOAutoDetectableTimecodeFormat_Backup
 public:
 	enum class EMediaIOTimecodeFormat            TimecodeFormat;                                    // 0x0(0x4)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bAutoDetect;                                       // 0x4(0x1)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_533[0x3];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_12D[0x3];                                      // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 // 0xC (0xC - 0x0)
@@ -184,7 +184,7 @@ struct FMediaIOConfiguration
 {
 public:
 	bool                                         bIsInput;                                          // 0x0(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_53A[0x3];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_131[0x3];                                      // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FMediaIOConnection                    MediaConnection;                                   // 0x4(0x20)(Edit, EditConst, NoDestructor, NativeAccessSpecifierPublic)
 	struct FMediaIOMode                          MediaMode;                                         // 0x24(0x18)(Edit, EditConst, NoDestructor, NativeAccessSpecifierPublic)
 };
@@ -218,7 +218,7 @@ struct FMediaIOVideoTimecodeConfiguration
 public:
 	struct FMediaIOConfiguration                 MediaConfiguration;                                // 0x0(0x3C)(Edit, EditConst, NoDestructor, NativeAccessSpecifierPublic)
 	enum class EMediaIOAutoDetectableTimecodeFormat TimecodeFormat;                                    // 0x3C(0x1)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_53F[0x3];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_134[0x3];                                      // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 }

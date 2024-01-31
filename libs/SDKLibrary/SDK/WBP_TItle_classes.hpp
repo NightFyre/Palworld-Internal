@@ -18,7 +18,7 @@ public:
 	class UWBP_Title_MenuBG_C*                   WBP_Title_MenuBG;                                  // 0x428(0x8)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class UWBP_TitleMenu_C*                      WBP_TitleMenu;                                     // 0x430(0x8)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	enum class ECommonUserPrivilege              Requested_Privilege;                               // 0x438(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_3183[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3CA1[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TArray<class UWBP_TitleFriendButton_OLD_C*>  TitleFriendButtons;                                // 0x440(0x10)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
 	class ULoadingProcessTask*                   CurrentLoadingScreen;                              // 0x450(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	class UWBP_LoadingScreen_Transition_C*       CurrentWidget;                                     // 0x458(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)

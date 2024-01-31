@@ -16,10 +16,10 @@ class UCalibrationPointComponent : public UProceduralMeshComponent
 public:
 	TMap<class FString, struct FVector>          SubPoints;                                         // 0x5F0(0x50)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	bool                                         bVisualizePointsInEditor;                          // 0x640(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_CCE[0x3];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_187B[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	float                                        PointVisualizationScale;                           // 0x644(0x4)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	enum class ECalibrationPointVisualization    VisualizationShape;                                // 0x648(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_CD0[0x7];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_187C[0x7];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UCalibrationPointComponent* GetDefaultObj();
@@ -63,12 +63,12 @@ public:
 	TSoftObjectPtr<class ULensFile>              StartupLensFile;                                   // 0x38(0x30)(Edit, Config, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	struct FIntPoint                             DisplacementMapResolution;                         // 0x68(0x8)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	float                                        CalibrationInputTolerance;                         // 0x70(0x4)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                        Pad_CE2[0x4];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_187E[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TMap<TSubclassOf<class ULensDistortionModelHandlerBase>, TSoftObjectPtr<class UMaterialInterface>> DefaultUndistortionDisplacementMaterials;          // 0x78(0x50)(Config, UObjectWrapper, NativeAccessSpecifierPrivate)
 	TMap<TSubclassOf<class ULensDistortionModelHandlerBase>, TSoftObjectPtr<class UMaterialInterface>> DefaultDistortionDisplacementMaterials;            // 0xC8(0x50)(Config, UObjectWrapper, NativeAccessSpecifierPrivate)
 	TMap<TSubclassOf<class ULensDistortionModelHandlerBase>, TSoftObjectPtr<class UMaterialInterface>> DefaultDistortionMaterials;                        // 0x118(0x50)(Config, UObjectWrapper, NativeAccessSpecifierPrivate)
 	bool                                         bEnableCalibrationDatasetImportExport;             // 0x168(0x1)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                        Pad_CE4[0xF];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_187F[0xF];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UCameraCalibrationSettings* GetDefaultObj();
@@ -107,7 +107,7 @@ public:
 	TMap<class FName, TSubclassOf<class UCameraNodalOffsetAlgo>> CameraNodalOffsetAlgosMap;                         // 0x88(0x50)(Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
 	TMap<class FName, TSubclassOf<class UCameraImageCenterAlgo>> CameraImageCenterAlgosMap;                         // 0xD8(0x50)(Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
 	TMap<class FName, TSubclassOf<class UCameraCalibrationStep>> CameraCalibrationStepsMap;                         // 0x128(0x50)(Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
-	uint8                                        Pad_D32[0xA8];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_188D[0xA8];                                    // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UCameraCalibrationSubsystem* GetDefaultObj();
@@ -135,7 +135,7 @@ public:
 class UCameraImageCenterAlgo : public UObject
 {
 public:
-	uint8                                        Pad_D3F[0x8];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_188F[0x8];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UCameraImageCenterAlgo* GetDefaultObj();
@@ -171,32 +171,32 @@ class ULensComponent : public UActorComponent
 public:
 	struct FLensFilePicker                       LensFilePicker;                                    // 0xA0(0x10)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
 	enum class EFIZEvaluationMode                EvaluationMode;                                    // 0xB0(0x1)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                        Pad_DD2[0x7];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_18A2[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FComponentReference                   TargetCameraComponent;                             // 0xB8(0x28)(Edit, DisableEditOnTemplate, AdvancedDisplay, Protected, NativeAccessSpecifierProtected)
 	struct FLensFileEvaluationInputs             EvalInputs;                                        // 0xE0(0x1C)(Edit, EditConst, NoDestructor, AdvancedDisplay, Protected, NativeAccessSpecifierProtected)
 	enum class EDistortionSource                 DistortionStateSource;                             // 0xFC(0x1)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	bool                                         bApplyDistortion;                                  // 0xFD(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                        Pad_DD4[0x2];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_18A3[0x2];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TSubclassOf<class ULensModel>                LensModel;                                         // 0x100(0x8)(Edit, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	struct FLensDistortionState                  DistortionState;                                   // 0x108(0x30)(Edit, BlueprintVisible, Interp, Protected, NativeAccessSpecifierProtected)
 	bool                                         bScaleOverscan;                                    // 0x138(0x1)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                        Pad_DD6[0x3];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_18A4[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	float                                        OverscanMultiplier;                                // 0x13C(0x4)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	enum class EFilmbackOverrideSource           FilmbackOverride;                                  // 0x140(0x1)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                        Pad_DD9[0x3];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_18A5[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FCameraFilmbackSettings               CroppedFilmback;                                   // 0x144(0xC)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
 	bool                                         bApplyNodalOffsetOnTick;                           // 0x150(0x1)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                        Pad_DDE[0xF];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_18A6[0xF];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FTransform                            OriginalTrackedComponentTransform;                 // 0x160(0x60)(Edit, BlueprintVisible, EditConst, IsPlainOldData, Interp, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	bool                                         bIsDistortionSetup;                                // 0x1C0(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                        Pad_DE2[0x3];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_18A7[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	float                                        OriginalFocalLength;                               // 0x1C4(0x4)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	class UMaterialInstanceDynamic*              LastDistortionMID;                                 // 0x1C8(0x8)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	class UCineCameraComponent*                  LastCameraComponent;                               // 0x1D0(0x8)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	TMap<TSubclassOf<class ULensModel>, class ULensDistortionModelHandlerBase*> LensDistortionHandlerMap;                          // 0x1D8(0x50)(Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 	TWeakObjectPtr<class USceneComponent>        TrackedComponent;                                  // 0x228(0x8)(ExportObject, ZeroConstructor, Transient, InstancedReference, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	class FString                                TrackedComponentName;                              // 0x230(0x10)(ZeroConstructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                        Pad_DE4[0x20];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_18A8[0x20];                                    // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class ULensComponent* GetDefaultObj();
@@ -241,13 +241,13 @@ public:
 	struct FLensDistortionState                  CurrentState;                                      // 0x38(0x30)(Edit, BlueprintVisible, BlueprintReadOnly, Protected, NativeAccessSpecifierProtected)
 	class FString                                DisplayName;                                       // 0x68(0x10)(Edit, ZeroConstructor, EditConst, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	float                                        OverscanFactor;                                    // 0x78(0x4)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                        Pad_E10[0x4];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_1915[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class UMaterialInstanceDynamic*              UndistortionDisplacementMapMID;                    // 0x80(0x8)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	class UMaterialInstanceDynamic*              DistortionDisplacementMapMID;                      // 0x88(0x8)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	class UTextureRenderTarget2D*                UndistortionDisplacementMapRT;                     // 0x90(0x8)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	class UTextureRenderTarget2D*                DistortionDisplacementMapRT;                       // 0x98(0x8)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	struct FGuid                                 DistortionProducerID;                              // 0xA0(0x10)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                        Pad_E13[0x8];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_1917[0x8];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class ULensDistortionModelHandlerBase* GetDefaultObj();
@@ -263,10 +263,10 @@ public:
 class ULensFile : public UObject
 {
 public:
-	uint8                                        Pad_E90[0x8];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_1A91[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FLensInfo                             LensInfo;                                          // 0x30(0x40)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	enum class ELensDataMode                     DataMode;                                          // 0x70(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_E91[0x7];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_1A92[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TMap<class FString, class FString>           UserMetadata;                                      // 0x78(0x50)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	struct FEncodersTable                        EncodersTable;                                     // 0xC8(0x100)(NativeAccessSpecifierPublic)
 	struct FDistortionTable                      DistortionTable;                                   // 0x1C8(0x20)(NativeAccessSpecifierPublic)
@@ -274,7 +274,7 @@ public:
 	struct FImageCenterTable                     ImageCenterTable;                                  // 0x208(0x20)(NativeAccessSpecifierPublic)
 	struct FNodalOffsetTable                     NodalOffsetTable;                                  // 0x228(0x20)(NativeAccessSpecifierPublic)
 	struct FSTMapTable                           STMapTable;                                        // 0x248(0x20)(NativeAccessSpecifierPublic)
-	uint8                                        Pad_E92[0x10];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_1A94[0x10];                                    // Fixing Size After Last Property  [ Dumper-7 ]
 	TArray<class UTextureRenderTarget2D*>        UndistortionDisplacementMapHolders;                // 0x278(0x10)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 	TArray<class UTextureRenderTarget2D*>        DistortionDisplacementMapHolders;                  // 0x288(0x10)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 
@@ -329,7 +329,7 @@ public:
 class USphericalLensDistortionModelHandler : public ULensDistortionModelHandlerBase
 {
 public:
-	uint8                                        Pad_E97[0x18];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_1A9A[0x18];                                    // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class USphericalLensDistortionModelHandler* GetDefaultObj();

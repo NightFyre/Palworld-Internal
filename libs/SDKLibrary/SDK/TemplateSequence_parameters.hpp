@@ -28,7 +28,7 @@ struct ATemplateSequenceActor_SetBinding_Params
 public:
 	class AActor*                                Actor;                                             // 0x0(0x8)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bOverridesDefault;                                 // 0x8(0x1)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1564[0x7];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_2122[0x7];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 // 0x8 (0x8 - 0x0)
@@ -74,11 +74,11 @@ struct USequenceCameraShakeTestUtil_GetPostProcessBlendCache_Params
 public:
 	class APlayerController*                     PlayerController;                                  // 0x0(0x8)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                        PPIndex;                                           // 0x8(0x4)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_15C0[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_219F[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPostProcessSettings                  OutPPSettings;                                     // 0x10(0x6E0)(Parm, OutParm, NativeAccessSpecifierPublic)
 	float                                        OutPPBlendWeight;                                  // 0x6F0(0x4)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         ReturnValue;                                       // 0x6F4(0x1)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_15C1[0xB];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_21A0[0xB];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 // 0x7D0 (0x7D0 - 0x0)
@@ -87,7 +87,7 @@ struct USequenceCameraShakeTestUtil_GetLastFrameCameraCachePOV_Params
 {
 public:
 	class APlayerController*                     PlayerController;                                  // 0x0(0x8)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_15C7[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_21A4[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FMinimalViewInfo                      ReturnValue;                                       // 0x10(0x7C0)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 
@@ -97,7 +97,7 @@ struct USequenceCameraShakeTestUtil_GetCameraCachePOV_Params
 {
 public:
 	class APlayerController*                     PlayerController;                                  // 0x0(0x8)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_15CB[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_21A7[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FMinimalViewInfo                      ReturnValue;                                       // 0x10(0x7C0)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 

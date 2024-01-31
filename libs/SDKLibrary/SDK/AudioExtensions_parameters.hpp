@@ -108,7 +108,7 @@ struct IAudioParameterControllerInterface_SetBoolParameter_Params
 public:
 	class FName                                  InName;                                            // 0x0(0x8)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         InBool;                                            // 0x8(0x1)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_430[0x3];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_2E8A[0x3];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 // 0x18 (0x18 - 0x0)

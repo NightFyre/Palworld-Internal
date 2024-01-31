@@ -14,7 +14,7 @@ namespace SDK
 class UBP_ActionStun_C : public UPalActionBase
 {
 public:
-	uint8                                        Pad_29CA[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_18B[0x8];                                      // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x140(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 
 	static class UClass* StaticClass();

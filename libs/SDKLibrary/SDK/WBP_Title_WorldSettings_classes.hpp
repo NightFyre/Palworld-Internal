@@ -72,15 +72,15 @@ public:
 	FMulticastInlineDelegateProperty_            OnClickedCancel;                                   // 0x5C0(0x10)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	FMulticastInlineDelegateProperty_            OnClickedConfirm;                                  // 0x5D0(0x10)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	bool                                         IsCustomDifficultySetting;                         // 0x5E0(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_1DB3[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_1495[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPalOptionWorldStaticSettings         SatticWorldSetting;                                // 0x5E4(0xF0)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor)
-	uint8                                        Pad_1DB4[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_1496[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPalOptionWorldSettings               CachedOriginalWorldSetting;                        // 0x6D8(0x128)(Edit, BlueprintVisible, DisableEditOnInstance)
 	struct FPalOptionWorldSettings               EditedWorldSetting;                                // 0x800(0x128)(Edit, BlueprintVisible, DisableEditOnInstance)
 	bool                                         IsEditedSettingFlag;                               // 0x928(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsEditedFromPreset;                                // 0x929(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         Is_New_World;                                      // 0x92A(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_1DB8[0x5];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_1497[0x5];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	FMulticastInlineDelegateProperty_            OnClickedWorldNameInputButton;                     // 0x930(0x10)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 
 	static class UClass* StaticClass();

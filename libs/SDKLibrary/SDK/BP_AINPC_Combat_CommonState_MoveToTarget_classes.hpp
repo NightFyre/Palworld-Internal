@@ -14,7 +14,7 @@ namespace SDK
 class UBP_AINPC_Combat_CommonState_MoveToTarget_C : public UBP_AINPC_CombatState_Base_C
 {
 public:
-	uint8                                        Pad_303E[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3F76[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x38(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	enum class EPalCharacterMovementCustomMode   Sprint;                                            // 0x40(0x1)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 

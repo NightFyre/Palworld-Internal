@@ -19,7 +19,7 @@ public:
 	TArray<struct FSkillEffectSpawnParameter>    GeneralEffectSpawnParameters;                      // 0x168(0x10)(Edit, BlueprintVisible, DisableEditOnInstance)
 	bool                                         IsStartMovement;                                   // 0x178(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsTerminatingAction;                               // 0x179(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_25DE[0x6];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4233[0x6];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TArray<struct FTimerHandle>                  TimerHandles;                                      // 0x180(0x10)(Edit, BlueprintVisible, DisableEditOnInstance)
 	TArray<TSoftObjectPtr<class APalSkillEffectBase>> SpawnedEffects;                                    // 0x190(0x10)(Edit, BlueprintVisible, DisableEditOnInstance)
 	double                                       ReadyAnimationTime;                                // 0x1A0(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
@@ -30,11 +30,11 @@ public:
 	enum class EPalGeneralMontageType            ProcessAnimationType;                              // 0x1BA(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	enum class EPalGeneralMontageType            ProcessLoopAnimationType;                          // 0x1BB(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	enum class EPalGeneralMontageType            AfterAnimationType;                                // 0x1BC(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_25E0[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4234[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class UPalStaticCharacterParameterComponent* StaticCharacterComponent;                          // 0x1C0(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	class FName                                  FlagName;                                          // 0x1C8(0x8)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsDisableMovement;                                 // 0x1D0(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_25E2[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4235[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	double                                       BeginMovementDisableTime;                          // 0x1D8(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                       EndMovementDisableTimeFromEnd;                     // 0x1E0(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                       YawRate;                                           // 0x1E8(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
@@ -47,7 +47,7 @@ public:
 	bool                                         IsUseMontageFacialNotify;                          // 0x220(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         EnableShorteningAnimationTimeWhenPalRidden;        // 0x221(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsFindTargetOnRiding;                              // 0x222(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_25E9[0x5];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4236[0x5];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	double                                       FindTargetHeight;                                  // 0x228(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                       FindTargetDegree;                                  // 0x230(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                       FindTargetDistance;                                // 0x238(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)

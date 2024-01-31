@@ -14,7 +14,7 @@ namespace SDK
 class UBP_Status_Electrical_C : public UBP_Status_WithVisualEffect_C
 {
 public:
-	uint8                                        Pad_2C11[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3B5A[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x60(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	struct FTimerHandle                          Timer;                                             // 0x68(0x8)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 

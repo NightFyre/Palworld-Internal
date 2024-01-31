@@ -16,7 +16,7 @@ class UABP_Player_Head_C : public UPalPlayerHeadAnimInstance
 public:
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x380(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	struct FAnimBlueprintGeneratedMutableData    __AnimBlueprintMutables;                           // 0x388(0x2)(HasGetValueTypeHash)
-	uint8                                        Pad_C28[0x6];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_46D5[0x6];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FAnimSubsystemInstance                AnimBlueprintExtension_PropertyAccess;             // 0x390(0x8)(None)
 	struct FAnimSubsystemInstance                AnimBlueprintExtension_Base;                       // 0x398(0x8)(None)
 	struct FAnimNode_Root                        AnimGraphNode_Root_1;                              // 0x3A0(0x20)(None)

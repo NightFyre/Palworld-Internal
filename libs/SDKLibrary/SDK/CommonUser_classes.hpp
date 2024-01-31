@@ -15,7 +15,7 @@ class UAsyncAction_CommonUserInitialize : public UCancellableAsyncAction
 {
 public:
 	FMulticastInlineDelegateProperty_            OnInitializationComplete;                          // 0x30(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_BD4[0x30];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_F3E[0x30];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UAsyncAction_CommonUserInitialize* GetDefaultObj();
@@ -32,13 +32,13 @@ class UCommonSession_HostSessionRequest : public UObject
 public:
 	enum class ECommonSessionOnlineMode          OnlineMode;                                        // 0x28(0x1)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bUseLobbies;                                       // 0x29(0x1)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_BF2[0x6];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_F40[0x6];                                      // Fixing Size After Last Property  [ Dumper-7 ]
 	class FString                                ModeNameForAdvertisement;                          // 0x30(0x10)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FPrimaryAssetId                       MapID;                                             // 0x40(0x10)(BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TSoftObjectPtr<class UWorld>                 Map;                                               // 0x50(0x30)(BlueprintVisible, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TMap<class FString, class FString>           ExtraArgs;                                         // 0x80(0x50)(BlueprintVisible, NativeAccessSpecifierPublic)
 	int32                                        MaxPlayerCount;                                    // 0xD0(0x4)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_BF4[0x4];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_F42[0x4];                                      // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UCommonSession_HostSessionRequest* GetDefaultObj();
@@ -50,7 +50,7 @@ public:
 class UCommonSession_SearchResult : public UObject
 {
 public:
-	uint8                                        Pad_C08[0x120];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_F50[0x120];                                    // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UCommonSession_SearchResult* GetDefaultObj();
@@ -71,9 +71,9 @@ class UCommonSession_SearchSessionRequest : public UObject
 public:
 	enum class ECommonSessionOnlineMode          OnlineMode;                                        // 0x28(0x1)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bUseLobbies;                                       // 0x29(0x1)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_C10[0x6];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_F51[0x6];                                      // Fixing Size After Last Property  [ Dumper-7 ]
 	TArray<class UCommonSession_SearchResult*>   Results;                                           // 0x30(0x10)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
-	uint8                                        Pad_C11[0x18];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_F52[0x18];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	FMulticastInlineDelegateProperty_            K2_OnSearchFinished;                               // 0x58(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPrivate)
 
 	static class UClass* StaticClass();
@@ -86,13 +86,13 @@ public:
 class UCommonSessionSubsystem : public UGameInstanceSubsystem
 {
 public:
-	uint8                                        Pad_C6F[0x18];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_F6C[0x18];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	FMulticastInlineDelegateProperty_            K2_OnUserRequestedSessionEvent;                    // 0x48(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_C70[0x18];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_F6D[0x18];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	FMulticastInlineDelegateProperty_            K2_OnJoinSessionCompleteEvent;                     // 0x70(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_C72[0x18];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_F6E[0x18];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	FMulticastInlineDelegateProperty_            K2_OnCreateSessionCompleteEvent;                   // 0x98(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_C73[0x38];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_F6F[0x38];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UCommonSessionSubsystem* GetDefaultObj();
@@ -117,7 +117,7 @@ public:
 	bool                                         bCanBeGuest;                                       // 0x34(0x1)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bIsGuest;                                          // 0x35(0x1)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	enum class ECommonUserInitializationState    InitializationState;                               // 0x36(0x1)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_CA0[0x51];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_F77[0x51];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UCommonUserInfo* GetDefaultObj();
@@ -137,9 +137,9 @@ public:
 	FMulticastInlineDelegateProperty_            OnUserInitializeComplete;                          // 0x30(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	FMulticastInlineDelegateProperty_            OnHandleSystemMessage;                             // 0x40(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	FMulticastInlineDelegateProperty_            OnUserPrivilegeChanged;                            // 0x50(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_E01[0x70];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_FD3[0x70];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TMap<int32, class UCommonUserInfo*>          LocalUserInfos;                                    // 0xD0(0x50)(Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	uint8                                        Pad_E03[0x38];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_FD4[0x38];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UCommonUserSubsystem* GetDefaultObj();

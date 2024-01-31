@@ -43,7 +43,7 @@ public:
 	struct FLiveLinkSubjectPreset                SubjectPreset;                                     // 0x38(0x38)(NoDestructor, NativeAccessSpecifierPublic)
 	TArray<bool>                                 ChannelMask;                                       // 0x70(0x10)(ZeroConstructor, NativeAccessSpecifierPublic)
 	TArray<struct FLiveLinkSubSectionData>       SubSectionsData;                                   // 0x80(0x10)(ZeroConstructor, NativeAccessSpecifierPublic)
-	uint8                                        Pad_818[0x28];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_BE4[0x28];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 }

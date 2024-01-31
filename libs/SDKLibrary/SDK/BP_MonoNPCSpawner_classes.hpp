@@ -20,7 +20,7 @@ public:
 	class USceneComponent*                       DefaultSceneRoot;                                  // 0x380(0x8)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
 	struct FPalDataTableRowName_PalHumanData     HumanName;                                         // 0x388(0x8)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash)
 	bool                                         Spawned;                                           // 0x390(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash)
-	uint8                                        Pad_29C3[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4681[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPalDataTableRowName_NPCUniqueData    UniqueName;                                        // 0x394(0x8)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash)
 	struct FPalDataTableRowName_PalMonsterData   OtomoName;                                         // 0x39C(0x8)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash)
 	int32                                        Level;                                             // 0x3A4(0x4)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
@@ -36,7 +36,7 @@ public:
 	bool                                         IsLoading;                                         // 0x400(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash)
 	bool                                         IsWorldLoadComplete;                               // 0x401(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash)
 	bool                                         Debug_Disable;                                     // 0x402(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash)
-	uint8                                        Pad_29C9[0x5];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4682[0x5];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TArray<class ABP_NPC_WalkPathPoint_1_C*>     WalkPointRefarence;                                // 0x408(0x10)(Edit, BlueprintVisible, DisableEditOnTemplate)
 
 	static class UClass* StaticClass();

@@ -16,7 +16,7 @@ class UBP_HUDDispatchParameter_KeyConfig_C : public UPalHUDDispatchParameterBase
 public:
 	class FName                                  ActionName;                                        // 0x38(0x8)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
 	enum class ECommonInputType                  InputType;                                         // 0x40(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
-	uint8                                        Pad_240F[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_43DD[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	FMulticastInlineDelegateProperty_            OnKeyChanged;                                      // 0x48(0x10)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	struct FPalKeyConfigSettings                 KeyConfigSetting;                                  // 0x58(0xC0)(Edit, BlueprintVisible, ExposeOnSpawn)
 	enum class EPalKeyConfigAxisFilterType       AxisType;                                          // 0x118(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)

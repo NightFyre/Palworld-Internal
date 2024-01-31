@@ -27,7 +27,7 @@ struct ABP_Explosion_Low_C_ExecuteUbergraph_BP_Explosion_Low_Params
 {
 public:
 	int32                                        EntryPoint;                                        // 0x0(0x4)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_0[0x4];                                        // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_39F8[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class UNiagaraComponent*                     K2Node_ComponentBoundEvent_PSystem;                // 0x8(0x8)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 };
 

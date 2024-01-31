@@ -16,7 +16,7 @@ class UBP_AIAction_AlertByKilledFriend_C : public UBP_AIAction_CanCombatBase_C
 public:
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x158(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	enum class EPal_AI_AlertByKilledFriendState  CurrentState;                                      // 0x160(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2F72[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4391[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TMap<enum class EPal_AI_AlertByKilledFriendState, class UClass*> StateMap;                                          // 0x168(0x50)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance)
 	class UPalStateMachine*                      StateMacine;                                       // 0x1B8(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	class AActor*                                DeadBody;                                          // 0x1C0(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)

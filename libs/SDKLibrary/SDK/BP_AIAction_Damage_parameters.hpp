@@ -27,7 +27,7 @@ struct UBP_AIAction_Damage_C_ExecuteUbergraph_BP_AIAction_Damage_Params
 {
 public:
 	int32                                        EntryPoint;                                        // 0x0(0x4)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2AB0[0xC];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4402[0xC];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FActionDynamicParameter               K2Node_MakeStruct_ActionDynamicParameter;          // 0x10(0xE0)(None)
 	class APawn*                                 K2Node_Event_ControlledPawn;                       // 0xF0(0x8)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	class UPalActionComponent*                   CallFunc_GetComponentByClass_ReturnValue;          // 0xF8(0x8)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)

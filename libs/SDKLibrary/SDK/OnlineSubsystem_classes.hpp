@@ -16,7 +16,7 @@ class UNamedInterfaces : public UObject
 public:
 	TArray<struct FNamedInterface>               NamedInterfaces;                                   // 0x28(0x10)(ZeroConstructor, NativeAccessSpecifierPrivate)
 	TArray<struct FNamedInterfaceDef>            NamedInterfaceDefs;                                // 0x38(0x10)(ZeroConstructor, Config, NativeAccessSpecifierPrivate)
-	uint8                                        Pad_BF8[0x18];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_F70[0x18];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UNamedInterfaces* GetDefaultObj();

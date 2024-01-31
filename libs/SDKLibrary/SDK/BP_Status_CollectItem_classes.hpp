@@ -23,11 +23,11 @@ public:
 	TArray<int32>                                RankTable;                                         // 0x88(0x10)(Edit, BlueprintVisible)
 	TMap<class FName, int32>                     DebugLotteryCounter;                               // 0x98(0x50)(Edit, BlueprintVisible, DisableEditOnInstance)
 	bool                                         IsDebugLottery;                                    // 0xE8(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2E15[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_425F[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class FName                                  DebugLotteryItemName;                              // 0xEC(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FPalStaticItemIdAndNum                AddItemInfo;                                       // 0xF4(0xC)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor)
 	bool                                         IsPaused;                                          // 0x100(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2E16[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4260[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class UClass*                                BaseCampActionClass;                               // 0x108(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	class UPalAIActionBase*                      AIAction;                                          // 0x110(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	TArray<class UDataTable*>                    LotteryTables;                                     // 0x118(0x10)(Edit, BlueprintVisible, DisableEditOnInstance)

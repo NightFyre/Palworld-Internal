@@ -14,7 +14,7 @@ namespace SDK
 class USpreadSheetImpoter : public UObject
 {
 public:
-	uint8                                        Pad_1384[0x10];                                    // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_982[0x10];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	FMulticastInlineDelegateProperty_            OnGetResult;                                       // 0x38(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	FMulticastInlineDelegateProperty_            ErrorLogger;                                       // 0x48(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	class UDataTable*                            TargetDataTable;                                   // 0x58(0x8)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -25,7 +25,7 @@ public:
 	TMap<class FName, class FName>               BlueprintName2ObjectPathColumnNameMap;             // 0x90(0x50)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	class FName                                  BlueprintNamePrefix;                               // 0xE0(0x8)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bNoticeMessageAtNewRecordImported;                 // 0xE8(0x1)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_138B[0x7];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_984[0x7];                                      // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class USpreadSheetImpoter* GetDefaultObj();

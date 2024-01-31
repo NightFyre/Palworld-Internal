@@ -14,7 +14,7 @@ namespace SDK
 class UBP_AIAction_FunnelFollow_C : public UBP_AIAction_OtomoFollow_C
 {
 public:
-	uint8                                        Pad_31E0[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3C0E[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x208(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	TArray<double>                               TargetLocationDistanceForwardList;                 // 0x210(0x10)(Edit, BlueprintVisible, DisableEditOnInstance)
 	TArray<double>                               TargetLocationDistanceRightList;                   // 0x220(0x10)(Edit, BlueprintVisible, DisableEditOnInstance)

@@ -14,7 +14,7 @@ namespace SDK
 class UBP_Status_Freeze_C : public UBP_Status_WithVisualEffect_C
 {
 public:
-	uint8                                        Pad_299B[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3B47[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x60(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	class UPalAIActionBase*                      AIActionFreeze;                                    // 0x68(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 

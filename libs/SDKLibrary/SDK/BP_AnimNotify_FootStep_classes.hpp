@@ -19,10 +19,10 @@ public:
 	bool                                         Mute;                                              // 0x80(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	enum class EPalLandingType                   LandingType;                                       // 0x81(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	enum class EPalFootType                      FootType;                                          // 0x82(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_188A[0x5];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_474A[0x5];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TSoftClassPtr<class UPalSoundSlot>           DebugSoundSlot;                                    // 0x88(0x30)(Edit, BlueprintVisible, BlueprintReadOnly, HasGetValueTypeHash)
 	enum class EPhysicalSurface                  DebugPhysicsMaterial;                              // 0xB8(0x1)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_188C[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_474B[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	int32                                        StepCount;                                         // 0xBC(0x4)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 	static class UClass* StaticClass();

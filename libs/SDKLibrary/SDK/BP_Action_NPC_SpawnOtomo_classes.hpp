@@ -14,7 +14,7 @@ namespace SDK
 class UBP_Action_NPC_SpawnOtomo_C : public UPalActionBase
 {
 public:
-	uint8                                        Pad_2DDD[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3DA5[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x140(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 
 	static class UClass* StaticClass();

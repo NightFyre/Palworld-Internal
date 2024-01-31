@@ -14,7 +14,7 @@ namespace SDK
 class UBP_AINPC_CombatMeleeState_RotateForNearSwing_C : public UBP_AINPC_CombatState_Base_C
 {
 public:
-	uint8                                        Pad_301B[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_2170[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x38(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 
 	static class UClass* StaticClass();

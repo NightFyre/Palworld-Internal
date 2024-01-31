@@ -273,7 +273,7 @@ void UWBP_TitleMenu_C::________(bool bResult)
 // (Final, UbergraphFunction, HasDefaults)
 // Parameters:
 // int32                              EntryPoint                                                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// class UPalHUDService*              CallFunc_GetHUDService_ReturnValue                               (ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// bool                               CallFunc_IsXSX_ReturnValue                                       (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // class UPocketpairUserSubsystem*    CallFunc_GetGameInstanceSubsystem_ReturnValue                    (ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // class UPocketpairUserInfo*         CallFunc_GetLocalUserInfo_ReturnValue                            (ConstParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // class UGameInstance*               CallFunc_GetGameInstance_ReturnValue                             (ZeroConstructor, NoDestructor, HasGetValueTypeHash)
@@ -301,18 +301,20 @@ void UWBP_TitleMenu_C::________(bool bResult)
 // class FText                        CallFunc_Conv_StringToText_ReturnValue_1                         (None)
 // struct FGeometry                   K2Node_Event_MyGeometry                                          (IsPlainOldData, NoDestructor)
 // float                              K2Node_Event_InDeltaTime                                         (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// bool                               CallFunc_IsGDK_ReturnValue                                       (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // class FText                        CallFunc_GetLocalizedTextFromHandle_Text                         (None)
 // class FText                        CallFunc_GetLocalizedTextFromHandle_Text_1                       (None)
-// bool                               CallFunc_IsGDK_ReturnValue_1                                     (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                               CallFunc_IsGDK_ReturnValue                                       (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // bool                               CallFunc_IsCanOpenExternalWebSite_ReturnValue                    (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // bool                               CallFunc_IsCanPlayInviteCode_ReturnValue                         (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // bool                               CallFunc_IsCanPlaySinglePlay_ReturnValue                         (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // FDelegateProperty_                 K2Node_CreateDelegate_OutputDelegate                             (ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // bool                               K2Node_CustomEvent_bResult                                       (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// class UPalHUDService*              CallFunc_GetHUDService_ReturnValue                               (ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // class FText                        CallFunc_GetLocalizedTextFromHandle_Text_2                       (None)
+// bool                               CallFunc_IsXB1_ReturnValue                                       (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                               CallFunc_BooleanOR_ReturnValue                                   (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UWBP_TitleMenu_C::ExecuteUbergraph_WBP_TitleMenu(int32 EntryPoint, class UPalHUDService* CallFunc_GetHUDService_ReturnValue, class UPocketpairUserSubsystem* CallFunc_GetGameInstanceSubsystem_ReturnValue, class UPocketpairUserInfo* CallFunc_GetLocalUserInfo_ReturnValue, class UGameInstance* CallFunc_GetGameInstance_ReturnValue, bool CallFunc_IsValid_ReturnValue, bool CallFunc_IsValid_ReturnValue_1, class UPalGameInstance* K2Node_DynamicCast_AsPal_Game_Instance, bool K2Node_DynamicCast_bSuccess, class FName CallFunc_GetOnlineSubsystemName_ReturnValue, const class FString& CallFunc_GetNickname_ReturnValue, class FText CallFunc_Conv_NameToText_ReturnValue, class FText CallFunc_Conv_StringToText_ReturnValue, const struct FFormatArgumentData& K2Node_MakeStruct_FormatArgumentData, const struct FFormatArgumentData& K2Node_MakeStruct_FormatArgumentData_1, bool CallFunc_EqualEqual_NameName_ReturnValue, TArray<struct FFormatArgumentData>& K2Node_MakeArray_Array, class FText CallFunc_Format_ReturnValue, const class FString& CallFunc_GetBuildConfiguration_ReturnValue, const class FString& CallFunc_Map_Find_Value, bool CallFunc_Map_Find_ReturnValue, const class FString& CallFunc_Concat_StrStr_ReturnValue, bool CallFunc_IsMultiplayRestricted_ReturnValue, const class FString& CallFunc_GetDisplayVersion_ReturnValue, const class FString& CallFunc_Concat_StrStr_ReturnValue_1, bool CallFunc_IsCanPlayDedicatedServer_ReturnValue, class FText CallFunc_Conv_StringToText_ReturnValue_1, const struct FGeometry& K2Node_Event_MyGeometry, float K2Node_Event_InDeltaTime, bool CallFunc_IsGDK_ReturnValue, class FText CallFunc_GetLocalizedTextFromHandle_Text, class FText CallFunc_GetLocalizedTextFromHandle_Text_1, bool CallFunc_IsGDK_ReturnValue_1, bool CallFunc_IsCanOpenExternalWebSite_ReturnValue, bool CallFunc_IsCanPlayInviteCode_ReturnValue, bool CallFunc_IsCanPlaySinglePlay_ReturnValue, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate, bool K2Node_CustomEvent_bResult, class FText CallFunc_GetLocalizedTextFromHandle_Text_2)
+void UWBP_TitleMenu_C::ExecuteUbergraph_WBP_TitleMenu(int32 EntryPoint, bool CallFunc_IsXSX_ReturnValue, class UPocketpairUserSubsystem* CallFunc_GetGameInstanceSubsystem_ReturnValue, class UPocketpairUserInfo* CallFunc_GetLocalUserInfo_ReturnValue, class UGameInstance* CallFunc_GetGameInstance_ReturnValue, bool CallFunc_IsValid_ReturnValue, bool CallFunc_IsValid_ReturnValue_1, class UPalGameInstance* K2Node_DynamicCast_AsPal_Game_Instance, bool K2Node_DynamicCast_bSuccess, class FName CallFunc_GetOnlineSubsystemName_ReturnValue, const class FString& CallFunc_GetNickname_ReturnValue, class FText CallFunc_Conv_NameToText_ReturnValue, class FText CallFunc_Conv_StringToText_ReturnValue, const struct FFormatArgumentData& K2Node_MakeStruct_FormatArgumentData, const struct FFormatArgumentData& K2Node_MakeStruct_FormatArgumentData_1, bool CallFunc_EqualEqual_NameName_ReturnValue, TArray<struct FFormatArgumentData>& K2Node_MakeArray_Array, class FText CallFunc_Format_ReturnValue, const class FString& CallFunc_GetBuildConfiguration_ReturnValue, const class FString& CallFunc_Map_Find_Value, bool CallFunc_Map_Find_ReturnValue, const class FString& CallFunc_Concat_StrStr_ReturnValue, bool CallFunc_IsMultiplayRestricted_ReturnValue, const class FString& CallFunc_GetDisplayVersion_ReturnValue, const class FString& CallFunc_Concat_StrStr_ReturnValue_1, bool CallFunc_IsCanPlayDedicatedServer_ReturnValue, class FText CallFunc_Conv_StringToText_ReturnValue_1, const struct FGeometry& K2Node_Event_MyGeometry, float K2Node_Event_InDeltaTime, class FText CallFunc_GetLocalizedTextFromHandle_Text, class FText CallFunc_GetLocalizedTextFromHandle_Text_1, bool CallFunc_IsGDK_ReturnValue, bool CallFunc_IsCanOpenExternalWebSite_ReturnValue, bool CallFunc_IsCanPlayInviteCode_ReturnValue, bool CallFunc_IsCanPlaySinglePlay_ReturnValue, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate, bool K2Node_CustomEvent_bResult, class UPalHUDService* CallFunc_GetHUDService_ReturnValue, class FText CallFunc_GetLocalizedTextFromHandle_Text_2, bool CallFunc_IsXB1_ReturnValue, bool CallFunc_BooleanOR_ReturnValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -322,7 +324,7 @@ void UWBP_TitleMenu_C::ExecuteUbergraph_WBP_TitleMenu(int32 EntryPoint, class UP
 	Params::UWBP_TitleMenu_C_ExecuteUbergraph_WBP_TitleMenu_Params Parms{};
 
 	Parms.EntryPoint = EntryPoint;
-	Parms.CallFunc_GetHUDService_ReturnValue = CallFunc_GetHUDService_ReturnValue;
+	Parms.CallFunc_IsXSX_ReturnValue = CallFunc_IsXSX_ReturnValue;
 	Parms.CallFunc_GetGameInstanceSubsystem_ReturnValue = CallFunc_GetGameInstanceSubsystem_ReturnValue;
 	Parms.CallFunc_GetLocalUserInfo_ReturnValue = CallFunc_GetLocalUserInfo_ReturnValue;
 	Parms.CallFunc_GetGameInstance_ReturnValue = CallFunc_GetGameInstance_ReturnValue;
@@ -350,16 +352,18 @@ void UWBP_TitleMenu_C::ExecuteUbergraph_WBP_TitleMenu(int32 EntryPoint, class UP
 	Parms.CallFunc_Conv_StringToText_ReturnValue_1 = CallFunc_Conv_StringToText_ReturnValue_1;
 	Parms.K2Node_Event_MyGeometry = K2Node_Event_MyGeometry;
 	Parms.K2Node_Event_InDeltaTime = K2Node_Event_InDeltaTime;
-	Parms.CallFunc_IsGDK_ReturnValue = CallFunc_IsGDK_ReturnValue;
 	Parms.CallFunc_GetLocalizedTextFromHandle_Text = CallFunc_GetLocalizedTextFromHandle_Text;
 	Parms.CallFunc_GetLocalizedTextFromHandle_Text_1 = CallFunc_GetLocalizedTextFromHandle_Text_1;
-	Parms.CallFunc_IsGDK_ReturnValue_1 = CallFunc_IsGDK_ReturnValue_1;
+	Parms.CallFunc_IsGDK_ReturnValue = CallFunc_IsGDK_ReturnValue;
 	Parms.CallFunc_IsCanOpenExternalWebSite_ReturnValue = CallFunc_IsCanOpenExternalWebSite_ReturnValue;
 	Parms.CallFunc_IsCanPlayInviteCode_ReturnValue = CallFunc_IsCanPlayInviteCode_ReturnValue;
 	Parms.CallFunc_IsCanPlaySinglePlay_ReturnValue = CallFunc_IsCanPlaySinglePlay_ReturnValue;
 	Parms.K2Node_CreateDelegate_OutputDelegate = K2Node_CreateDelegate_OutputDelegate;
 	Parms.K2Node_CustomEvent_bResult = K2Node_CustomEvent_bResult;
+	Parms.CallFunc_GetHUDService_ReturnValue = CallFunc_GetHUDService_ReturnValue;
 	Parms.CallFunc_GetLocalizedTextFromHandle_Text_2 = CallFunc_GetLocalizedTextFromHandle_Text_2;
+	Parms.CallFunc_IsXB1_ReturnValue = CallFunc_IsXB1_ReturnValue;
+	Parms.CallFunc_BooleanOR_ReturnValue = CallFunc_BooleanOR_ReturnValue;
 
 	UObject::ProcessEvent(Func, &Parms);
 

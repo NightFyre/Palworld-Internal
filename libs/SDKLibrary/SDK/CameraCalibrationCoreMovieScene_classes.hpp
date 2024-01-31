@@ -15,13 +15,13 @@ class UMovieSceneLensComponentSection : public UMovieSceneHookSection
 {
 public:
 	bool                                         bReapplyNodalOffset;                               // 0x108(0x1)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_F9F[0x7];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_18A9[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class ULensFile*                             OverrideLensFile;                                  // 0x110(0x8)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class ULensFile*                             CachedLensFile;                                    // 0x118(0x8)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	TArray<struct FMovieSceneFloatChannel>       DistortionParameterChannels;                       // 0x120(0x10)(ZeroConstructor, NativeAccessSpecifierPrivate)
 	TArray<struct FMovieSceneFloatChannel>       FxFyChannels;                                      // 0x130(0x10)(ZeroConstructor, NativeAccessSpecifierPrivate)
 	TArray<struct FMovieSceneFloatChannel>       ImageCenterChannels;                               // 0x140(0x10)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	uint8                                        Pad_FA1[0x8];                                      // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_18AB[0x8];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UMovieSceneLensComponentSection* GetDefaultObj();

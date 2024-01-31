@@ -14,10 +14,10 @@ namespace SDK
 class ABP_MonsterAIController_Otomo_C : public ABP_MonsterAIControllerBase_C
 {
 public:
-	uint8                                        Pad_3330[0x5];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_16BE[0x5];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x520(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	int32                                        OtomoSlotIndex;                                    // 0x528(0x4)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_3332[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_16C0[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TMap<enum class EPalAIActionType, class UPalAIActionBase*> PlayingAIActionMap;                                // 0x530(0x50)(Edit, BlueprintVisible, DisableEditOnInstance)
 	struct FTimerHandle                          RegeneTimer;                                       // 0x580(0x8)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	struct FVector                               FollowInterpolatedPos;                             // 0x588(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)

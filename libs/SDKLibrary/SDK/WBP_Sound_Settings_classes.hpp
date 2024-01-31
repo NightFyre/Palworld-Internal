@@ -23,10 +23,10 @@ public:
 	class UWBP_OptionSettings_ListContent_C*     WBP_OptionSettings_UI;                             // 0x2A8(0x8)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class UWBP_OptionSettings_ListContent_C*     WBP_OptionSettings_Voice;                          // 0x2B0(0x8)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	struct FPalOptionAudioSettings               AudioSettingCache;                                 // 0x2B8(0x1C)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor)
-	uint8                                        Pad_3C41[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_46A0[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TArray<struct FDataTableRowHandle>           LevelMsgIds;                                       // 0x2D8(0x10)(Edit, BlueprintVisible, DisableEditOnInstance)
 	bool                                         SomethingChanged;                                  // 0x2E8(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_3C42[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_46A1[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPalOptionAudioSettings               OriginalSettingCache;                              // 0x2EC(0x1C)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor)
 
 	static class UClass* StaticClass();

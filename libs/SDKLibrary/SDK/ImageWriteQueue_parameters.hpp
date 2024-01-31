@@ -20,7 +20,7 @@ struct UImageWriteBlueprintLibrary_ExportToDisk_Params
 public:
 	class UTexture*                              Texture;                                           // 0x0(0x8)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                Filename;                                          // 0x8(0x10)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1BDA[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_DE8[0x8];                                      // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FImageWriteOptions                    Options;                                           // 0x20(0x60)(ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
 

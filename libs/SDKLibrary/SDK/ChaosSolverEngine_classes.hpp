@@ -14,7 +14,7 @@ namespace SDK
 class UChaosDebugDrawComponent : public UActorComponent
 {
 public:
-	uint8                                        Pad_1DED[0x8];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_34B4[0x8];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UChaosDebugDrawComponent* GetDefaultObj();
@@ -26,7 +26,7 @@ public:
 class UChaosEventListenerComponent : public UActorComponent
 {
 public:
-	uint8                                        Pad_1DF4[0x8];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_34B5[0x8];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UChaosEventListenerComponent* GetDefaultObj();
@@ -38,12 +38,12 @@ public:
 class UChaosGameplayEventDispatcher : public UChaosEventListenerComponent
 {
 public:
-	uint8                                        Pad_1DFB[0x110];                                   // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_34B6[0x110];                                   // Fixing Size After Last Property  [ Dumper-7 ]
 	TMap<class UPrimitiveComponent*, struct FChaosHandlerSet> CollisionEventRegistrations;                       // 0x1B8(0x50)(ContainsInstancedReference, NativeAccessSpecifierPrivate)
 	TMap<class UPrimitiveComponent*, struct FBreakEventCallbackWrapper> BreakEventRegistrations;                           // 0x208(0x50)(ContainsInstancedReference, NativeAccessSpecifierPrivate)
 	TMap<class UPrimitiveComponent*, struct FRemovalEventCallbackWrapper> RemovalEventRegistrations;                         // 0x258(0x50)(ContainsInstancedReference, NativeAccessSpecifierPrivate)
 	TMap<class UPrimitiveComponent*, struct FCrumblingEventCallbackWrapper> CrumblingEventRegistrations;                       // 0x2A8(0x50)(ContainsInstancedReference, NativeAccessSpecifierPrivate)
-	uint8                                        Pad_1DFE[0x10];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_34B8[0x10];                                    // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UChaosGameplayEventDispatcher* GetDefaultObj();
@@ -97,24 +97,24 @@ public:
 	float                                        ClusterConnectionFactor;                           // 0x308(0x4)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	enum class EClusterConnectionTypeEnum        ClusterUnionConnectionType;                        // 0x30C(0x1)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         DoGenerateCollisionData;                           // 0x30D(0x1)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1E29[0x2];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_34C0[0x2];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FSolverCollisionFilterSettings        CollisionFilterSettings;                           // 0x310(0x10)(Deprecated, NoDestructor, NativeAccessSpecifierPublic)
 	bool                                         DoGenerateBreakingData;                            // 0x320(0x1)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1E2B[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_34C1[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FSolverBreakingFilterSettings         BreakingFilterSettings;                            // 0x324(0x10)(Deprecated, NoDestructor, NativeAccessSpecifierPublic)
 	bool                                         DoGenerateTrailingData;                            // 0x334(0x1)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1E2E[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_34C2[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FSolverTrailingFilterSettings         TrailingFilterSettings;                            // 0x338(0x10)(Deprecated, NoDestructor, NativeAccessSpecifierPublic)
 	float                                        MassScale;                                         // 0x348(0x4)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bHasFloor;                                         // 0x34C(0x1)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1E30[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_34C3[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	float                                        FloorHeight;                                       // 0x350(0x4)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FChaosDebugSubstepControl             ChaosDebugSubstepControl;                          // 0x354(0x3)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1E36[0x1];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_34C4[0x1];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class UBillboardComponent*                   SpriteComponent;                                   // 0x358(0x8)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1E37[0x18];                                    // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_34C5[0x18];                                    // Fixing Size After Last Property  [ Dumper-7 ]
 	class UChaosGameplayEventDispatcher*         GameplayEventDispatcherComponent;                  // 0x378(0x8)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                        Pad_1E38[0x8];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_34C6[0x8];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class AChaosSolverActor* GetDefaultObj();
@@ -128,7 +128,7 @@ public:
 class UChaosSolverSettings : public UDeveloperSettings
 {
 public:
-	uint8                                        Pad_1E3C[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_34C7[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FSoftClassPath                        DefaultChaosSolverActorClass;                      // 0x40(0x20)(Edit, ZeroConstructor, Config, NoClear, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 	static class UClass* StaticClass();

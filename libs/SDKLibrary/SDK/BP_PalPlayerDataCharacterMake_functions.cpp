@@ -492,7 +492,7 @@ void UBP_PalPlayerDataCharacterMake_C::GetBodyShiftRGB(class FName BodyMeshName,
 }
 
 
-// Function BP_PalPlayerDataCharacterMake.BP_PalPlayerDataCharacterMake_C.RGBToHSV
+// Function BP_PalPlayerDataCharacterMake.BP_PalPlayerDataCharacterMake_C.RGBtoHSV
 // (Public, HasOutParams, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
 // struct FLinearColor                InRGB                                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
@@ -503,14 +503,14 @@ void UBP_PalPlayerDataCharacterMake_C::GetBodyShiftRGB(class FName BodyMeshName,
 // double                             CallFunc_Divide_DoubleDouble_A_ImplicitCast                      (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // float                              K2Node_MakeStruct_R_ImplicitCast                                 (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UBP_PalPlayerDataCharacterMake_C::RGBToHSV(const struct FLinearColor& InRGB, struct FLinearColor* OutHSV, const struct FLinearColor& CallFunc_RGBLinearToHSV_ReturnValue, double CallFunc_Divide_DoubleDouble_ReturnValue, const struct FLinearColor& K2Node_MakeStruct_LinearColor, double CallFunc_Divide_DoubleDouble_A_ImplicitCast, float K2Node_MakeStruct_R_ImplicitCast)
+void UBP_PalPlayerDataCharacterMake_C::RGBtoHSV(const struct FLinearColor& InRGB, struct FLinearColor* OutHSV, const struct FLinearColor& CallFunc_RGBLinearToHSV_ReturnValue, double CallFunc_Divide_DoubleDouble_ReturnValue, const struct FLinearColor& K2Node_MakeStruct_LinearColor, double CallFunc_Divide_DoubleDouble_A_ImplicitCast, float K2Node_MakeStruct_R_ImplicitCast)
 {
 	static class UFunction* Func = nullptr;
 
 	if (!Func)
-		Func = Class->GetFunction("BP_PalPlayerDataCharacterMake_C", "RGBToHSV");
+		Func = Class->GetFunction("BP_PalPlayerDataCharacterMake_C", "RGBtoHSV");
 
-	Params::UBP_PalPlayerDataCharacterMake_C_RGBToHSV_Params Parms{};
+	Params::UBP_PalPlayerDataCharacterMake_C_RGBtoHSV_Params Parms{};
 
 	Parms.InRGB = InRGB;
 	Parms.CallFunc_RGBLinearToHSV_ReturnValue = CallFunc_RGBLinearToHSV_ReturnValue;

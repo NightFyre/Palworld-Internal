@@ -15,7 +15,7 @@ class UHTTPRequestAsyncFunction : public UBlueprintAsyncActionBase
 {
 public:
 	FMulticastInlineDelegateProperty_            Completed;                                         // 0x30(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1362[0x50];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_780[0x50];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UHTTPRequestAsyncFunction* GetDefaultObj();
@@ -29,7 +29,7 @@ class USwitchUserUIDefaultOnlineSubsystemAsyncFunction : public UBlueprintAsyncA
 {
 public:
 	FMulticastInlineDelegateProperty_            Completed;                                         // 0x30(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_136B[0x10];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_784[0x10];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class USwitchUserUIDefaultOnlineSubsystemAsyncFunction* GetDefaultObj();
@@ -43,7 +43,7 @@ class ULoginDefaultOnlineSubsystemAsyncFunction : public UBlueprintAsyncActionBa
 {
 public:
 	FMulticastInlineDelegateProperty_            Completed;                                         // 0x30(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1373[0x10];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_786[0x10];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class ULoginDefaultOnlineSubsystemAsyncFunction* GetDefaultObj();
@@ -57,7 +57,7 @@ class ULoginEOSAsyncFunction : public UBlueprintAsyncActionBase
 {
 public:
 	FMulticastInlineDelegateProperty_            Completed;                                         // 0x30(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_137D[0x10];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_788[0x10];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class ULoginEOSAsyncFunction* GetDefaultObj();
@@ -71,7 +71,7 @@ class UCreateSessionAsyncFunction : public UBlueprintAsyncActionBase
 {
 public:
 	FMulticastInlineDelegateProperty_            Completed;                                         // 0x30(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_13A0[0xA0];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_794[0xA0];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UCreateSessionAsyncFunction* GetDefaultObj();
@@ -85,7 +85,7 @@ class UFindSessionsAsyncFunction : public UBlueprintAsyncActionBase
 {
 public:
 	FMulticastInlineDelegateProperty_            Completed;                                         // 0x30(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_13C4[0x90];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_79C[0x90];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UFindSessionsAsyncFunction* GetDefaultObj();
@@ -99,7 +99,7 @@ class UJoinSessionAsyncFunction : public UBlueprintAsyncActionBase
 {
 public:
 	FMulticastInlineDelegateProperty_            Completed;                                         // 0x30(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_13CC[0x138];                                   // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_7A1[0x138];                                    // Fixing Size After Last Property  [ Dumper-7 ]
 	class APlayerController*                     Controller;                                        // 0x178(0x8)(ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 
 	static class UClass* StaticClass();
@@ -113,7 +113,7 @@ class USanitizeDisplayNameAsyncFunction : public UBlueprintAsyncActionBase
 {
 public:
 	FMulticastInlineDelegateProperty_            Completed;                                         // 0x30(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_13DC[0x18];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_7A9[0x18];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class USanitizeDisplayNameAsyncFunction* GetDefaultObj();
@@ -126,7 +126,7 @@ public:
 class UPingIP : public UObject
 {
 public:
-	uint8                                        Pad_13FA[0x28];                                    // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_7B4[0x28];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	FMulticastInlineDelegateProperty_            OnPingComplete;                                    // 0x50(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	FMulticastInlineDelegateProperty_            OnPingFailure;                                     // 0x60(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
@@ -143,7 +143,7 @@ public:
 class UPocketpairUserInfo : public UObject
 {
 public:
-	uint8                                        Pad_140F[0x10];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_7BB[0x10];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UPocketpairUserInfo* GetDefaultObj();
@@ -160,7 +160,7 @@ class UPocketpairFriend : public UObject
 {
 public:
 	class FString                                DisplayName;                                       // 0x28(0x10)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1417[0x30];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_7C0[0x30];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UPocketpairFriend* GetDefaultObj();
@@ -173,9 +173,9 @@ public:
 class UPocketpairUserSubsystem : public UGameInstanceSubsystem
 {
 public:
-	uint8                                        Pad_1443[0x18];                                    // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_7F2[0x18];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class UPocketpairUserInfo*                   LocalUserInfo;                                     // 0x48(0x8)(ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                        Pad_1444[0x98];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_7F3[0x98];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UPocketpairUserSubsystem* GetDefaultObj();
@@ -200,7 +200,7 @@ class UGDKActivityAsyncFunction : public UBlueprintAsyncActionBase
 {
 public:
 	FMulticastInlineDelegateProperty_            Completed;                                         // 0x30(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_144E[0x28];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_7FC[0x28];                                     // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UGDKActivityAsyncFunction* GetDefaultObj();
@@ -214,7 +214,7 @@ class UGDKInviteAsyncFunction : public UBlueprintAsyncActionBase
 {
 public:
 	FMulticastInlineDelegateProperty_            Completed;                                         // 0x30(0x10)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                        Pad_1457[0x8];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_800[0x8];                                      // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UGDKInviteAsyncFunction* GetDefaultObj();

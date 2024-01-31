@@ -24,7 +24,7 @@ public:
 	class UBP_PalTextBlock_C*                    Text_Title;                                        // 0x440(0x8)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	TArray<struct FPalUICommonRewardDisplayData> RewardInfos;                                       // 0x448(0x10)(Edit, BlueprintVisible, DisableEditOnInstance)
 	bool                                         Queuing;                                           // 0x458(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_3C2B[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4BEB[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	TMap<enum class EPalUIRewardDisplayType, struct FDataTableRowHandle> TitleMap;                                          // 0x460(0x50)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance)
 
 	static class UClass* StaticClass();

@@ -945,7 +945,7 @@ void UBP_ActionGeneralAttackFarBase_C::OnBeginAction()
 // (Final, UbergraphFunction, HasDefaults)
 // Parameters:
 // int32                              EntryPoint                                                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// struct FSkillEffectSpawnParameter  K2Node_Event_Parameter                                           (ConstParm, NoDestructor)
+// struct FSkillEffectSpawnParameter  K2Node_Event_parameter                                           (ConstParm, NoDestructor)
 // int32                              CallFunc_Array_Length_ReturnValue                                (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // FDelegateProperty_                 K2Node_CreateDelegate_OutputDelegate                             (ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // float                              K2Node_Event_DeltaTime                                           (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
@@ -976,7 +976,7 @@ void UBP_ActionGeneralAttackFarBase_C::OnBeginAction()
 // class ABP_SkillEffectBase_C*       K2Node_DynamicCast_AsBP_Skill_Effect_Base                        (ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // bool                               K2Node_DynamicCast_bSuccess_2                                    (ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UBP_ActionGeneralAttackFarBase_C::ExecuteUbergraph_BP_ActionGeneralAttackFarBase(int32 EntryPoint, const struct FSkillEffectSpawnParameter& K2Node_Event_Parameter, int32 CallFunc_Array_Length_ReturnValue, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate, float K2Node_Event_DeltaTime, class APalCharacter* CallFunc_GetActionCharacter_ReturnValue, bool CallFunc_IsPlayerControlled_ReturnValue, class APalCharacter* CallFunc_GetActionCharacter_ReturnValue_1, bool CallFunc_IsPlayerControlled_ReturnValue_1, class APalCharacter* CallFunc_GetActionCharacter_ReturnValue_2, bool CallFunc_IsPlayerControlled_ReturnValue_2, class APalSkillEffectBase* K2Node_Event_Effect, class APalSkillEffectBase* CallFunc_SetBulletSpeed_Effect, int32 Temp_int_Array_Index_Variable, TSoftObjectPtr<class APalSkillEffectBase> CallFunc_Array_Get_Item, bool CallFunc_IsValid_ReturnValue, class UObject* K2Node_CustomEvent_Loaded, class APalCharacter* CallFunc_GetActionCharacter_ReturnValue_3, class UPalSkeletalMeshComponent* CallFunc_GetMainMesh_ReturnValue, int32 Temp_int_Loop_Counter_Variable, bool CallFunc_Less_IntInt_ReturnValue, int32 CallFunc_Add_IntInt_ReturnValue, bool CallFunc_SetEffectVelocityTowardNearestEnemy_Success, class UObject* Temp_object_Variable, class ABP_PredictedTarget_C* K2Node_DynamicCast_AsBP_Predicted_Target, bool K2Node_DynamicCast_bSuccess, class APalSkillEffectBase* K2Node_DynamicCast_AsPal_Skill_Effect_Base, bool K2Node_DynamicCast_bSuccess_1, bool CallFunc_IsValid_ReturnValue_1, class ABP_SkillEffectBase_C* K2Node_DynamicCast_AsBP_Skill_Effect_Base, bool K2Node_DynamicCast_bSuccess_2)
+void UBP_ActionGeneralAttackFarBase_C::ExecuteUbergraph_BP_ActionGeneralAttackFarBase(int32 EntryPoint, const struct FSkillEffectSpawnParameter& K2Node_Event_parameter, int32 CallFunc_Array_Length_ReturnValue, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate, float K2Node_Event_DeltaTime, class APalCharacter* CallFunc_GetActionCharacter_ReturnValue, bool CallFunc_IsPlayerControlled_ReturnValue, class APalCharacter* CallFunc_GetActionCharacter_ReturnValue_1, bool CallFunc_IsPlayerControlled_ReturnValue_1, class APalCharacter* CallFunc_GetActionCharacter_ReturnValue_2, bool CallFunc_IsPlayerControlled_ReturnValue_2, class APalSkillEffectBase* K2Node_Event_Effect, class APalSkillEffectBase* CallFunc_SetBulletSpeed_Effect, int32 Temp_int_Array_Index_Variable, TSoftObjectPtr<class APalSkillEffectBase> CallFunc_Array_Get_Item, bool CallFunc_IsValid_ReturnValue, class UObject* K2Node_CustomEvent_Loaded, class APalCharacter* CallFunc_GetActionCharacter_ReturnValue_3, class UPalSkeletalMeshComponent* CallFunc_GetMainMesh_ReturnValue, int32 Temp_int_Loop_Counter_Variable, bool CallFunc_Less_IntInt_ReturnValue, int32 CallFunc_Add_IntInt_ReturnValue, bool CallFunc_SetEffectVelocityTowardNearestEnemy_Success, class UObject* Temp_object_Variable, class ABP_PredictedTarget_C* K2Node_DynamicCast_AsBP_Predicted_Target, bool K2Node_DynamicCast_bSuccess, class APalSkillEffectBase* K2Node_DynamicCast_AsPal_Skill_Effect_Base, bool K2Node_DynamicCast_bSuccess_1, bool CallFunc_IsValid_ReturnValue_1, class ABP_SkillEffectBase_C* K2Node_DynamicCast_AsBP_Skill_Effect_Base, bool K2Node_DynamicCast_bSuccess_2)
 {
 	static class UFunction* Func = nullptr;
 
@@ -986,7 +986,7 @@ void UBP_ActionGeneralAttackFarBase_C::ExecuteUbergraph_BP_ActionGeneralAttackFa
 	Params::UBP_ActionGeneralAttackFarBase_C_ExecuteUbergraph_BP_ActionGeneralAttackFarBase_Params Parms{};
 
 	Parms.EntryPoint = EntryPoint;
-	Parms.K2Node_Event_Parameter = K2Node_Event_Parameter;
+	Parms.K2Node_Event_parameter = K2Node_Event_parameter;
 	Parms.CallFunc_Array_Length_ReturnValue = CallFunc_Array_Length_ReturnValue;
 	Parms.K2Node_CreateDelegate_OutputDelegate = K2Node_CreateDelegate_OutputDelegate;
 	Parms.K2Node_Event_DeltaTime = K2Node_Event_DeltaTime;

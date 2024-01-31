@@ -16,7 +16,7 @@ namespace SDK
 
 // 0x0 (0x1B0 - 0x1B0)
 // ScriptStruct ABP_NPC_Child.ABP_NPC_Child_C.AnimBlueprintGeneratedConstantData
-struct FAnimBlueprintGeneratedConstantData : public FAnimBlueprintGeneratedConstantData
+struct FAnimBlueprintGeneratedConstantData_NPC_Child : public FAnimBlueprintGeneratedConstantData
 {
 public:
 };

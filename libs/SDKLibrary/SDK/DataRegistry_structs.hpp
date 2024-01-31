@@ -58,7 +58,7 @@ enum class EDataRegistryAvailability : uint8
 struct FDataRegistryLookup
 {
 public:
-	uint8                                        Pad_A95[0x20];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_D62[0x20];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 // 0x8 (0x8 - 0x0)
@@ -84,7 +84,7 @@ struct FDataRegistrySource_DataTableRules
 {
 public:
 	bool                                         bPrecacheTable;                                    // 0x0(0x1)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_A9F[0x3];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_D69[0x3];                                      // Fixing Size After Last Property  [ Dumper-7 ]
 	float                                        CachedTableKeepSeconds;                            // 0x4(0x4)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 
@@ -103,7 +103,7 @@ struct FDataRegistryCachePolicy
 public:
 	bool                                         bCacheIsAlwaysVolatile;                            // 0x0(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                         bUseCurveTableCacheVersion;                        // 0x1(0x1)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                        Pad_AA1[0x2];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_D6A[0x2];                                      // Fixing Size After Last Property  [ Dumper-7 ]
 	int32                                        MinNumberKept;                                     // 0x4(0x4)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                        MaxNumberKept;                                     // 0x8(0x4)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                        ForceKeepSeconds;                                  // 0xC(0x4)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -115,7 +115,7 @@ public:
 struct FDataRegistrySourceItemId
 {
 public:
-	uint8                                        Pad_AA3[0x40];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_D6B[0x40];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 }

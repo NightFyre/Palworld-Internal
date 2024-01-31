@@ -27,7 +27,7 @@ enum class ELobbyBeaconJoinState : uint8
 struct FLobbyPlayerStateActorInfo : public FFastArraySerializerItem
 {
 public:
-	uint8                                        Pad_F06[0x4];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_14C2[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class ALobbyBeaconPlayerState*               LobbyPlayerState;                                  // 0x10(0x8)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 

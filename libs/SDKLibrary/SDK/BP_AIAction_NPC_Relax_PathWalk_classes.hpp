@@ -14,14 +14,14 @@ namespace SDK
 class UBP_AIAction_NPC_Relax_PathWalk_C : public UBP_AIAction_NPC_RelaxBase_C
 {
 public:
-	uint8                                        Pad_3157[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4365[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x1F8(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 	class ABP_NPC_WalkPathPoint_1_C*             Path;                                              // 0x200(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	int32                                        CurrentPointIndex;                                 // 0x208(0x4)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_315C[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4366[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FVector                               TargetPoint;                                       // 0x210(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         WaitMode;                                          // 0x228(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_315E[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4367[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class UPalActionBase*                        WaitAction;                                        // 0x230(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	struct FF_NPC_PathWalkArray                  PathArray;                                         // 0x238(0x10)(Edit, BlueprintVisible, DisableEditOnInstance, HasGetValueTypeHash)
 	struct FVector                               PrevLocation;                                      // 0x248(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)

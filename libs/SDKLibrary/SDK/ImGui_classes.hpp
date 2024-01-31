@@ -14,7 +14,7 @@ namespace SDK
 class UImGuiInputHandler : public UObject
 {
 public:
-	uint8                                        Pad_5B0[0x28];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_195B[0x28];                                    // Fixing Size Of Struct [ Dumper-7 ]
 
 	static class UClass* StaticClass();
 	static class UImGuiInputHandler* GetDefaultObj();
@@ -31,7 +31,7 @@ public:
 	bool                                         bShareGamepadInput;                                // 0x49(0x1)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	bool                                         bShareMouseInput;                                  // 0x4A(0x1)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	bool                                         bUseSoftwareCursor;                                // 0x4B(0x1)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                        Pad_5B5[0x4];                                      // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_1962[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FImGuiKeyInfo                         ToggleInput;                                       // 0x50(0x20)(Edit, Config, Protected, NativeAccessSpecifierProtected)
 	struct FImGuiCanvasSizeInfo                  CanvasSize;                                        // 0x70(0x10)(Edit, Config, NoDestructor, Protected, NativeAccessSpecifierProtected)
 	struct FImGuiDPIScaleInfo                    DPIScale;                                          // 0x80(0x98)(Edit, Config, Protected, NativeAccessSpecifierProtected)

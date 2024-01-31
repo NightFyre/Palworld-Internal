@@ -38,7 +38,7 @@ enum class ELoginStatusType : uint8
 struct FSocialId
 {
 public:
-	uint8                                        Pad_145B[0x4];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_804[0x4];                                      // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 // 0x40 (0x40 - 0x0)
@@ -46,7 +46,7 @@ public:
 struct FPocketpairTelemetry
 {
 public:
-	uint8                                        Pad_145D[0x40];                                    // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_806[0x40];                                     // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 // 0xC (0xC - 0x0)
@@ -54,7 +54,7 @@ public:
 struct FPocketpairTelemetry_Stat
 {
 public:
-	uint8                                        Pad_145E[0xC];                                     // Fixing Size Of Struct [ Dumper-7 ]
+	uint8                                        Pad_807[0xC];                                      // Fixing Size Of Struct [ Dumper-7 ]
 };
 
 }

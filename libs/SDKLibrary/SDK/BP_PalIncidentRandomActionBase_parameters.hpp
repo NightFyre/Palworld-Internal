@@ -30,11 +30,11 @@ struct UBP_PalIncidentRandomActionBase_C_GetSettingTableRow_Params
 {
 public:
 	bool                                         Result;                                            // 0x0(0x1)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_260F[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3048[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPalRandomIncidentSettings            Data;                                              // 0x8(0x28)(Parm, OutParm)
 	class UBP_PalIncidentRandom_C*               CallFunc_GetOwnerIncident_Incident;                // 0x30(0x8)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	bool                                         CallFunc_Get_Setting_Table_Row_Result;             // 0x38(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2611[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_3049[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPalRandomIncidentSettings            CallFunc_Get_Setting_Table_Row_Data;               // 0x40(0x28)(None)
 	class UBP_PalIncidentRandom_C*               CallFunc_GetOwnerIncident_Incident_1;              // 0x68(0x8)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	bool                                         CallFunc_IsValid_ReturnValue;                      // 0x70(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)

@@ -34,7 +34,7 @@ public:
 	void BindWaitFinishEvent(class UBP_AIAction_Visitor_WaitInBaseCamp_C* Action);
 	void OnWaitFinished();
 	void OnStuck();
-	void ExecuteUbergraph_BP_NPCAIController_Visitor(int32 EntryPoint, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate_1, class UBP_AIAction_Visitor_TravelToBaseCamp_C* K2Node_CustomEvent_action_1, class UBP_AIAction_Visitor_WaitInBaseCamp_C* K2Node_CustomEvent_action, bool K2Node_SwitchEnum_CmpSuccess, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate_2);
+	void ExecuteUbergraph_BP_NPCAIController_Visitor(int32 EntryPoint, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate_1, class UBP_AIAction_Visitor_TravelToBaseCamp_C* K2Node_CustomEvent_Action_1, class UBP_AIAction_Visitor_WaitInBaseCamp_C* K2Node_CustomEvent_Action, bool K2Node_SwitchEnum_CmpSuccess, FDelegateProperty_ K2Node_CreateDelegate_OutputDelegate_2);
 };
 
 }

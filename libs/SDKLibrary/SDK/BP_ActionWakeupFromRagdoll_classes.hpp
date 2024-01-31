@@ -14,7 +14,7 @@ namespace SDK
 class UBP_ActionWakeupFromRagdoll_C : public UPalActionBase
 {
 public:
-	uint8                                        Pad_2C42[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_426B[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FPointerToUberGraphFrame              UberGraphFrame;                                    // 0x140(0x8)(ZeroConstructor, Transient, DuplicateTransient)
 
 	static class UClass* StaticClass();

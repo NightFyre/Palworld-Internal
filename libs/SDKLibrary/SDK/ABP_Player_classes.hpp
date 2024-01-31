@@ -28,7 +28,7 @@ public:
 	struct FAnimNode_BlendListByBool             AnimGraphNode_BlendListByBool_28;                  // 0xA00(0x48)(None)
 	struct FAnimNode_UseCachedPose               AnimGraphNode_UseCachedPose_41;                    // 0xA48(0x28)(None)
 	struct FAnimNode_UseCachedPose               AnimGraphNode_UseCachedPose_40;                    // 0xA70(0x28)(None)
-	uint8                                        Pad_2C62[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4010[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FAnimNode_Fabrik                      AnimGraphNode_Fabrik;                              // 0xAA0(0x1F0)(None)
 	struct FAnimNode_Root                        AnimGraphNode_Root_5;                              // 0xC90(0x20)(None)
 	struct FAnimNode_LinkedInputPose             AnimGraphNode_LinkedInputPose_4;                   // 0xCB0(0xC8)(None)
@@ -39,7 +39,7 @@ public:
 	struct FAnimNode_ModifyBone                  AnimGraphNode_ModifyBone_15;                       // 0x1110(0x128)(None)
 	struct FAnimNode_ModifyBone                  AnimGraphNode_ModifyBone_14;                       // 0x1238(0x128)(None)
 	struct FAnimNode_ModifyBone                  AnimGraphNode_ModifyBone_13;                       // 0x1360(0x128)(None)
-	uint8                                        Pad_2C68[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4011[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FAnimNode_TwoBoneIK                   AnimGraphNode_TwoBoneIK_5;                         // 0x1490(0x270)(None)
 	struct FAnimNode_TwoBoneIK                   AnimGraphNode_TwoBoneIK_4;                         // 0x1700(0x270)(None)
 	struct FAnimNode_TwoBoneIK                   AnimGraphNode_TwoBoneIK_3;                         // 0x1970(0x270)(None)
@@ -51,7 +51,7 @@ public:
 	struct FAnimNode_ConvertComponentToLocalSpace AnimGraphNode_ComponentToLocalSpace_5;             // 0x1FF0(0x20)(None)
 	struct FAnimNode_Root                        AnimGraphNode_Root_4;                              // 0x2010(0x20)(None)
 	struct FAnimNode_LinkedInputPose             AnimGraphNode_LinkedInputPose_3;                   // 0x2030(0xC8)(None)
-	uint8                                        Pad_2C6A[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4012[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FAnimNode_LookAt                      AnimGraphNode_LookAt;                              // 0x2100(0x250)(None)
 	struct FAnimNode_BlendListByBool             AnimGraphNode_BlendListByBool_26;                  // 0x2350(0x48)(None)
 	struct FAnimNode_ConvertComponentToLocalSpace AnimGraphNode_ComponentToLocalSpace_4;             // 0x2398(0x20)(None)
@@ -61,7 +61,7 @@ public:
 	struct FAnimNode_ConvertLocalToComponentSpace AnimGraphNode_LocalToComponentSpace_4;             // 0x2510(0x20)(None)
 	struct FAnimNode_Root                        AnimGraphNode_Root_3;                              // 0x2530(0x20)(None)
 	struct FAnimNode_LinkedInputPose             AnimGraphNode_LinkedInputPose_2;                   // 0x2550(0xC8)(None)
-	uint8                                        Pad_2C70[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4013[0x8];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FAnimNode_TwoBoneIK                   AnimGraphNode_TwoBoneIK_1;                         // 0x2620(0x270)(None)
 	struct FAnimNode_ConvertLocalToComponentSpace AnimGraphNode_LocalToComponentSpace_3;             // 0x2890(0x20)(None)
 	struct FAnimNode_ConvertComponentToLocalSpace AnimGraphNode_ComponentToLocalSpace_3;             // 0x28B0(0x20)(None)
@@ -294,13 +294,13 @@ public:
 	struct FAnimNode_UseCachedPose               AnimGraphNode_UseCachedPose;                       // 0x8BF0(0x28)(None)
 	float                                        K2Node_PropertyAccess_36;                          // 0x8C18(0x4)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         K2Node_PropertyAccess_34;                          // 0x8C1C(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2C9F[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4014[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FRotator                              K2Node_PropertyAccess_31;                          // 0x8C20(0x18)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	float                                        K2Node_PropertyAccess_30;                          // 0x8C38(0x4)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	float                                        K2Node_PropertyAccess_29;                          // 0x8C3C(0x4)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FVector                               K2Node_PropertyAccess_28;                          // 0x8C40(0x18)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         K2Node_PropertyAccess_27;                          // 0x8C58(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CA0[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4015[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FRotator                              K2Node_PropertyAccess_25;                          // 0x8C60(0x18)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	struct FVector                               K2Node_PropertyAccess_24;                          // 0x8C78(0x18)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FVector                               K2Node_PropertyAccess_23;                          // 0x8C90(0x18)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
@@ -312,40 +312,40 @@ public:
 	bool                                         K2Node_PropertyAccess_17;                          // 0x8CC4(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         K2Node_PropertyAccess_16;                          // 0x8CC5(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	enum class EPalCharacterMovementCustomMode   K2Node_PropertyAccess_15;                          // 0x8CC6(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CA1[0x1];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4016[0x1];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FVector                               K2Node_PropertyAccess_14;                          // 0x8CC8(0x18)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FTransform                            K2Node_PropertyAccess_13;                          // 0x8CE0(0x60)(IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         K2Node_PropertyAccess_12;                          // 0x8D40(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CA2[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4017[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class APalWeaponBase*                        K2Node_PropertyAccess_11;                          // 0x8D48(0x8)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	bool                                         K2Node_PropertyAccess_10;                          // 0x8D50(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         K2Node_PropertyAccess_9;                           // 0x8D51(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CA3[0x6];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4018[0x6];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class APalWeaponBase*                        K2Node_PropertyAccess_8;                           // 0x8D58(0x8)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	bool                                         K2Node_PropertyAccess_7;                           // 0x8D60(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         K2Node_PropertyAccess_6;                           // 0x8D61(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         K2Node_PropertyAccess_5;                           // 0x8D62(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         K2Node_PropertyAccess_4;                           // 0x8D63(0x1)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CA4[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4019[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FRidingAnimationInfo                  K2Node_PropertyAccess_3;                           // 0x8D68(0x20)(NoDestructor)
 	float                                        K2Node_PropertyAccess_2;                           // 0x8D88(0x4)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CA5[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_401A[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FWeaponAnimationInfo                  K2Node_PropertyAccess_1;                           // 0x8D90(0x258)(None)
 	struct FWeaponAnimationInfo                  K2Node_PropertyAccess;                             // 0x8FE8(0x258)(None)
 	float                                        __CustomProperty_ClavicleAdjustFloat_3EAAD7D248100B118DCFE280A191AF83; // 0x9240(0x4)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CA6[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_401B[0x4];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	double                                       Speed;                                             // 0x9248(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsAim;                                             // 0x9250(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CA7[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_401C[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FVector2D                             VelocityXY;                                        // 0x9258(0x10)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsGliding;                                         // 0x9268(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CA8[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_401D[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FRotator                              AimRotatorForSpine;                                // 0x9270(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor)
 	bool                                         IsShooting;                                        // 0x9288(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CAB[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_401E[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FRotator                              AimRotatorArm;                                     // 0x9290(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor)
 	bool                                         IsRiding;                                          // 0x92A8(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CAD[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_401F[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FWeaponAnimationInfo                  WeaponInfo;                                        // 0x92B0(0x258)(Edit, BlueprintVisible, DisableEditOnInstance)
 	struct FWeaponAnimationInfo                  PrevWeaponInfo;                                    // 0x9508(0x258)(Edit, BlueprintVisible, DisableEditOnInstance)
 	double                                       ChangeWeaponWeight;                                // 0x9760(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
@@ -359,36 +359,36 @@ public:
 	bool                                         IsRequestSliding;                                  // 0x978B(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsEnableSkySliding;                                // 0x978C(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsSprint;                                          // 0x978D(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CB0[0x2];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4020[0x2];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FRidingAnimationInfo                  RidingAnimationInfo;                               // 0x9790(0x20)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor)
 	bool                                         HasWeapon;                                         // 0x97B0(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CB1[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4021[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	double                                       KawaiiWeight;                                      // 0x97B8(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FRotator                              Cloth01_FrontBagRotator;                           // 0x97C0(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor)
 	bool                                         IsReloading;                                       // 0x97D8(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsJumpPreliminary;                                 // 0x97D9(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsEndJump;                                         // 0x97DA(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CB3[0x5];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4022[0x5];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FTransform                            LeftHandTransform;                                 // 0x97E0(0x60)(Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsValidSprintAnimation;                            // 0x9840(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CB4[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4023[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class AActor*                                RidingActor;                                       // 0x9848(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	bool                                         RiderModelIsBackward;                              // 0x9850(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         UseRidingAO;                                       // 0x9851(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CB5[0x6];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4024[0x6];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FRotator                              AimRotatorForSpine_Ride_WS;                        // 0x9858(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor)
 	bool                                         IsDead;                                            // 0x9870(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         FootIKEnable;                                      // 0x9871(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsLookatEnable;                                    // 0x9872(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CB8[0x5];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4025[0x5];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FVector                               LookAtTarget;                                      // 0x9878(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                       LookatInTime;                                      // 0x9890(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                       LookatOutTime;                                     // 0x9898(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsClimbing;                                        // 0x98A0(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CB9[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4026[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class UAnimSequence*                         UniqueRideAnim;                                    // 0x98A8(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsUniqueRiding;                                    // 0x98B0(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CBA[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4027[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	struct FVector                               Ride_IKPosHandR;                                   // 0x98B8(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FVector                               Ride_IKPosHandL;                                   // 0x98D0(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FVector                               Ride_IKPosFootR;                                   // 0x98E8(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
@@ -402,16 +402,16 @@ public:
 	struct FVector                               RideIK_Pole_FootR;                                 // 0x9978(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FVector                               RideIK_Pole_FootL;                                 // 0x9990(0x18)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsUniqueRideIK;                                    // 0x99A8(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CBE[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4028[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	double                                       UniqueRide_LeftHandWeight;                         // 0x99B0(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	class UNiagaraComponent*                     FootStepEffect;                                    // 0x99B8(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsWalking;                                         // 0x99C0(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CBF[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_4029[0x3];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	float                                        ClavicleAdjustDegree;                              // 0x99C4(0x4)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	class UAnimSequence*                         GlidingAS;                                         // 0x99C8(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	double                                       BlendTime_ForEagleGlider;                          // 0x99D0(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                         IsDedicatedServer;                                 // 0x99D8(0x1)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                        Pad_2CC0[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
+	uint8                                        Pad_402A[0x7];                                     // Fixing Size After Last Property  [ Dumper-7 ]
 	class APalCharacter*                         TSCached_OwnerCharacter;                           // 0x99E0(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	class UPalShooterComponent*                  TSCached_ShooterComponent;                         // 0x99E8(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	class UPalCharacterMovementComponent*        TSCached_MovementComponent;                        // 0x99F0(0x8)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
