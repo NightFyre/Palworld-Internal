@@ -1145,7 +1145,7 @@ namespace database
 
     static std::map<std::string, std::vector<float>>locationMap = {
     {"Anubis", { -170269, 94163.7, -1527.83 }},
-    {"Astegon", { -377710, -120265, 18565 }},
+    {"Astegon", { -320312, -120265, 18576 }},
     {"Azurobe", { -300596, 136090, -2033.13 }},
     {"Beakon", { -237981, 2559.41, 8413.65 }},
     {"Blazamut", { -377246, -43725, 8626 }},
