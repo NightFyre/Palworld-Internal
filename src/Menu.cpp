@@ -481,7 +481,7 @@ namespace DX11_Base
 
                 ImGui::InputInt("Num To Add", &num_to_add);
 
-                ImGui::Combo("Item Category", &category, "Accessories\0Ammo\0Armor\0Blueprints\0Crafting Materials\0Eggs\0Food\0Hats\0Medicine\0Money\0Other\0Pal Spheres\0Skill Fruits\0Saddles\0Seeds\0Tools\0Weapons\All\0");
+                ImGui::Combo("Item Category", &category, "Accessories\0Ammo\0Armor\0Blueprints\0Crafting Materials\0Eggs\0Food\0Hats\0Medicine\0Money\0Other\0Pal Spheres\0Skill Fruits\0Saddles\0Seeds\0Tools\0Weapons\0All\0");
 
                 std::initializer_list list = itemlist::accessories;
 
