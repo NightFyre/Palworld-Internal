@@ -25,16 +25,24 @@ const std::vector<std::string>& config::GetFilteredItems() { return Config.db_fi
 
 bool DetourTick(SDK::APalPlayerCharacter* m_this, float DeltaSecond)
 {
-    if (m_this->GetPalPlayerController() != NULL)
+    bool result = OldTickFunc(m_this, DeltaSecond);
+
+    SDK::APalPlayerCharacter* pPalPlayerCharacter = m_this;
+    if (!pPalPlayerCharacter)
+        return result;
+
+    SDK::APalPlayerController* pPalPlayerController = pPalPlayerCharacter->GetPalPlayerController();
+    if (!pPalPlayerController)
+        return result;
+    
+    if (pPalPlayerController->IsLocalPlayerController())
     {
-        if (m_this->GetPalPlayerController()->IsLocalPlayerController())
-        {
-            Config.localPlayer = m_this;
-            DX11_Base::g_Menu->Loops();
-        }
+        Config.GetUWorld();
+        Config.localPlayer = m_this;
+        DX11_Base::g_Menu->Loops();
     }
-    return OldTickFunc(m_this, DeltaSecond);
-}
+    return result;
+}   //  @CRASH: palcrack!DetourTick() [A:\Github\collab\PalWorld-NetCrack\config.cpp:45] : SPEED HACK UPON LOADING WORLD
 SDK::UWorld* config::GetUWorld()
 {
     static uint64_t gworld_ptr = 0;
@@ -233,7 +241,7 @@ bool config::GetAllActorsofType(SDK::UClass* mType, std::vector<SDK::AActor*>* o
 void config::Init()
 {
     //register hook
-    Config.ClientBase = (DWORD64)GetModuleHandleA("PalWorld-Win64-Shipping.exe");
+    Config.ClientBase = reinterpret_cast<__int64>(GetModuleHandle(0));
 
     SDK::InitGObjects();
 

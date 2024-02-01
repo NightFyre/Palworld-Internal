@@ -11,7 +11,7 @@ class config
 public:
 	//offsets
 	DWORD64 ClientBase = 0;
-	DWORD64 offset_Tick = 0x2AB1DC0;//APalPlayerCharacter::Tick
+	DWORD64 offset_Tick = 0x2AD4EC0;//APalPlayerCharacter::Tick // 48 89 5C 24 ? 57 48 83 EC 60 48 8B F9 E8 ? ? ? ? 48 8B | [IDA NOTE: 2ND RESULT]
 	//check
 	bool IsESP = false;
 	bool IsFullbright = false;
@@ -86,6 +86,30 @@ public:
 	std::vector<SWaypoint> db_waypoints;
 	std::vector<std::pair<std::string, SDK::UClass*>> db_filteredEnts;
 
+	struct STargetEntity
+	{
+		SDK::APalCharacter* pEntCharacter;
+		SDK::FVector entLocation;
+		SDK::FRotator entRotation;
+		SDK::FVector entFwdDir;
+		SDK::FVector entOrigin;
+		SDK::FVector entBounds;
+		bool bIsValid = false;
+
+		STargetEntity() {};
+		STargetEntity(SDK::APalCharacter* pChar)
+		{
+			if (!pChar)
+				return;
+
+			entLocation = pChar->K2_GetActorLocation();
+			entRotation = pChar->K2_GetActorRotation();
+			entFwdDir = pChar->GetActorForwardVector();
+			pChar->GetActorBounds(true, &entOrigin, &entBounds, true);
+			bIsValid = true;
+		}
+	};
+	STargetEntity pTargetEntity;
 
 	//static function
 	static SDK::UWorld* GetUWorld();
