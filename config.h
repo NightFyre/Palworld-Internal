@@ -46,7 +46,7 @@ public:
 	int DefuseUp = 0;
 	int EXP = 0;
 	int Item = 0;
-	float Pos[3] = { 0,0,0 };
+	float Pos[3] = { 0.0f, 0.0f, 0.0f };
 	char ItemName[255];
 	char inputTextBuffer[255] = "";
 	SDK::UWorld* gWorld = nullptr;
