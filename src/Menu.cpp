@@ -254,7 +254,7 @@ namespace DX11_Base
 
             ImGui::InputInt("Num To Add", &num_to_add);
 
-            ImGui::Combo("Item Category", &category, "Accessories\0Ammo\0Armor\0Crafting Materials\0Eggs\0Food\0Hats\0\Medicine\0Money\0Other\0Pal Spheres\0Seeds\0Tools\0Weapons\0");
+            ImGui::Combo("Item Category", &category, "Accessories\0Ammo\0Armor\0Blueprints\0Crafting Materials\0Eggs\0Food\0Hats\0\Medicine\0Money\0Other\0Pal Spheres\0Seeds\0Tools\0Weapons\0");
 
             std::initializer_list list = itemlist::accessories;
 
@@ -267,36 +267,39 @@ namespace DX11_Base
                     list = itemlist::armor;
                     break;
                 case 3:
-                    list = itemlist::craftingmaterials;
+                    list = itemlist::blueprints;
                     break;
                 case 4:
-                    list = itemlist::eggs;
+                    list = itemlist::craftingmaterials;
                     break;
                 case 5:
-                    list = itemlist::food;
+                    list = itemlist::eggs;
                     break;
                 case 6:
-                    list = itemlist::hats;
+                    list = itemlist::food;
                     break;
                 case 7:
-                    list = itemlist::medicine;
+                    list = itemlist::hats;
                     break;
                 case 8:
-                    list = itemlist::money;
+                    list = itemlist::medicine;
                     break;
                 case 9:
-                    list = itemlist::other;
+                    list = itemlist::money;
                     break;
                 case 10:
-                    list = itemlist::palspheres;
+                    list = itemlist::other;
                     break;
                 case 11:
-                    list = itemlist::seeds;
+                    list = itemlist::palspheres;
                     break;
                 case 12:
-                    list = itemlist::tools;
+                    list = itemlist::seeds;
                     break;
                 case 13:
+                    list = itemlist::tools;
+                    break;
+                case 14:
                     list = itemlist::weapons;
                     break;
                 default:
