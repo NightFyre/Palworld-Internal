@@ -163,18 +163,22 @@ void IncrementInventoryItemCountByIndex(__int32 mCount, __int32 mIndex)
 }
 
 //	
-void AddItemToInventoryByName(UPalPlayerInventoryData* data, char* itemName, int count)
+void AddItemToInventoryByName(std::string itemName, int count)
 {
 	// obtain lib instance
 	static UKismetStringLibrary* lib = UKismetStringLibrary::GetDefaultObj();
 
-	// Convert FNAME
-	wchar_t  ws[255];
-	swprintf(ws, 255, L"%hs", itemName);
-	FName Name = lib->Conv_StringToName(FString(ws));
+	APalPlayerCharacter* pPalPlayerCharacter = Config.GetPalPlayerCharacter();
+	APalPlayerState* pPalPlayerState = Config.GetPalPlayerState();
+	if (!pPalPlayerCharacter || !pPalPlayerState)
+		return;
 
-	// Call
-	data->RequestAddItem(Name, count, true);
+	SDK::UPalPlayerInventoryData* pInventoryData = pPalPlayerState->GetInventoryData();
+	if (!pInventoryData)
+		return;
+
+	FName Name = lib->Conv_StringToName(FString(std::wstring(itemName.begin(), itemName.end()).c_str()));
+	pInventoryData->RequestAddItem(Name, count, true);
 }
 
 // Credit: asashi
@@ -185,23 +189,23 @@ void SpawnMultiple_ItemsToInventory(config::QuickItemSet Set)
 	{
 	case 0:
 		for (int i = 0; i < IM_ARRAYSIZE(database::basic_items_stackable); i++)
-			AddItemToInventoryByName(InventoryData, _strdup(database::basic_items_stackable[i].c_str()), 100);
+			AddItemToInventoryByName(database::basic_items_stackable[i], 100);
 		break;
 	case 1:
 		for (int i = 0; i < IM_ARRAYSIZE(database::basic_items_single); i++)
-			AddItemToInventoryByName(InventoryData, _strdup(database::basic_items_single[i].c_str()), 1);
+			AddItemToInventoryByName(database::basic_items_single[i], 1);
 		break;
 	case 2:
 		for (int i = 0; i < IM_ARRAYSIZE(database::pal_unlock_skills); i++)
-			AddItemToInventoryByName(InventoryData, _strdup(database::pal_unlock_skills[i].c_str()), 1);
+			AddItemToInventoryByName(database::pal_unlock_skills[i], 1);
 		break;
 	case 3:
 		for (int i = 0; i < IM_ARRAYSIZE(database::spheres); i++)
-			AddItemToInventoryByName(InventoryData, _strdup(database::spheres[i].c_str()), 100);
+			AddItemToInventoryByName(database::spheres[i], 100);
 		break;
 	case 4:
 		for (int i = 0; i < IM_ARRAYSIZE(database::tools); i++)
-			AddItemToInventoryByName(InventoryData, _strdup(database::tools[i].c_str()), 1);
+			AddItemToInventoryByName(database::tools[i], 1);
 		break;
 	default:
 		break;
@@ -311,6 +315,27 @@ void RespawnLocalPlayer(bool bIsSafe)
 	bIsSafe ? pPalPlayerController->TeleportToSafePoint_ToServer() : pPalPlayerState->RequestRespawn();
 }
 
+void SetPlayerNickname(std::string newName)
+{
+	APalPlayerCharacter* pPalPlayerCharacter = Config.GetPalPlayerCharacter();
+	APalPlayerController* pPalPlayerController = Config.GetPalPlayerController();
+	if (!pPalPlayerCharacter || !pPalPlayerController)
+		return;
+
+	APalNetworkTransmitter* pNetTrans = pPalPlayerController->Transmitter;
+	UPalCharacterParameterComponent* pParams = pPalPlayerCharacter->CharacterParameterComponent;
+	if (!pNetTrans || !pParams)
+		return;
+
+	UPalIndividualCharacterHandle* pCharHandle = pParams->IndividualHandle;
+	UPalNetworkIndividualComponent* pNetworkIV = pNetTrans->NetworkIndividualComponent;
+	if (!pNetworkIV || !pCharHandle)
+		return;
+
+	FPalInstanceID charID = pCharHandle->ID;
+	pNetworkIV->UpdateCharacterNickName_ToServer(charID, FString(std::wstring(newName.begin(), newName.end()).c_str()));
+}
+
 void SetPlayerHealth(__int32 newHealth)
 {
 	APalPlayerCharacter* pPalPlayerCharacter = Config.GetPalPlayerCharacter();
@@ -327,6 +352,24 @@ void SetPlayerHealth(__int32 newHealth)
 
 	FFixedPoint newHealthPoint = FFixedPoint(newHealth);
 	pPalPlayerCharacter->ReviveCharacter_ToServer(newHealthPoint);
+}
+
+void SetPlayerInventoryWeight(float newWeight)
+{
+	UPalPlayerInventoryData* pInventory = Config.GetInventoryComponent();
+	if (!pInventory)
+		return;
+
+	pInventory->MaxInventoryWeight = newWeight;
+}
+
+void SetPickupsWeight(float newWeight)
+{
+	UPalPlayerInventoryData* pInventory = Config.GetInventoryComponent();
+	if (!pInventory)
+		return;
+
+	pInventory->NowItemWeight = newWeight;
 }
 
 //	

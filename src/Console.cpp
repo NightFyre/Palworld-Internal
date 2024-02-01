@@ -16,6 +16,7 @@ namespace DX11_Base {
 		freopen_s(&stream_error, "CONOUT$", "w", stderr);
 		SetConsoleTitleA(ConsoleName);
 		ShowWindow(g_hWnd, SW_SHOW);
+		bShowConsole = true;
 		return;
 	}
 
@@ -58,6 +59,11 @@ namespace DX11_Base {
 			printdbg(append.c_str(), color);
 			break;
 		}
+	}
+	void Console::SetConsoleVisibility(bool bShow)
+	{
+		this->bShowConsole = bShow;
+		this->bShowConsole ? ShowWindow(g_hWnd, SW_SHOW) : ShowWindow(g_hWnd, SW_HIDE);
 	}
 
 	void Console::DestroyConsole()

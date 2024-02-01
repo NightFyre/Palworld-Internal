@@ -34,6 +34,7 @@ namespace DX11_Base {
 		HANDLE g_Handle{};
 		HWND g_hWnd{};
 		bool verbose{};
+		bool bShowConsole = true;
 
 		//	INPUT BUFFERS
 		char input[32]{};
@@ -51,6 +52,7 @@ namespace DX11_Base {
 		void scandbg(const char* Text, ...);
 		void LogEvent(std::string TEXT, bool FLAG);
 		void DestroyConsole();
+		void SetConsoleVisibility(bool bShow);
 
 		//	FUNCTIONS
 		bool writeFile(const char* Path, const char* Text, unsigned int Length, DWORD * out = {});

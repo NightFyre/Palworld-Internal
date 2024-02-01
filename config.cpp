@@ -42,7 +42,7 @@ bool DetourTick(SDK::APalPlayerCharacter* m_this, float DeltaSecond)
         DX11_Base::g_Menu->Loops();
     }
     return result;
-}
+}   //  @CRASH: palcrack!DetourTick() [A:\Github\collab\PalWorld-NetCrack\config.cpp:45] : SPEED HACK UPON LOADING WORLD
 SDK::UWorld* config::GetUWorld()
 {
     static uint64_t gworld_ptr = 0;

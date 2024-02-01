@@ -13,7 +13,7 @@ void UnlockAllEffigies();
 
 void IncrementInventoryItemCountByIndex(__int32 mCount, __int32 mIndex = 0);
 
-void AddItemToInventoryByName(SDK::UPalPlayerInventoryData* data, char* itemName, int count);
+void AddItemToInventoryByName(std::string itemName, int count);
 
 void SpawnMultiple_ItemsToInventory(config::QuickItemSet Set);
 
@@ -29,7 +29,13 @@ void SetDemiGodMode(bool bIsSet);
 
 void RespawnLocalPlayer(bool bIsSafe);
 
+void SetPlayerNickname(std::string newName);
+
 void SetPlayerHealth(__int32 newHealth);
+
+void SetPlayerInventoryWeight(float newWeight);
+
+void SetPickupsWeight(float newWeight);
 
 void ReviveLocalPlayer();
 
