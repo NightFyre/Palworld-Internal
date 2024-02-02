@@ -11,7 +11,7 @@ class config
 public:
 	//offsets
 	DWORD64 ClientBase = 0;
-	DWORD64 offset_Tick = 0x298F500;//APalPlayerCharacter::Tick // 48 89 5C 24 ? 57 48 83 EC 60 48 8B F9 E8 ? ? ? ? 48 8B | [IDA NOTE: 2ND RESULT]
+	DWORD64 offset_Tick = 0x29913B0;//APalPlayerCharacter::Tick // 48 89 5C 24 ? 57 48 83 EC 60 48 8B F9 E8 ? ? ? ? 48 8B | [IDA NOTE: 2ND RESULT]
 	//check
 	bool IsESP = false;
 	bool IsFullbright = false;
@@ -46,7 +46,7 @@ public:
 	int DefuseUp = 0;
 	int EXP = 0;
 	int Item = 0;
-	float Pos[3] = { 0,0,0 };
+	float Pos[3] = { 0.0f, 0.0f, 0.0f };
 	char ItemName[255];
 	char inputTextBuffer[255] = "";
 	SDK::UWorld* gWorld = nullptr;
