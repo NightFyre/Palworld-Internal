@@ -404,22 +404,22 @@ void ResetStamina()
 
 	pParams->ResetSP();
 
-
-	//	Reset Pal Stamina ??
-	TArray<APalCharacter*> outPals;
-	Config.GetTAllPals(&outPals);
-	DWORD palsSize = outPals.Count();
-	for (int i = 0; i < palsSize; i++)
+	//Infinite Pal Stamina
+	SDK::TArray<SDK::AActor*> T = Config.GetUWorld()->PersistentLevel->Actors;
+	for (int i = 0; i < T.Count(); i++)
 	{
-		APalCharacter* cPal = outPals[i];
-		if (!cPal || cPal->IsA(APalMonsterCharacter::StaticClass()))
-			continue;
-
-		UPalCharacterParameterComponent* pPalParams = pPalCharacter->CharacterParameterComponent;
-		if (!pPalParams)
-			return;
-
-		pPalParams->ResetSP();
+	    if (T[i] != NULL)
+	    {
+	        if (T[i]->IsA(SDK::APalCharacter::StaticClass()))
+	        {
+	            SDK::APalCharacter* Character = (SDK::APalCharacter*)T[i];
+	            if (Character->IsPlayerControlled())
+	            {
+	                Character->CharacterParameterComponent->ResetSP();
+ 	               break;
+	            }
+	        }
+	    }
 	}
 }
 
