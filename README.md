@@ -1,9 +1,8 @@
 # PalWorld-NetCrack  
-This is the PalWorld network cracking framework  
-modifying player data in the Player tab  
-Network cracking in the Exploit tab  
+> [!Note]
+> **THIS IS THE XBOX GAMEPASS VERSION**
+## 
 
-## NOTE: THIS IS THE XBOX GAME PASS VERSION  
 
 ### FEATURES
 - Infinite Ammo  
@@ -28,6 +27,12 @@ Network cracking in the Exploit tab
 - Death Aura ( enemy pals lose health as they get closer to player )  
 - DEBUG ESP ( Debug All Entities )  
 
+## USAGE
+- Compile Solution ( SDK, Launcher, DLL )  
+- Launch palworld as you would normally and load into your local world of choice  
+- Once loaded into a world launch "PalworldLauncher.exe" from the bin folder in the solution directory  
+- Show and hide the menu with [ INSERT ]  
+
 ## UPDATING
 - Dump the game with dumper7  
 - Move SDK folder and SDK.hpp into SDKLibrary solution folder  
@@ -41,7 +46,7 @@ Network cracking in the Exploit tab
 > GWorld: `48 8B 1D ?? ?? ?? ?? 48 85 DB 74 33 41 B0`  
 > APalPlayerCharacter::Tick: `48 89 5C 24 ? 57 48 83 EC 60 48 8B F9 E8 ? ? ? ? 48 8B | [IDA NOTE: 2ND RESULT]`  
 
-### External Library Credits
+### External Library Credits  
 [Dear ImGui](https://github.com/ocornut/imgui)  
 [MinHook](https://github.com/TsudaKageyu/minhook)  
 [Dumper7](https://github.com/Encryqed/Dumper-7)  
