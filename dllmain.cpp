@@ -1,9 +1,6 @@
 #pragma once
 #include "pch.h"
-#include "initialize.hpp"
-
-using namespace SDK;
-using namespace DX11_Base;
+#include "include/initialize.hpp"
 
 extern DWORD WINAPI MainThread_Initialize();
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  dwCallReason, LPVOID lpReserved)

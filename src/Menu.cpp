@@ -1,8 +1,6 @@
 #include "../pch.h"
-#include "../include/Menu.hpp"
-#include "SDK.hpp"
-#include "config.h"
-#include <algorithm>
+#include "include/config.h"
+#include "include/Menu.hpp"
 std::string rand_str(const int len)
 {
     std::string str;

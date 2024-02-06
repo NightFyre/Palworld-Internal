@@ -1,6 +1,5 @@
 #pragma once
-#include <Windows.h>
-#include "libs/utils/memory.h"
+#include "memory.h"
 #include "database.h"
 #include "ItemList.hpp"
 

@@ -1,6 +1,5 @@
 #include "pch.h"
-#include "config.h"
-#include <algorithm>
+#include "include/config.h"
 #include "include/Menu.hpp"
 
 config Config;

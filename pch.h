@@ -18,6 +18,7 @@
 #include <thread>
 #include <vector>
 #include <chrono>
+#include <algorithm>
 
 // DIRECTX
 #include <d3d11.h>
