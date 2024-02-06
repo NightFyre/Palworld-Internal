@@ -50,6 +50,10 @@ public:
 	char inputTextBuffer[255] = "";
 	SDK::UWorld* gWorld = nullptr;
 	SDK::APalPlayerCharacter* localPlayer = NULL;
+	SDK::UPalPlayerInventoryData* pPlayerInventory = 0;
+	SDK::APalWeaponBase* pPlayerWeapon = 0;
+	SDK::UPalUtility* pPalUtility = 0;
+	SDK::UKismetStringLibrary* kString = 0;
 	SDK::TArray<SDK::APalPlayerCharacter*> AllPlayers = {};
 	SDK::UPalCharacterImportanceManager* UCIM = NULL;
 	SDK::UObject* WorldContextObject = NULL;
@@ -111,6 +115,7 @@ public:
 	STargetEntity pTargetEntity;
 
 	//static function
+	static bool InGame();
 	static SDK::UWorld* GetUWorld();
 	static SDK::UPalCharacterImportanceManager* GetCharacterImpManager();
 	static SDK::ULocalPlayer* GetLocalPlayer();
@@ -118,7 +123,7 @@ public:
 	static SDK::APalPlayerController* GetPalPlayerController();
 	static SDK::APalPlayerState* GetPalPlayerState();
 	static SDK::UPalPlayerInventoryData* GetInventoryComponent();
-	static SDK::APalWeaponBase* GetPlayerEquippedWeapon();
+	static SDK::APalWeaponBase* GetPlayerEquippedWeapon();	
 	static bool	GetTAllPlayers(SDK::TArray<class SDK::APalCharacter*>* outResult);
 	static bool	GetTAllImpNPC(SDK::TArray<class SDK::APalCharacter*>* outResult);
 	static bool	GetTAllNPC(SDK::TArray<class SDK::APalCharacter*>* outResult);

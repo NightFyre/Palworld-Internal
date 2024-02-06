@@ -635,6 +635,7 @@ namespace itemlist
         "PalSphere|Pal Sphere",
         "PalSphere_Robbery|Radar Sphere",
         "PalSphere_Master|Ultra Sphere",
+        "PalSphere_Debug|Dev Sphere",
     };
 
     const auto seeds =

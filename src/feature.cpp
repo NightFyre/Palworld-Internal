@@ -502,6 +502,30 @@ void SetCraftingSpeed(float mNewSpeed, bool bRestoreDefault)
 		mCraftSpeedArray[0].Value = bRestoreDefault ? 1.0f : mNewSpeed;
 }
 
+//	credit: emoisback
+void ApplyStatusBuff(APalCharacter* pChar, EPalStatusID newStatus)
+{
+	if (!pChar)
+		return;
+
+	UPalStatusComponent* pStatusComponent = pChar->StatusComponent;
+	if (!pStatusComponent)
+		return;
+}
+
+//	creidt: emoisback
+void RemoveStatusBuff(APalCharacter* pChar, EPalStatusID remStatus)
+{
+	if (!pChar)
+		return;
+
+	UPalStatusComponent* pStatusComponent = pChar->StatusComponent;
+	if (!pStatusComponent)
+		return;
+
+	pStatusComponent->RemoveStatus(remStatus);
+}
+
 //	
 void AddTechPoints(__int32 mPoints)
 {
@@ -558,6 +582,36 @@ void RemoveAncientTechPoint(__int32 mPoints)
 	pTechData->bossTechnologyPoint -= mPoints;
 }
 
+//	credit: crazyshoot
+void ClearWorldMap()
+{
+	UWorld* pWorld = Config.gWorld;
+	UPalUtility* pUtility = Config.pPalUtility;
+	if (!pWorld || !pUtility)
+		return;
+
+	UPalGameSetting* pGameSettings = pUtility->GetGameSetting(pWorld);
+	if (!pGameSettings)
+		return;
+
+	pGameSettings->WorldmapUIMaskClearSize = 99999.f;
+}
+
+//	credit: crazyshoot
+void SetWorldTime(__int32 mHour)
+{
+	UWorld* pWorld = Config.gWorld;
+	UPalUtility* pUtility = Config.pPalUtility;
+	if (!pWorld || !pUtility)
+		return;
+
+	UPalTimeManager* pTimeMan = pUtility->GetTimeManager(pWorld);
+	if (!pTimeMan)
+		return;
+
+	pTimeMan->SetGameTime_FixDay(mHour);
+}
+
 // credit: xCENTx
 float GetDistanceToActor(AActor* pLocal, AActor* pTarget)
 {
@@ -569,6 +623,40 @@ float GetDistanceToActor(AActor* pLocal, AActor* pTarget)
 	double distance = sqrt(pow(pTargetLocation.X - pLocation.X, 2.0) + pow(pTargetLocation.Y - pLocation.Y, 2.0) + pow(pTargetLocation.Z - pLocation.Z, 2.0));
 
 	return distance / 100.0f;
+}
+
+// credit: swiftik
+bool GetActorNickName(APalCharacter* pCharacter, std::string* outName)
+{
+	if (!pCharacter)
+		return false;
+
+	UPalCharacterParameterComponent* pParams = pCharacter->CharacterParameterComponent;
+	if (!pParams)
+		return false;
+
+	FString result;
+	pParams->GetNickname(&result);
+	if (!result.IsValid())
+		return false;
+
+	*outName = result.ToString();
+	return true;
+
+}
+
+// credit: crazyshoot
+bool GetItemName(APalMapObject* pMap, std::string* outName)
+{
+	if (!pMap)
+		return false;
+
+	UPalMapObjectModel* pModel = pMap->GetModel();
+	if (!pModel)
+		return false;
+
+	*outName = pModel->MapObjectMasterDataId.ToString();
+	return true;
 }
 
 // credit xCENTx
@@ -686,6 +774,28 @@ void TeleportAllPalsToCrosshair(float mDistance)
 	}
 }
 
+//	credit: emoisback
+void TeleportToMapMarker()
+{
+	UWorld* pWorld = Config.gWorld;
+	UPalUtility* pUtility = Config.pPalUtility;
+	if (!pWorld || !pUtility)
+		return;
+
+	UPalLocationManager* pLocationMan = pUtility->GetLocationManager(pWorld);
+	if (!pLocationMan)
+		return;
+
+	auto locations = pLocationMan->CustomLocations;
+	if (locations.Count() > 0)
+	{
+		auto mark = locations[0]->Location;
+		auto id = locations[0]->ID;
+		AnyWhereTP(mark, false);
+		pLocationMan->RemoveLocalCustomLocation(id);
+	}
+}
+
 // credit: xCENTx
 void AddWaypointLocation(std::string wpName)
 {
@@ -697,6 +807,29 @@ void AddWaypointLocation(std::string wpName)
 	FRotator wpRotation = pPalCharacater->K2_GetActorRotation();
 	config::SWaypoint newWaypoint = config::SWaypoint("[WAYPOINT]" + wpName, wpLocation, wpRotation);
 	Config.db_waypoints.push_back(newWaypoint);
+}
+
+bool RemoveWaypointLocationByName(std::string wpName)
+{
+	for (auto obj = Config.db_waypoints.begin(); obj != Config.db_waypoints.end(); )
+	{
+		if (obj->waypointName != wpName)
+			continue;
+
+		obj = Config.db_waypoints.erase(obj);
+		return true;
+	}
+	return false;
+}
+
+bool RemoveWaypointLocationByIndex(__int32 wpIndex)
+{
+	if (wpIndex < Config.db_waypoints.size()) 
+	{
+		Config.db_waypoints.erase(Config.db_waypoints.begin() + wpIndex);
+		return true;
+	}
+	return false;
 }
 
 // credit: xCENTx

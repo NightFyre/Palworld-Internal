@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "../pch.h"
 #include "include/config.h"
 #include "include/Menu.hpp"
 
@@ -42,6 +42,22 @@ bool DetourTick(SDK::APalPlayerCharacter* m_this, float DeltaSecond)
     }
     return result;
 }   //  @CRASH: palcrack!DetourTick() [A:\Github\collab\PalWorld-NetCrack\config.cpp:45] : SPEED HACK UPON LOADING WORLD
+
+//  credit: liquidace
+bool config::InGame()
+{
+    SDK::UWorld* pWorld = Config.gWorld;
+    SDK::UPalUtility* pUtility = Config.pPalUtility;
+    if (!pWorld || !pUtility)
+        return false;
+
+    SDK::APalGameStateInGame* pGameState = pUtility->GetPalGameStateInGame(pWorld);
+    if (!pGameState)
+        return false;
+
+    return pGameState->MaxPlayerNum >= 1;
+}
+
 SDK::UWorld* config::GetUWorld()
 {
     static uint64_t gworld_ptr = 0;
@@ -245,6 +261,8 @@ void config::Init()
     SDK::InitGObjects();
 
     Config.gWorld = Config.GetUWorld();
+    Config.kString = SDK::UKismetStringLibrary::GetDefaultObj();
+    Config.pPalUtility = SDK::UPalUtility::GetDefaultObj();
 
     TickFunc = (Tick)(Config.ClientBase + Config.offset_Tick);
 
