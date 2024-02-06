@@ -216,7 +216,7 @@ namespace DX11_Base
                     }
                 }*/
 
-                if (ImGui::Button("GodHealth", ImVec2(ImGui::GetContentRegionAvail().x - 3, 20)))
+                if (ImGui::Button("GodHealth", ImVec2(ImGui::GetContentRegionAvail().x, 20)))
                     ReviveLocalPlayer();
 
                 //Creadit WoodgamerHD
@@ -239,6 +239,15 @@ namespace DX11_Base
             ImGui::Spacing();
             ImGui::Separator();
             ImGui::Spacing();
+
+            ImGui::Checkbox("Quick Settings Tab", &Config.IsQuick);
+            ImGui::Checkbox("Entity Manager Tab", &Config.bisOpenManager);
+            ImGui::Checkbox("Teleport Manager Tab", &Config.bisTeleporter);
+            
+            ImGui::Spacing();
+            ImGui::Separator();
+            ImGui::Spacing();
+            
             if (ImGui::Button("UNHOOK DLL", ImVec2(ImGui::GetContentRegionAvail().x - 3, 20))) {
 #if CONSOLE_OUTPUT
                 g_Console->printdbg("\n\n[+] UNHOOK INITIALIZED [+]\n\n", Console::Colors::red);
@@ -575,9 +584,6 @@ namespace DX11_Base
         
         void TABDebug()
         {
-            ImGui::Checkbox("Show Quick Tab", &Config.IsQuick);
-            ImGui::Checkbox("Open Manager Tab", &Config.bisOpenManager);
-            ImGui::Checkbox("Show Teleporter Tab", &Config.bisTeleporter);
 
             if (ImGui::Checkbox("DEBUG ESP", &Config.isDebugESP) && !Config.isDebugESP)
                 Config.mDebugESPDistance = 10.f;
@@ -710,19 +716,16 @@ namespace DX11_Base
                 Tabs::TABExploit();
                 ImGui::EndTabItem();
             }
+#if _DEBUG
             if (ImGui::BeginTabItem("Database"))
             {
                 Tabs::TABDatabase();
                 ImGui::EndTabItem();
             }
+#endif
             if (ImGui::BeginTabItem("Item Spawner"))
             {
                 Tabs::TABItemSpawner();
-                ImGui::EndTabItem();
-            }
-            if (ImGui::BeginTabItem("Entity Manager"))
-            {
-                Tabs::TABEntityManager();
                 ImGui::EndTabItem();
             }
             if (ImGui::BeginTabItem("CONFIG"))
