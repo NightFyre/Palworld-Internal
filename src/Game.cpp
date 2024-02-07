@@ -22,6 +22,8 @@ namespace DX11_Base {
 		return false;
 	}
 
+
+
 	GameVariables::GameVariables()
 	{
 #if CONSOLE_OUTPUT

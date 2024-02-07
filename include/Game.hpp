@@ -1,6 +1,7 @@
 #pragma once
 #include "helper.h"
 #include "Console.hpp"
+#include "feature.h"
 
 namespace DX11_Base 
 {
@@ -34,9 +35,6 @@ namespace DX11_Base
 		LPCSTR g_GamePath;
 
 		//	MENU RELATED
-		bool m_ShowMenu{};
-		bool m_ShowHud{};
-		bool m_ShowDemo{};
 
 		explicit GameVariables();
 		~GameVariables() noexcept = default;

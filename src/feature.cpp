@@ -220,7 +220,7 @@ void AnyWhereTP(FVector& vector, bool IsSafe)
 	if (!pPalPlayerController || !pPalPlayerState)
 		return;
 
-	vector = { vector.X,vector.Y + 100,vector.Z };
+	//	vector = { vector.X,vector.Y + 100,vector.Z };
 	FGuid guid = pPalPlayerController->GetPlayerUId();
 	pPalPlayerController->Transmitter->Player->RegisterRespawnLocation_ToServer(guid, vector);
 	pPalPlayerState->RequestRespawn();
@@ -805,7 +805,7 @@ void AddWaypointLocation(std::string wpName)
 
 	FVector wpLocation = pPalCharacater->K2_GetActorLocation();
 	FRotator wpRotation = pPalCharacater->K2_GetActorRotation();
-	config::SWaypoint newWaypoint = config::SWaypoint("[WAYPOINT]" + wpName, wpLocation, wpRotation);
+	config::SWaypoint newWaypoint = config::SWaypoint("[WAYPOINT] " + wpName, wpLocation, wpRotation);
 	Config.db_waypoints.push_back(newWaypoint);
 }
 
@@ -834,7 +834,7 @@ bool RemoveWaypointLocationByIndex(__int32 wpIndex)
 
 // credit: xCENTx
 //	must be called from a rendering thread with imgui context
-void RenderWaypointsToScreen()
+void RenderWaypointsToScreen(float fontSize)
 {
 	APalCharacter* pPalCharacater = Config.GetPalPlayerCharacter();
 	APalPlayerController* pPalController = Config.GetPalPlayerController();
@@ -851,7 +851,55 @@ void RenderWaypointsToScreen()
 
 		auto color = ImColor(1.0f, 1.0f, 1.0f, 1.0f);
 
-		draw->AddText(ImVec2( vScreen.X, vScreen.Y ), color, waypoint.waypointName.c_str());
+		DX11_Base::UnGUI::DrawTextCentered(ImVec2(vScreen.X, vScreen.Y), color, waypoint.waypointName.c_str(), fontSize);
+	}
+}
+
+void RenderNearbyNPCTags(ImColor color, float distance, float fontSize)
+{
+	SDK::APalPlayerCharacter* pChar = Config.GetPalPlayerCharacter();
+	if (!pChar)
+		return;
+
+	SDK::TArray<SDK::APalCharacter*> mNPCs;
+	if (!Config.GetTAllNPC(&mNPCs))
+		return;
+
+	DWORD palsCount = mNPCs.Count();
+	for (int i = 0; i < palsCount; i++)
+	{
+		SDK::APalCharacter* obj = mNPCs[i];
+		if (!obj || !obj->IsA(SDK::APalCharacter::StaticClass()) || obj->IsA(SDK::APalMonsterCharacter::StaticClass()))
+			continue;
+
+		if (GetDistanceToActor(pChar, obj) > ( distance * 10.0f ))
+			continue;
+
+		DX11_Base::UnGUI::DrawActorNickName(obj, color, fontSize);
+	}
+}
+
+void RenderNearbyPalTags(ImColor color, float distance, float fontSize)
+{
+	SDK::APalPlayerCharacter* pChar = Config.GetPalPlayerCharacter();
+	if (!pChar)
+		return;
+
+	SDK::TArray<SDK::APalCharacter*> mPals;
+	if (!Config.GetTAllPals(&mPals))
+		return;
+
+	DWORD palsCount = mPals.Count();
+	for (int i = 0; i < palsCount; i++)
+	{
+		SDK::APalCharacter* obj = mPals[i];
+		if (!obj || !obj->IsA(SDK::APalMonsterCharacter::StaticClass()))
+			continue;
+
+		if (GetDistanceToActor(pChar, obj) > (distance * 10.0f))
+			continue;
+
+		DX11_Base::UnGUI::DrawActorNickName(obj, color, fontSize);
 	}
 }
 

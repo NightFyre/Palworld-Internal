@@ -13,6 +13,10 @@ public:
 	DWORD64 offset_Tick = 0x2AD4EC0;//APalPlayerCharacter::Tick // 48 89 5C 24 ? 57 48 83 EC 60 48 8B F9 E8 ? ? ? ? 48 8B | [IDA NOTE: 2ND RESULT]
 	//check
 	bool IsESP = false;
+	bool isPalTags = false;
+	float mPALTagDistance = 5.0f;
+	bool isNPCTags = false;
+	float mNPCTagDistance = 5.0f;
 	bool IsFullbright = false;
 	bool IsForgeMode = false;
 	bool IsTeleportAllToXhair = false;
@@ -32,7 +36,8 @@ public:
 	bool matchDbItems = true;
 	bool isDebugESP = false;
 	bool bisOpenManager = false;
-	bool filterPlayer = false;
+	bool filterPlayers = false;
+	bool bSkipLocalPlayer = true;
 	bool bisRandomName = false;
 	bool bisTeleporter = false;
 	float SpeedModiflers = 1.0f;
@@ -91,6 +96,7 @@ public:
 
 	struct STargetEntity
 	{
+		//	
 		SDK::APalCharacter* pEntCharacter;
 		SDK::FVector entLocation;
 		SDK::FRotator entRotation;
@@ -99,6 +105,15 @@ public:
 		SDK::FVector entBounds;
 		bool bIsValid = false;
 
+
+		//	
+		void Clear()
+		{
+			pEntCharacter = nullptr;
+			bIsValid = false;
+		}
+
+		//	
 		STargetEntity() {};
 		STargetEntity(SDK::APalCharacter* pChar)
 		{
@@ -112,6 +127,7 @@ public:
 			bIsValid = true;
 		}
 	};
+	bool bSelectedTarget = false;
 	STargetEntity pTargetEntity;
 
 	//static function

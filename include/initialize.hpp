@@ -48,16 +48,15 @@ DWORD WINAPI MainThread_Initialize()
     ///  RENDER LOOP
     g_Running = TRUE; 
     
-    std::thread WCMUpdate(ClientBGThread); // Initialize Loops Thread
+    std::thread WCMUpdate(ClientBGThread);
     while (g_Running)
     {
-        if (g_GameData->GamePadGetKeyState(XINPUT_GAMEPAD_RIGHT_THUMB | XINPUT_GAMEPAD_LEFT_THUMB) && ((GetTickCount64() - LastTick) > 350))
+        if ((g_GameData->GamePadGetKeyState(XINPUT_GAMEPAD_RIGHT_THUMB | XINPUT_GAMEPAD_LEFT_THUMB) || GetAsyncKeyState(VK_INSERT) & 1) && ((GetTickCount64() - LastTick) > 500))
         {
-            g_GameVariables->m_ShowMenu = !g_GameVariables->m_ShowMenu;
-            g_GameVariables->m_ShowHud = !g_GameVariables->m_ShowMenu;
+            g_Menu->b_ShowMenu = !g_Menu->b_ShowMenu;
+            g_Menu->b_ShowHud = !g_Menu->b_ShowMenu;
             LastTick = GetTickCount64();
         }
-
 
         if (g_KillSwitch)
         {

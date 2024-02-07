@@ -22,7 +22,7 @@ typedef BOOL(WINAPI* hk_SetCursorPos)(int, int);
 hk_SetCursorPos origSetCursorPos = NULL;
 BOOL WINAPI HOOK_SetCursorPos(int X, int Y)
 {
-	if (DX11_Base::g_GameVariables->m_ShowMenu)
+	if (DX11_Base::g_Menu->b_ShowMenu)
 		return FALSE;
 
 	return origSetCursorPos(X, Y);
@@ -45,7 +45,7 @@ namespace DX11_Base {
 	LRESULT D3D11Window::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	{
 		//	@TODO: block gamepad messages being sent to the game when the menu is shown
-		if (g_GameVariables->m_ShowMenu) {
+		if (g_Menu->b_ShowMenu) {
 			ImGui_ImplWin32_WndProcHandler((HWND)g_D3D11Window->m_OldWndProc, msg, wParam, lParam);
 			return TRUE;
 		}
@@ -191,9 +191,11 @@ namespace DX11_Base {
 			ImGui::CreateContext();
 			ImGuiIO& io = ImGui::GetIO(); (void)io;
 			ImGui::GetIO().WantCaptureMouse || ImGui::GetIO().WantTextInput || ImGui::GetIO().WantCaptureKeyboard;
+			//	io.FontGlobalScale = 2.0f; // scale font by 100%
 			io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 			io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
 			io.IniFilename = NULL;
+			ImGui::StyleColorsDark();
 			m_Device->GetImmediateContext(&m_DeviceContext);
 
 			DXGI_SWAP_CHAIN_DESC Desc;
@@ -244,7 +246,7 @@ namespace DX11_Base {
 		ImGui_ImplDX11_NewFrame();
 		ImGui_ImplWin32_NewFrame();
 		ImGui::NewFrame();
-		ImGui::GetIO().MouseDrawCursor = g_GameVariables->m_ShowMenu;
+		ImGui::GetIO().MouseDrawCursor = g_Menu->b_ShowMenu;
 
 		//	Render Menu Loop
 		g_Menu->Draw();

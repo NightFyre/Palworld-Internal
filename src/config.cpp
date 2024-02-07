@@ -28,11 +28,17 @@ bool DetourTick(SDK::APalPlayerCharacter* m_this, float DeltaSecond)
 
     SDK::APalPlayerCharacter* pPalPlayerCharacter = m_this;
     if (!pPalPlayerCharacter)
+    {
+        Config.localPlayer = nullptr;
         return result;
+    }
 
     SDK::APalPlayerController* pPalPlayerController = pPalPlayerCharacter->GetPalPlayerController();
     if (!pPalPlayerController)
+    {
+        Config.localPlayer = nullptr;
         return result;
+    }
     
     if (pPalPlayerController->IsLocalPlayerController())
     {
@@ -40,6 +46,10 @@ bool DetourTick(SDK::APalPlayerCharacter* m_this, float DeltaSecond)
         Config.localPlayer = m_this;
         DX11_Base::g_Menu->Loops();
     }
+    else
+        Config.localPlayer = nullptr;
+        
+    
     return result;
 }   //  @CRASH: palcrack!DetourTick() [A:\Github\collab\PalWorld-NetCrack\config.cpp:45] : SPEED HACK UPON LOADING WORLD
 
