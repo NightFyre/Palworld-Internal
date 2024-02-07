@@ -119,7 +119,8 @@ public:
 		{
 			if (!pChar)
 				return;
-
+			
+			pEntCharacter = pChar;
 			entLocation = pChar->K2_GetActorLocation();
 			entRotation = pChar->K2_GetActorRotation();
 			entFwdDir = pChar->GetActorForwardVector();

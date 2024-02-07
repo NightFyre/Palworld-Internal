@@ -876,6 +876,7 @@ void RenderNearbyNPCTags(ImColor color, float distance, float fontSize)
 			continue;
 
 		DX11_Base::UnGUI::DrawActorNickName(obj, color, fontSize);
+		DX11_Base::UnGUI::DrawActor2DBoundingBox(obj, color);
 	}
 }
 
@@ -900,6 +901,7 @@ void RenderNearbyPalTags(ImColor color, float distance, float fontSize)
 			continue;
 
 		DX11_Base::UnGUI::DrawActorNickName(obj, color, fontSize);
+		DX11_Base::UnGUI::DrawActor2DBoundingBox(obj, color);
 	}
 }
 

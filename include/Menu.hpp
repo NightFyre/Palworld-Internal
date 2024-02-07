@@ -86,5 +86,6 @@ namespace DX11_Base
 	public:
 		//	CANVAS
 		static void DrawActorNickName(SDK::APalCharacter* pActor, ImColor color, float fontSize);
+		static void DrawActor2DBoundingBox(SDK::APalCharacter* pActor, ImColor color);
 	};
 }

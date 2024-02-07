@@ -86,11 +86,16 @@ namespace DX11_Base
                 ImGuiWindow* gWindow = ImGui::GetCurrentWindow();
                 float cursorX = 0.f;
 
-                ImGui::Checkbox("SpeedHack", &Config.IsSpeedHack);
+                if (ImGui::Checkbox("SpeedHack", &Config.IsSpeedHack) && !Config.IsSpeedHack)
+                {
+                    Config.SpeedModiflers = 1.0f;
+                    SpeedHack(Config.SpeedModiflers);
+                }
                 if (Config.IsSpeedHack)
                 {
                     ImGui::SameLine();
                     cursorX = gWindow->DC.CursorPos.x += 10.f;
+                    ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
                     ImGui::SliderFloat("##SpeedModifilers", &Config.SpeedModiflers, 1, 10);
                 }
                 else
@@ -106,6 +111,7 @@ namespace DX11_Base
                 {
                     ImGui::SameLine();
                     gWindow->DC.CursorPos.x = cursorX;
+                    ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
                     ImGui::SliderInt("##AttackModifilers", &Config.DamageUp, 0, 200000);
                 }
                 gWindow->DC.CursorPos.y += 5.f;
@@ -115,6 +121,7 @@ namespace DX11_Base
                 {
                     ImGui::SameLine();
                     gWindow->DC.CursorPos.x = cursorX;
+                    ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
                     ImGui::SliderInt("##defenseModifilers", &Config.DefuseUp, 0, 200000);
                 }
                 gWindow->DC.CursorPos.y += 5.f;
@@ -234,14 +241,21 @@ namespace DX11_Base
                     }
                 }*/
 
-                ImGui::Checkbox("PAL TAGS", &Config.isPalTags);
-                gWindow->DC.CursorPos.y += 5.f;
-
-                ImGui::Checkbox("NPC TAGS", &Config.isNPCTags);
-                gWindow->DC.CursorPos.y += 5.f;
 
                 if (ImGui::Checkbox("FULL BRIGHT", &Config.IsFullbright))
                     SetFullbright(Config.IsFullbright);
+                gWindow->DC.CursorPos.y += 5.f;
+
+                ImGui::Checkbox("PAL TAGS", &Config.isPalTags);
+                ImGui::SameLine();
+                ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
+                ImGui::SliderFloat("##PAL_DISTANCE", &Config.mPALTagDistance, 1.0f, 10.0f, "%.0f");
+                gWindow->DC.CursorPos.y += 5.f;
+
+                ImGui::Checkbox("NPC TAGS", &Config.isNPCTags);
+                ImGui::SameLine();
+                ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
+                ImGui::SliderFloat("##NPC_DISTANCE", &Config.mNPCTagDistance, 1.0f, 10.0f, "%.0f");
 
                 ImGui::EndChild();
             }
@@ -400,7 +414,7 @@ namespace DX11_Base
                     ImGui::SeparatorText("ENTITIES");
                     if (ImGui::BeginChild("ENTS CHILD WINDOW"))
                     {
-                        if (!Config.pTargetEntity.bIsValid)
+                        if (!Config.bSelectedTarget)
                         {
 
 
@@ -496,13 +510,13 @@ namespace DX11_Base
                         {
                             //  Name
                             SDK::APalPlayerCharacter* pLocalPlayerChar = Config.GetPalPlayerCharacter();
-                            config::STargetEntity& pTarget = Config.pTargetEntity;
+                            config::STargetEntity pTarget = Config.pTargetEntity;
                             if (pLocalPlayerChar && pTarget.bIsValid)
                             {
                                 SDK::APalCharacter* entChar = pTarget.pEntCharacter;
                                 std::string sname;
                                 GetActorNickName(entChar, &sname);
-                                UnGUI::TextCenteredf("%f", sname.c_str());
+                                UnGUI::TextCenteredf("%s", sname.c_str());
 
                                 //  Position
                                 SDK::FVector location = pTarget.entLocation;
@@ -526,18 +540,14 @@ namespace DX11_Base
 
                                 //  Class Name
                                 std::string czClassName = pTarget.pEntCharacter->GetFullName();
-                                ImGui::Text("DIST: %f", czClassName.c_str());
-                                ImGui::Text("");
-
-
-
-
+                                ImGui::Text("CLASS NAME: %s", czClassName.c_str());
 
                                 if (ImGui::Button("CLEAR TARGET"))
+                                {
                                     Config.pTargetEntity.Clear();
+                                    Config.bSelectedTarget = false;
+                                }
                             }
-                            else if (pTarget.pEntCharacter && pTarget.bIsValid)
-                                Config.pTargetEntity.Clear();
                         }
                         
                         ImGui::EndChild();
@@ -981,6 +991,9 @@ namespace DX11_Base
 
         if (Config.IsGodMode)
             SetPlayerHealth(INT_MAX);
+
+        if (Config.IsInfinAmmo)
+            SetInfiniteAmmo(Config.IsInfinAmmo);
     }
 
 
@@ -1068,7 +1081,25 @@ namespace DX11_Base
             return;
 
         std::string actorName;
-        if (GetActorNickName(pActor, &actorName))
+        SDK::FVector2D screenName;
+        SDK::FVector location = SDK::FVector(actorTrans.origin.X, actorTrans.origin.Y - actorTrans.bounds.Y, actorTrans.origin.Z);
+        if (/*WorldToScreen(location, &screenName) && */GetActorNickName(pActor, &actorName))
             DrawTextCentered(ImVec2(actorTrans.screenOrigin.X, actorTrans.screenOrigin.Y), color, actorName.c_str(), fontSize);
+    }
+
+    void UnGUI::DrawActor2DBoundingBox(SDK::APalCharacter* pActor, ImColor color)
+    {
+        if (!pActor)
+            return;
+
+        STransforms actorTrans = STransforms(pActor);
+        if (!actorTrans.bOnScreen)
+            return;
+
+        SDK::FVector Min = actorTrans.origin - actorTrans.bounds;
+        SDK::FVector Max = actorTrans.origin + actorTrans.bounds;
+        SDK::FVector2D screenMin, screenMax;
+        if (WorldToScreen(Min, &screenMin) && WorldToScreen(Max, &screenMax))
+            ImGui::GetWindowDrawList()->AddRect(ImVec2(screenMin.X, screenMin.Y), ImVec2(screenMax.X, screenMax.Y), color);
     }
 }
