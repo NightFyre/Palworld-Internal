@@ -11,7 +11,7 @@ class config
 public:
 	//offsets
 	DWORD64 ClientBase = 0;
-	DWORD64 offset_Tick = 0x29913B0;//APalPlayerCharacter::Tick // 48 89 5C 24 ? 57 48 83 EC 60 48 8B F9 E8 ? ? ? ? 48 8B | [IDA NOTE: 2ND RESULT]
+	DWORD64 offset_Tick = 0x2997B30;//APalPlayerCharacter::Tick // 48 89 5C 24 ? 57 48 83 EC 60 48 8B F9 E8 ? ? ? ? 48 8B | [IDA NOTE: 2ND RESULT]
 	//check
 	bool IsESP = false;
 	bool IsFullbright = false;
