@@ -220,7 +220,7 @@ void AnyWhereTP(FVector& vector, bool IsSafe)
 	if (!pPalPlayerController || !pPalPlayerState)
 		return;
 
-	vector = { vector.X,vector.Y + 100,vector.Z };
+	//	vector = { vector.X,vector.Y + 100,vector.Z };
 	FGuid guid = pPalPlayerController->GetPlayerUId();
 	pPalPlayerController->Transmitter->Player->RegisterRespawnLocation_ToServer(guid, vector);
 	pPalPlayerState->RequestRespawn();
@@ -503,7 +503,7 @@ void SetCraftingSpeed(float mNewSpeed, bool bRestoreDefault)
 }
 
 //	credit: emoisback
-void ApplyStatusBuf(APalCharacter* pChar, EPalStatusID newStatus)
+void ApplyStatusBuff(APalCharacter* pChar, EPalStatusID newStatus)
 {
 	if (!pChar)
 		return;
@@ -654,7 +654,7 @@ bool GetItemName(APalMapObject* pMap, std::string* outName)
 	UPalMapObjectModel* pModel = pMap->GetModel();
 	if (!pModel)
 		return false;
-	
+
 	*outName = pModel->MapObjectMasterDataId.ToString();
 	return true;
 }
@@ -805,13 +805,36 @@ void AddWaypointLocation(std::string wpName)
 
 	FVector wpLocation = pPalCharacater->K2_GetActorLocation();
 	FRotator wpRotation = pPalCharacater->K2_GetActorRotation();
-	config::SWaypoint newWaypoint = config::SWaypoint("[WAYPOINT]" + wpName, wpLocation, wpRotation);
+	config::SWaypoint newWaypoint = config::SWaypoint("[WAYPOINT] " + wpName, wpLocation, wpRotation);
 	Config.db_waypoints.push_back(newWaypoint);
+}
+
+bool RemoveWaypointLocationByName(std::string wpName)
+{
+	for (auto obj = Config.db_waypoints.begin(); obj != Config.db_waypoints.end(); )
+	{
+		if (obj->waypointName != wpName)
+			continue;
+
+		obj = Config.db_waypoints.erase(obj);
+		return true;
+	}
+	return false;
+}
+
+bool RemoveWaypointLocationByIndex(__int32 wpIndex)
+{
+	if (wpIndex < Config.db_waypoints.size()) 
+	{
+		Config.db_waypoints.erase(Config.db_waypoints.begin() + wpIndex);
+		return true;
+	}
+	return false;
 }
 
 // credit: xCENTx
 //	must be called from a rendering thread with imgui context
-void RenderWaypointsToScreen()
+void RenderWaypointsToScreen(float fontSize)
 {
 	APalCharacter* pPalCharacater = Config.GetPalPlayerCharacter();
 	APalPlayerController* pPalController = Config.GetPalPlayerController();
@@ -828,7 +851,57 @@ void RenderWaypointsToScreen()
 
 		auto color = ImColor(1.0f, 1.0f, 1.0f, 1.0f);
 
-		draw->AddText(ImVec2( vScreen.X, vScreen.Y ), color, waypoint.waypointName.c_str());
+		DX11_Base::UnGUI::DrawTextCentered(ImVec2(vScreen.X, vScreen.Y), color, waypoint.waypointName.c_str(), fontSize);
+	}
+}
+
+void RenderNearbyNPCTags(ImColor color, float distance, float fontSize)
+{
+	SDK::APalPlayerCharacter* pChar = Config.GetPalPlayerCharacter();
+	if (!pChar)
+		return;
+
+	SDK::TArray<SDK::APalCharacter*> mNPCs;
+	if (!Config.GetTAllNPC(&mNPCs))
+		return;
+
+	DWORD palsCount = mNPCs.Count();
+	for (int i = 0; i < palsCount; i++)
+	{
+		SDK::APalCharacter* obj = mNPCs[i];
+		if (!obj || !obj->IsA(SDK::APalCharacter::StaticClass()) || obj->IsA(SDK::APalMonsterCharacter::StaticClass()))
+			continue;
+
+		if (GetDistanceToActor(pChar, obj) > ( distance * 10.0f ))
+			continue;
+
+		DX11_Base::UnGUI::DrawActorNickName(obj, color, fontSize);
+		DX11_Base::UnGUI::DrawActor2DBoundingBox(obj, color);
+	}
+}
+
+void RenderNearbyPalTags(ImColor color, float distance, float fontSize)
+{
+	SDK::APalPlayerCharacter* pChar = Config.GetPalPlayerCharacter();
+	if (!pChar)
+		return;
+
+	SDK::TArray<SDK::APalCharacter*> mPals;
+	if (!Config.GetTAllPals(&mPals))
+		return;
+
+	DWORD palsCount = mPals.Count();
+	for (int i = 0; i < palsCount; i++)
+	{
+		SDK::APalCharacter* obj = mPals[i];
+		if (!obj || !obj->IsA(SDK::APalMonsterCharacter::StaticClass()))
+			continue;
+
+		if (GetDistanceToActor(pChar, obj) > (distance * 10.0f))
+			continue;
+
+		DX11_Base::UnGUI::DrawActorNickName(obj, color, fontSize);
+		DX11_Base::UnGUI::DrawActor2DBoundingBox(obj, color);
 	}
 }
 

@@ -4,7 +4,7 @@ namespace DX11_Base {
 	Hooking::Hooking()
 	{
 		MH_Initialize();
-#if DEBUG
+#if CONSOLE_OUTPUT
 		g_Console->printdbg("Hooking::Initialized\n", Console::Colors::pink);
 #endif
 		return;
@@ -21,7 +21,7 @@ namespace DX11_Base {
 		g_D3D11Window->Hook();
 		Config.Init();
 		MH_EnableHook(MH_ALL_HOOKS);
-#if DEBUG
+#if CONSOLE_OUTPUT
 		g_Console->printdbg("Hooking::Hook Initialized\n", Console::Colors::green);
 #endif
 		return;

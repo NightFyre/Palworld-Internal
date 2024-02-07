@@ -1,6 +1,5 @@
-#include "pch.h"
+#include "../pch.h"
 #include "include/config.h"
-#include <algorithm>
 #include "include/Menu.hpp"
 
 config Config;
@@ -29,11 +28,17 @@ bool DetourTick(SDK::APalPlayerCharacter* m_this, float DeltaSecond)
 
     SDK::APalPlayerCharacter* pPalPlayerCharacter = m_this;
     if (!pPalPlayerCharacter)
+    {
+        Config.localPlayer = nullptr;
         return result;
+    }
 
     SDK::APalPlayerController* pPalPlayerController = pPalPlayerCharacter->GetPalPlayerController();
     if (!pPalPlayerController)
+    {
+        Config.localPlayer = nullptr;
         return result;
+    }
     
     if (pPalPlayerController->IsLocalPlayerController())
     {
@@ -41,8 +46,28 @@ bool DetourTick(SDK::APalPlayerCharacter* m_this, float DeltaSecond)
         Config.localPlayer = m_this;
         DX11_Base::g_Menu->Loops();
     }
+    else
+        Config.localPlayer = nullptr;
+        
+    
     return result;
 }   //  @CRASH: palcrack!DetourTick() [A:\Github\collab\PalWorld-NetCrack\config.cpp:45] : SPEED HACK UPON LOADING WORLD
+
+//  credit: liquidace
+bool config::InGame()
+{
+    SDK::UWorld* pWorld = Config.gWorld;
+    SDK::UPalUtility* pUtility = Config.pPalUtility;
+    if (!pWorld || !pUtility)
+        return false;
+
+    SDK::APalGameStateInGame* pGameState = pUtility->GetPalGameStateInGame(pWorld);
+    if (!pGameState)
+        return false;
+
+    return pGameState->MaxPlayerNum >= 1;
+}
+
 SDK::UWorld* config::GetUWorld()
 {
     static uint64_t gworld_ptr = 0;
@@ -130,21 +155,6 @@ SDK::APalWeaponBase* config::GetPlayerEquippedWeapon()
         return nullptr;
 
     return pWeaponInventory->HasWeapon;
-}
-
-//  credit: liquidace
-bool config::InGame()
-{
-    SDK::UWorld* pWorld = Config.gWorld;
-    SDK::UPalUtility* pUtility = Config.pPalUtility;
-    if (!pWorld || !pUtility)
-        return false;
-
-    SDK::APalGameStateInGame* pGameState = pUtility->GetPalGameStateInGame(pWorld);
-    if (!pGameState)
-        return false;
-
-    return pGameState->MaxPlayerNum >= 1;
 }
 
 bool config::GetTAllPlayers(SDK::TArray<class SDK::APalCharacter*>* outResult)

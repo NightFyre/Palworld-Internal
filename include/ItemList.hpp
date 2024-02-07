@@ -340,7 +340,7 @@ namespace itemlist
         "Blueprint_Launcher_Default_4|Blueprint Rocket Launcher(Epic)",
         "Blueprint_Launcher_Default_5|Blueprint Rocket Launcher(Legendary)",
     };
-    
+
     const auto craftingmaterials =
     {
         "PalCrystal_Ex|Ancient Civilization Parts",
@@ -650,10 +650,10 @@ namespace itemlist
     {
         "Shield_01|Common Shield",
         "TreasureBoxKey01|Copper Key",
-        "Glider_Super|Giga Glider",
+        "Glider_Super|Super Glider",
         "Shield_03|Giga Shield",
         "TreasureBoxKey03|Golden Key",
-        "Glider_Legendary|HyperGlider",
+        "Glider_Legendary|Legendary Glider",
         "Lantern|Hip Lantern",
         "Shield_04|HyperShield",
         "Torch|Hand-held Torch",
@@ -662,7 +662,7 @@ namespace itemlist
         "Glider_Good|Mega Glider",
         "Shield_02|Mega Shield",
         "MeatCutterKnife|Meat Cleaver",
-        "Glider_Old|Normal Parachute",
+        "Glider_Old|Normal Glider",
         "Axe_Tier_02|Refined Metal Ax",
         "Pickaxe_Tier_02|Refined Metal Pickaxe",
         "RepairKit|Repair Kit",

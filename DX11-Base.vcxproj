@@ -183,6 +183,7 @@
     <ClInclude Include="include\Hooking.hpp" />
     <ClInclude Include="include\initialize.hpp" />
     <ClInclude Include="include\ItemList.hpp" />
+    <ClInclude Include="include\memory.h" />
     <ClInclude Include="include\Menu.hpp" />
     <ClInclude Include="libs\ImGui\imconfig.h" />
     <ClInclude Include="libs\ImGui\imgui.h" />
@@ -203,7 +204,6 @@
     <ClInclude Include="libs\MinHook\table32.h" />
     <ClInclude Include="libs\MinHook\table64.h" />
     <ClInclude Include="libs\MinHook\trampoline.h" />
-    <ClInclude Include="libs\utils\memory.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -286,14 +286,16 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="libs\utils\memory.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\config.cpp" />
+    <ClCompile Include="src\config.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">../pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">../pch.h</PrecompiledHeaderFile>
+    </ClCompile>
     <ClCompile Include="src\Console.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../pch.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../pch.h</PrecompiledHeaderFile>
@@ -319,6 +321,7 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">../pch.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">../pch.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="src\memory.cpp" />
     <ClCompile Include="src\Menu.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../pch.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../pch.h</PrecompiledHeaderFile>

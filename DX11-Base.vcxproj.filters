@@ -105,9 +105,6 @@
     <ClInclude Include="libs\MinHook\trampoline.h">
       <Filter>Resource Files\MinHook</Filter>
     </ClInclude>
-    <ClInclude Include="libs\utils\memory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\database.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -122,6 +119,9 @@
     </ClInclude>
     <ClInclude Include="include\config.h">
       <Filter>Header Files\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\memory.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -185,13 +185,13 @@
     <ClCompile Include="libs\MinHook\trampoline.c">
       <Filter>Resource Files\MinHook</Filter>
     </ClCompile>
-    <ClCompile Include="libs\utils\memory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\config.cpp">
       <Filter>Source Files\Class</Filter>
     </ClCompile>
     <ClCompile Include="src\feature.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\memory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
