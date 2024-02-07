@@ -4,10 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NetCrack-PalWorld", "DX11-Base.vcxproj", "{EB52DDF1-EFC4-4222-9D86-6918D4D891A5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{202F0C63-0183-4CE5-AAB4-4ABD2EA773D9} = {202F0C63-0183-4CE5-AAB4-4ABD2EA773D9}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PalworldSDK", "libs\SDKLibrary\PalworldSDK.vcxproj", "{202F0C63-0183-4CE5-AAB4-4ABD2EA773D9}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PalLauncher", "libs\Launcher\PalLauncher.vcxproj", "{D2AD484E-A628-4BAD-9AF0-904DBB5A23F7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{202F0C63-0183-4CE5-AAB4-4ABD2EA773D9} = {202F0C63-0183-4CE5-AAB4-4ABD2EA773D9}
+		{EB52DDF1-EFC4-4222-9D86-6918D4D891A5} = {EB52DDF1-EFC4-4222-9D86-6918D4D891A5}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

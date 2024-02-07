@@ -561,7 +561,7 @@ namespace DX11_Base
 
         void TABTeleportManager()
         {
-            if (ImGui::BeginChild("CHILD WINDOW", ImVec2(0.f, 300.f)))
+            if (ImGui::BeginChild("CHILD WINDOW", ImVec2(0.0f, 200.0f), ImGuiChildFlags_AutoResizeY | ImGuiChildFlags_Border))
             {
                 ImGuiWindow* gWindow = ImGui::GetCurrentWindow();
                 float cursorX = 0.f;
@@ -581,22 +581,43 @@ namespace DX11_Base
                     AnyWhereTP(vector, Config.IsSafe);
                 }
 
-
-                if (ImGui::CollapsingHeader("BOSS LOCATIONS"))
+                
+                static int selected_boss = 0;
+                static std::vector<const char*> boss_locations;
+                if (boss_locations.size() <= 0)
                 {
                     for (const auto& pair : database::locationMap)
-                    {
-                        const std::string& locationName = pair.first;
-                        if (ImGui::Button(locationName.c_str(), ImVec2(0, 40.f)))
-                        {
-                            SDK::FVector location = SDK::FVector(pair.second[0], pair.second[1], pair.second[2]);
-                            AnyWhereTP(location, Config.IsSafe);
-                        }
-                    }
+                        boss_locations.push_back(pair.first.c_str());
                 }
 
+                ImGui::Combo("##BOSS LOCATIONS", &selected_boss, boss_locations.data(), static_cast<int>(boss_locations.size()));
+                ImGui::SameLine();
+                if (ImGui::Button("TELEPORT TO BOSS", ImVec2(ImGui::GetContentRegionAvail().x, 40.f)))
+                {
+                    auto pair = database::locationMap.find(boss_locations[selected_boss]);
+                    SDK::FVector location = SDK::FVector(pair->second[0], pair->second[1], pair->second[2]);
+                    AnyWhereTP(location, Config.IsSafe);
+                }
 
-                ImGui::Separator();
+                //  if (ImGui::CollapsingHeader("BOSS LOCATIONS"))
+                //  {
+                //      for (const auto& pair : database::locationMap)
+                //      {
+                //          const std::string& locationName = pair.first;
+                //          if (ImGui::Button(locationName.c_str(), ImVec2(0, 40.f)))
+                //          {
+                //              SDK::FVector location = SDK::FVector(pair.second[0], pair.second[1], pair.second[2]);
+                //              AnyWhereTP(location, Config.IsSafe);
+                //          }
+                //      }
+                //  }
+                ImGui::EndChild();
+            }
+
+            if (ImGui::BeginChild("WAYPOINT MANAGER", ImVec2(0.0f, 100.0f)))
+            {
+                ImGuiWindow* gWindow = ImGui::GetCurrentWindow();
+                float cursorX = 0.f;
 
                 ImGui::InputTextWithHint("##INPUT_SETWAYPOINT", "CUSTOM WAYPOINT NAME", inputBuffer_setWaypoint, 32);
                 ImGui::SameLine();
@@ -609,22 +630,20 @@ namespace DX11_Base
                         memset(inputBuffer_setWaypoint, 0, 32);
                     }
                 }
+
+                ImGui::SeparatorText("CUSTOM WAYPOINTS");
                 if (Config.db_waypoints.size() > 0)
                 {
-                    if (ImGui::BeginChild("##CHILD_WAYPOINTS"))
+                    DWORD index = -1;
+                    for (auto waypoint : Config.db_waypoints)
                     {
-                        DWORD index = -1;
-                        for (auto waypoint : Config.db_waypoints)
-                        {
-                            index++;
-                            ImGui::PushID(index);
-                            //  ImGui::Checkbox("SHOW", &waypoint.bIsShown);
-                            //  ImGui::SameLine();
-                            if (ImGui::Button(waypoint.waypointName.c_str(), ImVec2(ImGui::GetContentRegionAvail().x, 40.f)))
-                                AnyWhereTP(waypoint.waypointLocation, false);
-                            ImGui::PopID();
-                        }
-                        ImGui::EndChild();
+                        index++;
+                        ImGui::PushID(index);
+                        //  ImGui::Checkbox("SHOW", &waypoint.bIsShown);
+                        //  ImGui::SameLine();
+                        if (ImGui::Button(waypoint.waypointName.c_str(), ImVec2(ImGui::GetContentRegionAvail().x, 40.f)))
+                            AnyWhereTP(waypoint.waypointLocation, false);
+                        ImGui::PopID();
                     }
                 }
 
@@ -670,11 +689,11 @@ namespace DX11_Base
             ImGui::Separator();
             ImGui::Spacing();
 
-            ImGui::Checkbox("Quick Settings Tab", &Config.IsQuick);
             ImGui::Checkbox("SHOW IMGUI DEMO", &g_Menu->b_ShowDemoWindow);
             ImGui::Checkbox("SHOW STYLE EDITOR", &g_Menu->b_ShowStyleEditor);
-            //ImGui::Checkbox("Entity Manager Tab", &Config.bisOpenManager);
-            //ImGui::Checkbox("Teleport Manager Tab", &Config.bisTeleporter);
+            //  ImGui::Checkbox("Quick Settings Tab", &Config.IsQuick);
+            //  ImGui::Checkbox("Entity Manager Tab", &Config.bisOpenManager);
+            //  ImGui::Checkbox("Teleport Manager Tab", &Config.bisTeleporter);
 
             ImGui::Spacing();
             ImGui::Separator();
@@ -874,6 +893,11 @@ namespace DX11_Base
                 Tabs::TABTeleportManager();
                 ImGui::EndTabItem();
             }
+            if (ImGui::BeginTabItem("QUICK"))
+            {
+                Tabs::TABQuick();
+                ImGui::EndTabItem();
+            }
             //  if (Config.bisOpenManager && ImGui::BeginTabItem("Entity Manager"))
             //  {
             //      Tabs::TABTeleportManager();
@@ -884,11 +908,11 @@ namespace DX11_Base
             //      Tabs::TABTeleportManager();
             //      ImGui::EndTabItem();
             //  }
-            if (Config.IsQuick && ImGui::BeginTabItem("QUICK"))
-            {
-                Tabs::TABQuick();
-                ImGui::EndTabItem();
-            }
+            //  if (Config.IsQuick && ImGui::BeginTabItem("QUICK"))
+            //  {
+            //      Tabs::TABQuick();
+            //      ImGui::EndTabItem();
+            //  }
             if (ImGui::BeginTabItem("CONFIG"))
             {
                 Tabs::TABConfig();

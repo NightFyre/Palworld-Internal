@@ -32,7 +32,9 @@ namespace DX11_Base {
 		g_D3D11Window->Unhook();
 		MH_DisableHook((Tick)(Config.ClientBase + Config.offset_Tick));
 		MH_RemoveHook((Tick)(Config.ClientBase + Config.offset_Tick));
+#if CONSOLE_OUTPUT
 		g_Console->DestroyConsole();
+#endif
 		g_Running = FALSE;
 		return;
 	}
