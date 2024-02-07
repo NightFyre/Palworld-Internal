@@ -3,6 +3,10 @@
 > **THIS IS THE STEAMDECK VERSION**
 ## 
 
+<p align="center">
+<img src="https://github.com/NightFyre/Palworld-Internal/assets/80198020/dc552cca-b177-4748-ba30-fe99f6b87b74">
+</p>
+
 <Details>  
   <Summary>FEATURES</Summary>  
   
