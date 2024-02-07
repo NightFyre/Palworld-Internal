@@ -3,15 +3,30 @@
 namespace DX11_Base {
 	GameData::GameData()
 	{
-#if DEBUG
+#if CONSOLE_OUTPUT
 		g_Console->printdbg("GameData::Initialized\n", Console::Colors::pink);
 #endif
 		return;
 	}
+	
+	bool GameData::GamePadGetKeyState(WORD combinationButtons)
+	{
+		XINPUT_STATE state;
+		ZeroMemory(&state, sizeof(XINPUT_STATE));
+		DWORD result = XInputGetState(0, &state);
+		if (result == ERROR_SUCCESS)
+		{
+			if ((state.Gamepad.wButtons & combinationButtons) == combinationButtons)
+				return true;
+		}
+		return false;
+	}
+
+
 
 	GameVariables::GameVariables()
 	{
-#if DEBUG
+#if CONSOLE_OUTPUT
 		g_Console->printdbg("GameVariables::Initialized\n", Console::Colors::pink);
 #endif
 		return;
@@ -40,8 +55,9 @@ namespace DX11_Base {
 		char tempPath[MAX_PATH];
 		GetModuleFileNameExA(g_GameHandle, NULL, tempPath, sizeof(tempPath));
 		g_GamePath = tempPath;
-#if DEBUG
+#if CONSOLE_OUTPUT
 		g_Console->printdbg("GameData::Init - Process Window Info Established\n", Console::Colors::pink);
 #endif
 	}
+
 }

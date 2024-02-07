@@ -1,12 +1,16 @@
 #pragma once
 #include "helper.h"
 #include "Console.hpp"
+#include "feature.h"
 
-namespace DX11_Base {
+namespace DX11_Base 
+{
 	class GameData
 	{
 	public:
+		bool GamePadGetKeyState(WORD combinationButtons);
 
+	public:
 		explicit GameData();
 		~GameData() noexcept = default;
 		GameData(GameData const&) = delete;
@@ -31,9 +35,6 @@ namespace DX11_Base {
 		LPCSTR g_GamePath;
 
 		//	MENU RELATED
-		bool m_ShowMenu{};
-		bool m_ShowHud{};
-		bool m_ShowDemo{};
 
 		explicit GameVariables();
 		~GameVariables() noexcept = default;

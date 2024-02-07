@@ -1,6 +1,5 @@
 #pragma once
-#include <Windows.h>
-#include "libs/utils/memory.h"
+#include "memory.h"
 #include "database.h"
 #include "ItemList.hpp"
 
@@ -11,9 +10,13 @@ class config
 public:
 	//offsets
 	DWORD64 ClientBase = 0;
-	DWORD64 offset_Tick = 0x2AD4EC0;//APalPlayerCharacter::Tick // 48 89 5C 24 ? 57 48 83 EC 60 48 8B F9 E8 ? ? ? ? 48 8B | [IDA NOTE: 2ND RESULT]
+	DWORD64 offset_Tick = 0x2AA95B0;//APalPlayerCharacter::Tick // 48 89 5C 24 ? 57 48 83 EC 60 48 8B F9 E8 ? ? ? ? 48 8B | [IDA NOTE: 2ND RESULT]
 	//check
 	bool IsESP = false;
+	bool isPalTags = false;
+	float mPALTagDistance = 5.0f;
+	bool isNPCTags = false;
+	float mNPCTagDistance = 5.0f;
 	bool IsFullbright = false;
 	bool IsForgeMode = false;
 	bool IsTeleportAllToXhair = false;
@@ -33,7 +36,8 @@ public:
 	bool matchDbItems = true;
 	bool isDebugESP = false;
 	bool bisOpenManager = false;
-	bool filterPlayer = false;
+	bool filterPlayers = false;
+	bool bSkipLocalPlayer = true;
 	bool bisRandomName = false;
 	bool bisTeleporter = false;
 	float SpeedModiflers = 1.0f;
@@ -51,6 +55,10 @@ public:
 	char inputTextBuffer[255] = "";
 	SDK::UWorld* gWorld = nullptr;
 	SDK::APalPlayerCharacter* localPlayer = NULL;
+	SDK::UPalPlayerInventoryData* pPlayerInventory = 0;
+	SDK::APalWeaponBase* pPlayerWeapon = 0;
+	SDK::UPalUtility* pPalUtility = 0;
+	SDK::UKismetStringLibrary* kString = 0;
 	SDK::TArray<SDK::APalPlayerCharacter*> AllPlayers = {};
 	SDK::UPalCharacterImportanceManager* UCIM = NULL;
 	SDK::UObject* WorldContextObject = NULL;
@@ -88,6 +96,7 @@ public:
 
 	struct STargetEntity
 	{
+		//	
 		SDK::APalCharacter* pEntCharacter;
 		SDK::FVector entLocation;
 		SDK::FRotator entRotation;
@@ -96,12 +105,22 @@ public:
 		SDK::FVector entBounds;
 		bool bIsValid = false;
 
+
+		//	
+		void Clear()
+		{
+			pEntCharacter = nullptr;
+			bIsValid = false;
+		}
+
+		//	
 		STargetEntity() {};
 		STargetEntity(SDK::APalCharacter* pChar)
 		{
 			if (!pChar)
 				return;
-
+			
+			pEntCharacter = pChar;
 			entLocation = pChar->K2_GetActorLocation();
 			entRotation = pChar->K2_GetActorRotation();
 			entFwdDir = pChar->GetActorForwardVector();
@@ -109,9 +128,11 @@ public:
 			bIsValid = true;
 		}
 	};
+	bool bSelectedTarget = false;
 	STargetEntity pTargetEntity;
 
 	//static function
+	static bool InGame();
 	static SDK::UWorld* GetUWorld();
 	static SDK::UPalCharacterImportanceManager* GetCharacterImpManager();
 	static SDK::ULocalPlayer* GetLocalPlayer();
@@ -119,7 +140,7 @@ public:
 	static SDK::APalPlayerController* GetPalPlayerController();
 	static SDK::APalPlayerState* GetPalPlayerState();
 	static SDK::UPalPlayerInventoryData* GetInventoryComponent();
-	static SDK::APalWeaponBase* GetPlayerEquippedWeapon();
+	static SDK::APalWeaponBase* GetPlayerEquippedWeapon();	
 	static bool	GetTAllPlayers(SDK::TArray<class SDK::APalCharacter*>* outResult);
 	static bool	GetTAllImpNPC(SDK::TArray<class SDK::APalCharacter*>* outResult);
 	static bool	GetTAllNPC(SDK::TArray<class SDK::APalCharacter*>* outResult);

@@ -18,10 +18,15 @@
 #include <thread>
 #include <vector>
 #include <chrono>
+#include <algorithm>
 
 // DIRECTX
 #include <d3d11.h>
 #pragma comment(lib, "d3d11.lib")
+
+//	GAMEPAD
+#include <XInput.h>
+#pragma comment(lib, "XInput.lib")
 
 //	INTERNET
 #include <Wininet.h>
