@@ -33,10 +33,43 @@ namespace DX11_Base
 
     namespace Styles 
     {
+        //  Hides the Dear ImGui Navigation Interface ( Windowing Mode ) 
+        //  Very annoying when drawing on the canvas and gamepad input is enabled.
+        // @TODO: Disable ImGui Navigation
+        void SetNavigationMenuViewState(bool bShow)
+        {
+            ImVec4* colors = ImGui::GetStyle().Colors;
+            switch (bShow)
+            {
+                case true:
+                {
+                    //  Show Navigation Panel | Default ImGui Dark Style
+                    //  Perhaps just call InitStyle() ?
+                    colors[ImGuiCol_Text]                   = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
+                    colors[ImGuiCol_WindowBg]               = ImVec4(0.06f, 0.06f, 0.06f, 0.94f);
+                    colors[ImGuiCol_Border]                 = ImVec4(0.43f, 0.43f, 0.50f, 0.50f);
+                    colors[ImGuiCol_NavHighlight]           = ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
+                    colors[ImGuiCol_NavWindowingHighlight]  = ImVec4(1.00f, 1.00f, 1.00f, 0.70f);
+                    colors[ImGuiCol_NavWindowingDimBg]      = ImVec4(0.80f, 0.80f, 0.80f, 0.20f);
+                }break;
+                case false:
+                {
+                    //  Hide Navigation Panel
+                    colors[ImGuiCol_Text]                   = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                    colors[ImGuiCol_WindowBg]               = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                    colors[ImGuiCol_Border]                 = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                    colors[ImGuiCol_NavHighlight]           = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                    colors[ImGuiCol_NavWindowingHighlight]  = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                    colors[ImGuiCol_NavWindowingDimBg]      = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                }break;
+            }
+        }
+        
         void InitStyle()
         {
             ImGuiStyle& style = ImGui::GetStyle();
             ImVec4* colors = ImGui::GetStyle().Colors;
+            ImGui::StyleColorsDark();
 
             //	STYLE PROPERTIES
             style.WindowTitleAlign = ImVec2(0.5f, 0.5f);
@@ -825,13 +858,16 @@ namespace DX11_Base
 		if (b_ShowMenu)
 			MainMenu();
 
-		if (b_ShowHud)
-			HUD(&b_ShowHud);
+        if (b_ShowHud && !b_ShowMenu)
+        {
+            Styles::SetNavigationMenuViewState(false);
+            HUD(&b_ShowHud);
+        }
 
-		if (b_ShowDemoWindow)
+		if (b_ShowDemoWindow && b_ShowMenu)
 			ImGui::ShowDemoWindow();
 
-        if (b_ShowStyleEditor)
+        if (b_ShowStyleEditor && b_ShowMenu)
             ImGui::ShowStyleEditor();
 	}
 
@@ -939,13 +975,13 @@ namespace DX11_Base
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.00f, 0.00f, 0.00f, 0.00f));
         if (!ImGui::Begin("##HUDWINDOW", (bool*)true, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoInputs))
         {
-            ImGui::PopStyleColor();
             ImGui::PopStyleVar();
+            ImGui::PopStyleColor();
             ImGui::End();
             return;
         }
-        ImGui::PopStyleColor();
         ImGui::PopStyleVar();
+        ImGui::PopStyleColor();
 
         auto ImDraw = ImGui::GetWindowDrawList();
         auto draw_size = g_D3D11Window->pViewport->WorkSize;
@@ -974,6 +1010,8 @@ namespace DX11_Base
         if (Config.isDebugESP)
             ESP_DEBUG(Config.mDebugESPDistance);
 #endif
+
+
 
         ImGui::End();
 	}
