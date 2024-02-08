@@ -62,6 +62,9 @@ namespace DX11_Base
 
             style.SeparatorTextBorderSize = 6.0f;
 
+            colors[ImGuiCol_NavWindowingHighlight] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+            colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+
             if (g_Menu->dbg_RAINBOW_THEME) 
             {
                 //  RGB MODE STLYE PROPERTIES
@@ -938,7 +941,7 @@ namespace DX11_Base
         ImGui::SetNextWindowSize(g_D3D11Window->pViewport->WorkSize);
         ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, NULL);
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.00f, 0.00f, 0.00f, 0.00f));
-        if (!ImGui::Begin("##HUDWINDOW", (bool*)true, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoInputs))
+        if (!ImGui::Begin("##HUDWINDOW", (bool*)true, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_NoNavFocus))
         {
             ImGui::PopStyleColor();
             ImGui::PopStyleVar();
