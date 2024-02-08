@@ -14,9 +14,11 @@ public:
 	//check
 	bool IsESP = false;
 	bool isPalTags = false;
-	float mPALTagDistance = 5.0f;
+	bool isPalTags2DBox = false;
+	float mPALTagDistance = 5.0f;		//	x 10.f
 	bool isNPCTags = false;
-	float mNPCTagDistance = 5.0f;
+	bool isNPCTags2Dbox = false;
+	float mNPCTagDistance = 5.0f;		//	x 10.f
 	bool IsFullbright = false;
 	bool IsForgeMode = false;
 	bool IsTeleportAllToXhair = false;
@@ -76,8 +78,6 @@ public:
 	};
 	//Filtered Items
 	std::vector<std::string> db_filteredItems;
-	
-	
 	
 	struct SWaypoint
 	{

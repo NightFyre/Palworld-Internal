@@ -22,7 +22,7 @@ int InputTextCallback(ImGuiInputTextCallbackData* data) {
     return 0;
 }
 
-namespace DX11_Base 
+namespace DX11_Base
 {
     // helper variables
     char inputBuffer_getFnAddr[100];
@@ -31,12 +31,45 @@ namespace DX11_Base
     char inputBuffer_nickname[16];
     int inputTechPoints_buffer = 1;
 
-    namespace Styles 
+    namespace Styles
     {
+        //  Hides the Dear ImGui Navigation Interface ( Windowing Mode ) 
+        //  Very annoying when drawing on the canvas and gamepad input is enabled.
+        // @TODO: Disable ImGui Navigation
+        void SetNavigationMenuViewState(bool bShow)
+        {
+            ImVec4* colors = ImGui::GetStyle().Colors;
+            switch (bShow)
+            {
+            case true:
+            {
+                //  Show Navigation Panel | Default ImGui Dark Style
+                //  Perhaps just call InitStyle() ?
+                colors[ImGuiCol_Text] = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
+                colors[ImGuiCol_WindowBg] = ImVec4(0.06f, 0.06f, 0.06f, 0.94f);
+                colors[ImGuiCol_Border] = ImVec4(0.43f, 0.43f, 0.50f, 0.50f);
+                colors[ImGuiCol_NavHighlight] = ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
+                colors[ImGuiCol_NavWindowingHighlight] = ImVec4(1.00f, 1.00f, 1.00f, 0.70f);
+                colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.80f, 0.80f, 0.80f, 0.20f);
+            }break;
+            case false:
+            {
+                //  Hide Navigation Panel
+                colors[ImGuiCol_Text] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                colors[ImGuiCol_WindowBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                colors[ImGuiCol_Border] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                colors[ImGuiCol_NavHighlight] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                colors[ImGuiCol_NavWindowingHighlight] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+            }break;
+            }
+        }
+
         void InitStyle()
         {
             ImGuiStyle& style = ImGui::GetStyle();
             ImVec4* colors = ImGui::GetStyle().Colors;
+            ImGui::StyleColorsDark();
 
             //	STYLE PROPERTIES
             style.WindowTitleAlign = ImVec2(0.5f, 0.5f);
@@ -62,7 +95,7 @@ namespace DX11_Base
 
             style.SeparatorTextBorderSize = 6.0f;
 
-            if (g_Menu->dbg_RAINBOW_THEME) 
+            if (g_Menu->dbg_RAINBOW_THEME)
             {
                 //  RGB MODE STLYE PROPERTIES
                 colors[ImGuiCol_Separator] = ImVec4(g_Menu->dbg_RAINBOW);
@@ -70,14 +103,14 @@ namespace DX11_Base
                 colors[ImGuiCol_TitleBgActive] = ImVec4(0, 0, 0, 1.0f);
                 colors[ImGuiCol_TitleBgCollapsed] = ImVec4(0, 0, 0, 1.0f);
             }
-            else 
+            else
             {
                 /// YOUR DEFAULT STYLE PROPERTIES HERE
             }
         }
     }
 
-    namespace Tabs 
+    namespace Tabs
     {
         void TABPlayer()
         {
@@ -199,7 +232,7 @@ namespace DX11_Base
                 ImGui::EndChild();
             }
         }
-        
+
         void TABExploit()
         {
             if (ImGui::BeginChild("EXPLOIT CHILD WINDOW", ImVec2(ImGui::GetContentRegionAvail().x * .5, 150.f), ImGuiChildFlags_AutoResizeY | ImGuiChildFlags_Border))
@@ -332,21 +365,21 @@ namespace DX11_Base
 
                 switch (category)
                 {
-                    case 1: list = itemlist::ammo; break;
-                    case 2: list = itemlist::armor; break;
-                    case 3: list = itemlist::blueprints; break;
-                    case 4: list = itemlist::craftingmaterials; break;
-                    case 5: list = itemlist::eggs; break;
-                    case 6: list = itemlist::food; break;
-                    case 7: list = itemlist::hats; break;
-                    case 8: list = itemlist::medicine; break;
-                    case 9: list = itemlist::money; break;
-                    case 10: list = itemlist::other; break;
-                    case 11: list = itemlist::palspheres; break;
-                    case 12: list = itemlist::seeds; break;
-                    case 13: list = itemlist::tools; break;
-                    case 14: list = itemlist::weapons; break;
-                    default: list = itemlist::accessories; break;
+                case 1: list = itemlist::ammo; break;
+                case 2: list = itemlist::armor; break;
+                case 3: list = itemlist::blueprints; break;
+                case 4: list = itemlist::craftingmaterials; break;
+                case 5: list = itemlist::eggs; break;
+                case 6: list = itemlist::food; break;
+                case 7: list = itemlist::hats; break;
+                case 8: list = itemlist::medicine; break;
+                case 9: list = itemlist::money; break;
+                case 10: list = itemlist::other; break;
+                case 11: list = itemlist::palspheres; break;
+                case 12: list = itemlist::seeds; break;
+                case 13: list = itemlist::tools; break;
+                case 14: list = itemlist::weapons; break;
+                default: list = itemlist::accessories; break;
                 }
 
                 ImGui::InputText("Search", item_search, IM_ARRAYSIZE(item_search));
@@ -356,7 +389,7 @@ namespace DX11_Base
 
             if (ImGui::BeginChild("ITEMS CHILD WINDOW 2", ImVec2(0.f, 200.0f)))
             {
-                for (const auto& item : list) 
+                for (const auto& item : list)
                 {
                     std::istringstream ss(item);
                     std::string left_text, right_text;
@@ -549,7 +582,7 @@ namespace DX11_Base
                                 }
                             }
                         }
-                        
+
                         ImGui::EndChild();
                     }
                 }
@@ -561,7 +594,7 @@ namespace DX11_Base
 
         void TABTeleportManager()
         {
-            if (ImGui::BeginChild("CHILD WINDOW", ImVec2(0.f, 300.f)))
+            if (ImGui::BeginChild("CHILD WINDOW", ImVec2(0.0f, 200.0f), ImGuiChildFlags_AutoResizeY | ImGuiChildFlags_Border))
             {
                 ImGuiWindow* gWindow = ImGui::GetCurrentWindow();
                 float cursorX = 0.f;
@@ -582,21 +615,42 @@ namespace DX11_Base
                 }
 
 
-                if (ImGui::CollapsingHeader("BOSS LOCATIONS"))
+                static int selected_boss = 0;
+                static std::vector<const char*> boss_locations;
+                if (boss_locations.size() <= 0)
                 {
                     for (const auto& pair : database::locationMap)
-                    {
-                        const std::string& locationName = pair.first;
-                        if (ImGui::Button(locationName.c_str(), ImVec2(0, 40.f)))
-                        {
-                            SDK::FVector location = SDK::FVector(pair.second[0], pair.second[1], pair.second[2]);
-                            AnyWhereTP(location, Config.IsSafe);
-                        }
-                    }
+                        boss_locations.push_back(pair.first.c_str());
                 }
 
+                ImGui::Combo("##BOSS LOCATIONS", &selected_boss, boss_locations.data(), static_cast<int>(boss_locations.size()));
+                ImGui::SameLine();
+                if (ImGui::Button("TELEPORT TO BOSS", ImVec2(ImGui::GetContentRegionAvail().x, 40.f)))
+                {
+                    auto pair = database::locationMap.find(boss_locations[selected_boss]);
+                    SDK::FVector location = SDK::FVector(pair->second[0], pair->second[1], pair->second[2]);
+                    AnyWhereTP(location, Config.IsSafe);
+                }
 
-                ImGui::Separator();
+                //  if (ImGui::CollapsingHeader("BOSS LOCATIONS"))
+                //  {
+                //      for (const auto& pair : database::locationMap)
+                //      {
+                //          const std::string& locationName = pair.first;
+                //          if (ImGui::Button(locationName.c_str(), ImVec2(0, 40.f)))
+                //          {
+                //              SDK::FVector location = SDK::FVector(pair.second[0], pair.second[1], pair.second[2]);
+                //              AnyWhereTP(location, Config.IsSafe);
+                //          }
+                //      }
+                //  }
+                ImGui::EndChild();
+            }
+
+            if (ImGui::BeginChild("WAYPOINT MANAGER", ImVec2(0.0f, 100.0f)))
+            {
+                ImGuiWindow* gWindow = ImGui::GetCurrentWindow();
+                float cursorX = 0.f;
 
                 ImGui::InputTextWithHint("##INPUT_SETWAYPOINT", "CUSTOM WAYPOINT NAME", inputBuffer_setWaypoint, 32);
                 ImGui::SameLine();
@@ -609,22 +663,20 @@ namespace DX11_Base
                         memset(inputBuffer_setWaypoint, 0, 32);
                     }
                 }
+
+                ImGui::SeparatorText("CUSTOM WAYPOINTS");
                 if (Config.db_waypoints.size() > 0)
                 {
-                    if (ImGui::BeginChild("##CHILD_WAYPOINTS"))
+                    DWORD index = -1;
+                    for (auto waypoint : Config.db_waypoints)
                     {
-                        DWORD index = -1;
-                        for (auto waypoint : Config.db_waypoints)
-                        {
-                            index++;
-                            ImGui::PushID(index);
-                            //  ImGui::Checkbox("SHOW", &waypoint.bIsShown);
-                            //  ImGui::SameLine();
-                            if (ImGui::Button(waypoint.waypointName.c_str(), ImVec2(ImGui::GetContentRegionAvail().x, 40.f)))
-                                AnyWhereTP(waypoint.waypointLocation, false);
-                            ImGui::PopID();
-                        }
-                        ImGui::EndChild();
+                        index++;
+                        ImGui::PushID(index);
+                        //  ImGui::Checkbox("SHOW", &waypoint.bIsShown);
+                        //  ImGui::SameLine();
+                        if (ImGui::Button(waypoint.waypointName.c_str(), ImVec2(ImGui::GetContentRegionAvail().x, 40.f)))
+                            AnyWhereTP(waypoint.waypointLocation, false);
+                        ImGui::PopID();
                     }
                 }
 
@@ -654,7 +706,7 @@ namespace DX11_Base
 
                 if (ImGui::Button("Tools", ImVec2(ImGui::GetContentRegionAvail().x, 40.f)))
                     SpawnMultiple_ItemsToInventory(config::QuickItemSet::tools);
-             
+
                 ImGui::EndChild();
             }
 
@@ -670,11 +722,11 @@ namespace DX11_Base
             ImGui::Separator();
             ImGui::Spacing();
 
-            ImGui::Checkbox("Quick Settings Tab", &Config.IsQuick);
             ImGui::Checkbox("SHOW IMGUI DEMO", &g_Menu->b_ShowDemoWindow);
             ImGui::Checkbox("SHOW STYLE EDITOR", &g_Menu->b_ShowStyleEditor);
-            //ImGui::Checkbox("Entity Manager Tab", &Config.bisOpenManager);
-            //ImGui::Checkbox("Teleport Manager Tab", &Config.bisTeleporter);
+            //  ImGui::Checkbox("Quick Settings Tab", &Config.IsQuick);
+            //  ImGui::Checkbox("Entity Manager Tab", &Config.bisOpenManager);
+            //  ImGui::Checkbox("Teleport Manager Tab", &Config.bisTeleporter);
 
             ImGui::Spacing();
             ImGui::Separator();
@@ -746,7 +798,7 @@ namespace DX11_Base
                     "UCharacterImpMan:\t0x%llX\n"
                     "UPalPlayerInventory:\t0x%llX\n"
                     "APalWeaponBase:\t\t0x%llX\n",
-                    Console::Colors::yellow, 
+                    Console::Colors::yellow,
                     Config.gWorld,
                     Config.GetLocalPlayer(),
                     Config.GetPalPlayerController(),
@@ -756,7 +808,7 @@ namespace DX11_Base
                     Config.GetInventoryComponent(),
                     Config.GetPlayerEquippedWeapon()
                 );
-                
+
             }
 
             //  Get Function Pointer Offset
@@ -798,26 +850,29 @@ namespace DX11_Base
 #endif
 
         }
-	}
+    }
 
-	void Menu::Draw()
-	{
+    void Menu::Draw()
+    {
 
-		if (b_ShowMenu)
-			MainMenu();
+        if (b_ShowMenu)
+            MainMenu();
 
-		if (b_ShowHud)
-			HUD(&b_ShowHud);
+        if (b_ShowHud && !b_ShowMenu)
+        {
+            Styles::SetNavigationMenuViewState(false);
+            HUD(&b_ShowHud);
+        }
 
-		if (b_ShowDemoWindow)
-			ImGui::ShowDemoWindow();
+        if (b_ShowDemoWindow && b_ShowMenu)
+            ImGui::ShowDemoWindow();
 
-        if (b_ShowStyleEditor)
+        if (b_ShowStyleEditor && b_ShowMenu)
             ImGui::ShowStyleEditor();
-	}
+    }
 
     void Menu::MainMenu()
-	{
+    {
         if (!b_ShowDemoWindow && !b_ShowStyleEditor)
             Styles::InitStyle();
 
@@ -836,7 +891,7 @@ namespace DX11_Base
             ImGui::PopStyleColor();
             ImGui::PopStyleColor();
         }
-        
+
         ImGuiContext* pImGui = GImGui;
 
         //  Display Menu Content
@@ -874,6 +929,11 @@ namespace DX11_Base
                 Tabs::TABTeleportManager();
                 ImGui::EndTabItem();
             }
+            if (ImGui::BeginTabItem("QUICK"))
+            {
+                Tabs::TABQuick();
+                ImGui::EndTabItem();
+            }
             //  if (Config.bisOpenManager && ImGui::BeginTabItem("Entity Manager"))
             //  {
             //      Tabs::TABTeleportManager();
@@ -884,11 +944,11 @@ namespace DX11_Base
             //      Tabs::TABTeleportManager();
             //      ImGui::EndTabItem();
             //  }
-            if (Config.IsQuick && ImGui::BeginTabItem("QUICK"))
-            {
-                Tabs::TABQuick();
-                ImGui::EndTabItem();
-            }
+            //  if (Config.IsQuick && ImGui::BeginTabItem("QUICK"))
+            //  {
+            //      Tabs::TABQuick();
+            //      ImGui::EndTabItem();
+            //  }
             if (ImGui::BeginTabItem("CONFIG"))
             {
                 Tabs::TABConfig();
@@ -904,40 +964,40 @@ namespace DX11_Base
             ImGui::EndTabBar();
         }
         ImGui::End();
-	}
+    }
 
-	void Menu::HUD(bool* p_open)
-	{
-        
+    void Menu::HUD(bool* p_open)
+    {
+
         ImGui::SetNextWindowPos(g_D3D11Window->pViewport->WorkPos);
         ImGui::SetNextWindowSize(g_D3D11Window->pViewport->WorkSize);
         ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, NULL);
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.00f, 0.00f, 0.00f, 0.00f));
         if (!ImGui::Begin("##HUDWINDOW", (bool*)true, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoInputs))
         {
-            ImGui::PopStyleColor();
             ImGui::PopStyleVar();
+            ImGui::PopStyleColor();
             ImGui::End();
             return;
         }
-        ImGui::PopStyleColor();
         ImGui::PopStyleVar();
+        ImGui::PopStyleColor();
 
         auto ImDraw = ImGui::GetWindowDrawList();
         auto draw_size = g_D3D11Window->pViewport->WorkSize;
         auto center = ImVec2({ draw_size.x * .5f, draw_size.y * .5f });
         auto top_center = ImVec2({ draw_size.x * .5f, draw_size.y * 0.0f });
-        
+
         //  Render a watermark for the module
         UnGUI::DrawTextCentered(top_center, g_Menu->dbg_RAINBOW, "PalWorld-NetCrack", 16.0f);
 
         //  Display nearby NPC nametags on the canvas
         if (Config.isNPCTags)
-            RenderNearbyNPCTags(ImColor(1.0f, 0.0f, 0.0f, 1.0f), Config.mNPCTagDistance, 12.f);
+            RenderNearbyNPCTags(ImColor(1.0f, 0.0f, 0.0f, 1.0f), Config.mNPCTagDistance, 12.f, Config.isNPCTags2Dbox);
 
         //  Display nearby pal nametags on the canvas
         if (Config.isPalTags)
-            RenderNearbyPalTags(ImColor(0.0f, 1.0f, 0.0f, 1.0f), Config.mPALTagDistance, 12.f);
+            RenderNearbyPalTags(ImColor(0.0f, 1.0f, 0.0f, 1.0f), Config.mPALTagDistance, 12.f, Config.isPalTags2DBox);
 
         //  Display custom player waypoints on the canvas
         if (Config.db_waypoints.size() > 0)
@@ -951,8 +1011,10 @@ namespace DX11_Base
             ESP_DEBUG(Config.mDebugESPDistance);
 #endif
 
+
+
         ImGui::End();
-	}
+    }
 
     void Menu::Loops()
     {
@@ -967,7 +1029,7 @@ namespace DX11_Base
         //  
         if (Config.IsSpeedHack)
             SpeedHack(Config.SpeedModiflers);   //  @CRASH palcrack!DX11_Base::Menu::Loops() [A:\Github\collab\PalWorld-NetCrack\src\Menu.cpp:787] : UPON LOADING GAME WORLD
-        
+
         //  
         if (Config.IsAttackModiler)
             SetPlayerAttackParam(Config.DamageUp);
