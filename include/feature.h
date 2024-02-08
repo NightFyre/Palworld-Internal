@@ -94,5 +94,6 @@ bool RemoveWaypointLocationByIndex(__int32 wpIndex);
 
 void RenderWaypointsToScreen(float fontSize);
 
-void RenderNearbyNPCTags(ImColor color = ImColor(1.0f, 1.0f,1.0f, 1.0f), float distance = 5.f, float fontSize = 8.0f);
-void RenderNearbyPalTags(ImColor color = ImColor(1.0f, 1.0f,1.0f, 1.0f), float distance = 5.f, float fontSize = 8.0f);
+void RenderNearbyNPCTags(ImColor color = ImColor(1.0f, 1.0f,1.0f, 1.0f), float distance = 5.f, float fontSize = 8.0f, bool b2DBox = false);
+
+void RenderNearbyPalTags(ImColor color = ImColor(1.0f, 1.0f,1.0f, 1.0f), float distance = 5.f, float fontSize = 8.0f, bool b2DBox = false);

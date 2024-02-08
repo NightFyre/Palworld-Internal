@@ -993,11 +993,11 @@ namespace DX11_Base
 
         //  Display nearby NPC nametags on the canvas
         if (Config.isNPCTags)
-            RenderNearbyNPCTags(ImColor(1.0f, 0.0f, 0.0f, 1.0f), Config.mNPCTagDistance, 12.f);
+            RenderNearbyNPCTags(ImColor(1.0f, 0.0f, 0.0f, 1.0f), Config.mNPCTagDistance, 12.f, Config.isNPCTags2Dbox);
 
         //  Display nearby pal nametags on the canvas
         if (Config.isPalTags)
-            RenderNearbyPalTags(ImColor(0.0f, 1.0f, 0.0f, 1.0f), Config.mPALTagDistance, 12.f);
+            RenderNearbyPalTags(ImColor(0.0f, 1.0f, 0.0f, 1.0f), Config.mPALTagDistance, 12.f, Config.isPalTags2DBox);
 
         //  Display custom player waypoints on the canvas
         if (Config.db_waypoints.size() > 0)

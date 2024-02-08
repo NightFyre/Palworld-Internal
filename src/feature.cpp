@@ -855,7 +855,7 @@ void RenderWaypointsToScreen(float fontSize)
 	}
 }
 
-void RenderNearbyNPCTags(ImColor color, float distance, float fontSize)
+void RenderNearbyNPCTags(ImColor color, float distance, float fontSize, bool b2DBox)
 {
 	SDK::APalPlayerCharacter* pChar = Config.GetPalPlayerCharacter();
 	if (!pChar)
@@ -876,11 +876,13 @@ void RenderNearbyNPCTags(ImColor color, float distance, float fontSize)
 			continue;
 
 		DX11_Base::UnGUI::DrawActorNickName(obj, color, fontSize);
-		DX11_Base::UnGUI::DrawActor2DBoundingBox(obj, color);
+
+		if (b2DBox)
+			DX11_Base::UnGUI::DrawActor2DBoundingBox(obj, color);
 	}
 }
 
-void RenderNearbyPalTags(ImColor color, float distance, float fontSize)
+void RenderNearbyPalTags(ImColor color, float distance, float fontSize, bool b2DBox)
 {
 	SDK::APalPlayerCharacter* pChar = Config.GetPalPlayerCharacter();
 	if (!pChar)
@@ -901,7 +903,9 @@ void RenderNearbyPalTags(ImColor color, float distance, float fontSize)
 			continue;
 
 		DX11_Base::UnGUI::DrawActorNickName(obj, color, fontSize);
-		DX11_Base::UnGUI::DrawActor2DBoundingBox(obj, color);
+
+		if (b2DBox)
+			DX11_Base::UnGUI::DrawActor2DBoundingBox(obj, color);
 	}
 }
 
