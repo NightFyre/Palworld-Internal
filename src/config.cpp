@@ -263,6 +263,40 @@ bool config::GetAllActorsofType(SDK::UClass* mType, std::vector<SDK::AActor*>* o
     return result.size() > 0;
 }
 
+bool config::IsAlive(SDK::AActor* pChar)
+{
+    SDK::UPalUtility* pUtil = Config.pPalUtility;
+    SDK::APalPlayerCharacter* pLocalChar = Config.GetPalPlayerCharacter();
+    if (!pUtil || !pLocalChar || !pChar)
+        return false;
+
+    return !pUtil->IsDead(pChar);
+}
+
+bool config::IsAPartyMember(SDK::APalCharacter* pChar)
+{
+    SDK::APalPlayerCharacter* pLocalChar = Config.GetPalPlayerCharacter();
+    if (!pLocalChar || !pChar || !IsAlive(pChar))
+        return false;
+
+    SDK::UPalCharacterParameterComponent* pParams = pChar->CharacterParameterComponent;
+    if (!pParams)
+        return false;
+
+    return pParams->IsOtomo();
+}
+
+bool config::IsABaseWorker(SDK::APalCharacter* pChar, bool bLocalControlled)
+{
+    SDK::UPalUtility* pUtil = Config.pPalUtility;
+    SDK::APalPlayerCharacter* pLocalChar = Config.GetPalPlayerCharacter();
+    if (!pUtil || !pLocalChar || !pChar || !IsAlive(pChar))
+        return false;
+
+    bool bResult = bLocalControlled ? pUtil->IsLocalPlayerCampPal(pChar) : pUtil->IsBaseCampPal(pChar);
+    return bResult;
+}
+
 void config::Init()
 {
     //register hook

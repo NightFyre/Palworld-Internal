@@ -38,7 +38,7 @@ DWORD WINAPI MainThread_Initialize(LPVOID dwModule)
     ///  CREATE WINDOW AND ESTABLISH HOOKS
     g_D3D11Window = std::make_unique<D3D11Window>();
     g_Hooking = std::make_unique<Hooking>();
-    g_Menu = std::make_unique<Menu>();
+    g_Menu = std::make_unique<UnMenu>();
     g_Hooking->Hook();
 
 #if CONSOLE_OUTPUT

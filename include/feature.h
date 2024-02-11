@@ -50,6 +50,8 @@ void SetInfiniteAmmo(bool bInfAmmo);
 
 void SetCraftingSpeed(float mNewSpeed, bool bRestoreDefault = false);
 
+void SetBasePalsCraftingSpeed(float mNewSpeed, bool bRestoreDefault = false);
+
 void SetPlayerInventoryWeight(float newWeight);
 
 void SetPickupsWeight(float newWeight);
@@ -97,3 +99,8 @@ void RenderWaypointsToScreen(float fontSize);
 void RenderNearbyNPCTags(ImColor color = ImColor(1.0f, 1.0f,1.0f, 1.0f), float distance = 5.f, float fontSize = 8.0f, bool b2DBox = false);
 
 void RenderNearbyPalTags(ImColor color = ImColor(1.0f, 1.0f,1.0f, 1.0f), float distance = 5.f, float fontSize = 8.0f, bool b2DBox = false);
+
+void RenderPartyMemberTags(ImColor color = ImColor(1.0f, 1.0f,1.0f, 1.0f), float distance = 5.f, float fontSize = 8.0f);
+
+void RenderBaseMemberTags(ImColor color = ImColor(1.0f, 1.0f,1.0f, 1.0f), float distance = 5.f, float fontSize = 8.0f);
+
