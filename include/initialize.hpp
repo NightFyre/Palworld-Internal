@@ -20,7 +20,7 @@ void ClientBGThread()
 }
 
 static int LastTick = 0;
-DWORD WINAPI MainThread_Initialize()
+DWORD WINAPI MainThread_Initialize(LPVOID dwModule)
 {
     //  WAIT FOR USER INPUT
     while (!g_GameData->GamePadGetKeyState(XINPUT_GAMEPAD_RIGHT_THUMB | XINPUT_GAMEPAD_LEFT_THUMB) && GetAsyncKeyState(VK_INSERT) == 0)
@@ -38,7 +38,7 @@ DWORD WINAPI MainThread_Initialize()
     ///  CREATE WINDOW AND ESTABLISH HOOKS
     g_D3D11Window = std::make_unique<D3D11Window>();
     g_Hooking = std::make_unique<Hooking>();
-    g_Menu = std::make_unique<Menu>();
+    g_Menu = std::make_unique<UnMenu>();
     g_Hooking->Hook();
 
 #if CONSOLE_OUTPUT

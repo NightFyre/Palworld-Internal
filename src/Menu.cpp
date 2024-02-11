@@ -124,19 +124,15 @@ namespace DX11_Base
                     Config.SpeedModiflers = 1.0f;
                     SpeedHack(Config.SpeedModiflers);
                 }
+                ImGui::SameLine();
+                cursorX = gWindow->DC.CursorPos.x += 10.f;
                 if (Config.IsSpeedHack)
                 {
-                    ImGui::SameLine();
-                    cursorX = gWindow->DC.CursorPos.x += 10.f;
                     ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
                     ImGui::SliderFloat("##SpeedModifilers", &Config.SpeedModiflers, 1, 10);
                 }
                 else
-                {
-                    ImGui::SameLine();
-                    cursorX = gWindow->DC.CursorPos.x += 10.f;
                     ImGui::NewLine();
-                }
                 gWindow->DC.CursorPos.y += 5.f;
 
                 ImGui::Checkbox("AttackHack", &Config.IsAttackModiler);
@@ -157,6 +153,14 @@ namespace DX11_Base
                     ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
                     ImGui::SliderInt("##defenseModifilers", &Config.DefuseUp, 0, 200000);
                 }
+                gWindow->DC.CursorPos.y += 5.f;
+
+                if (ImGui::Checkbox("FastCrafting", &Config.IsFastCrafting))
+                    SetCraftingSpeed(9999.f, !Config.IsFastCrafting);
+                gWindow->DC.CursorPos.y += 5.f;
+
+                if (ImGui::Checkbox("FastWorkerCrafting", &Config.IsFastWorkerCrafting))
+                    SetCraftingSpeed(9999.f, !Config.IsFastWorkerCrafting);
                 gWindow->DC.CursorPos.y += 5.f;
 
                 ImGui::EndChild();
@@ -275,8 +279,16 @@ namespace DX11_Base
                 }*/
 
 
-                if (ImGui::Checkbox("FULL BRIGHT", &Config.IsFullbright))
-                    SetFullbright(Config.IsFullbright);
+                ImGui::Checkbox("PARTY TAGS", &Config.isPartyTags);
+                ImGui::SameLine();
+                ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
+                ImGui::SliderFloat("##PARTY_DISTANCE", &Config.mPartyTagDistance, 1.0f, 10.0f, "%.0f");
+                gWindow->DC.CursorPos.y += 5.f;
+
+                ImGui::Checkbox("BASE WORKER TAGS", &Config.isBaseWorkerTags);
+                ImGui::SameLine();
+                ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
+                ImGui::SliderFloat("##BASE_DISTANCE", &Config.mBaseWorkerTagDistance, 1.0f, 10.0f, "%.0f");
                 gWindow->DC.CursorPos.y += 5.f;
 
                 ImGui::Checkbox("PAL TAGS", &Config.isPalTags);
@@ -289,6 +301,7 @@ namespace DX11_Base
                 ImGui::SameLine();
                 ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
                 ImGui::SliderFloat("##NPC_DISTANCE", &Config.mNPCTagDistance, 1.0f, 10.0f, "%.0f");
+                gWindow->DC.CursorPos.y += 5.f;
 
                 ImGui::EndChild();
             }
@@ -297,6 +310,10 @@ namespace DX11_Base
             {
                 ImGuiWindow* gWindow = ImGui::GetCurrentWindow();
                 float cursorX = 0.f;
+
+                if (ImGui::Checkbox("FULL BRIGHT", &Config.IsFullbright))
+                    SetFullbright(Config.IsFullbright);
+                gWindow->DC.CursorPos.y += 5.f;
 
                 if (ImGui::Checkbox("FLOAT MODE", &Config.IsToggledFly))
                     ExploitFly(Config.IsToggledFly);
@@ -440,17 +457,14 @@ namespace DX11_Base
                 if (pWorld && pWorld->PersistentLevel)
                 {
                     SDK::ULevel* pLevel = pWorld->PersistentLevel;
-
-                    ImGui::Checkbox("PLAYERS", &Config.filterPlayers);
-                    ImGui::Checkbox("SKIP LOCAL PLAYER", &Config.bSkipLocalPlayer);
-
-                    ImGui::SeparatorText("ENTITIES");
-                    if (ImGui::BeginChild("ENTS CHILD WINDOW"))
+                    if (!g_Menu->bSelectedTarget)
                     {
-                        if (!Config.bSelectedTarget)
+                        ImGui::Checkbox("PLAYERS", &Config.filterPlayers);
+                        ImGui::Checkbox("SKIP LOCAL PLAYER", &Config.bSkipLocalPlayer);
+
+                        ImGui::SeparatorText("ENTITIES");
+                        if (ImGui::BeginChild("ENTS CHILD WINDOW"))
                         {
-
-
                             SDK::TArray<SDK::AActor*> T = pLevel->Actors;  //  potential crash : nullptr
                             DWORD TCount = T.Count();
                             for (int i = 0; i < TCount; i++)
@@ -530,60 +544,65 @@ namespace DX11_Base
                                 ImGui::SameLine();
                                 if (ImGui::Button("SELECT TARGET"))
                                 {
-                                    Config.pTargetEntity = config::STargetEntity(pChar);
-                                    if (Config.pTargetEntity.bIsValid)
-                                        Config.bSelectedTarget = true;
+                                    g_Menu->pTargetEntity = UnMenu::STargetEntity(pChar);
+                                    if (g_Menu->pTargetEntity.bIsValid)
+                                        g_Menu->bSelectedTarget = true;
                                     else
-                                        Config.pTargetEntity.Clear();
+                                        g_Menu->pTargetEntity.Clear();
                                 }
                                 ImGui::PopID();
                             }
+                            ImGui::EndChild();
                         }
-                        else
-                        {
-                            //  Name
-                            SDK::APalPlayerCharacter* pLocalPlayerChar = Config.GetPalPlayerCharacter();
-                            config::STargetEntity pTarget = Config.pTargetEntity;
-                            if (pLocalPlayerChar && pTarget.bIsValid)
-                            {
-                                SDK::APalCharacter* entChar = pTarget.pEntCharacter;
-                                std::string sname;
-                                GetActorNickName(entChar, &sname);
-                                UnGUI::TextCenteredf("%s", sname.c_str());
+                    }
+                    else
+                    {
+                         //  Name
+                         SDK::APalPlayerCharacter* pLocalPlayerChar = Config.GetPalPlayerCharacter();
+                         UnMenu::STargetEntity pTarget = g_Menu->pTargetEntity;
+                         if (pLocalPlayerChar && pTarget.bIsValid)
+                         {
+                             SDK::APalCharacter* entChar = pTarget.pEntCharacter;
+                             std::string sname;
+                             GetActorNickName(entChar, &sname);
+                             UnGUI::TextCenteredf("%s", sname.c_str());
 
-                                //  Position
-                                SDK::FVector location = pTarget.entLocation;
-                                ImGui::Text("LOCATION: { %f, %f, %f }", location.X, location.Y, location.Z);
+                             //  Position
+                             SDK::FVector location = pTarget.entLocation;
+                             ImGui::Text("LOCATION: { %f, %f, %f }", location.X, location.Y, location.Z);
 
-                                //  Rotation
-                                SDK::FRotator rotation = pTarget.entRotation;
-                                ImGui::Text("ROTATION: { %f, %f, %f }", rotation.Pitch, rotation.Yaw, rotation.Roll);
+                             //  Rotation
+                             SDK::FRotator rotation = pTarget.entRotation;
+                             ImGui::Text("ROTATION: { %f, %f, %f }", rotation.Pitch, rotation.Yaw, rotation.Roll);
 
-                                //  Bounds
-                                SDK::FVector bounds = pTarget.entBounds;
-                                ImGui::Text("BOUNDS: { %f, %f, %f }", bounds.X, bounds.Y, bounds.Z);
+                             //  Bounds
+                             SDK::FVector bounds = pTarget.entBounds;
+                             ImGui::Text("BOUNDS: { %f, %f, %f }", bounds.X, bounds.Y, bounds.Z);
 
-                                //  Forward Direction
-                                SDK::FVector fwdDir = pTarget.entFwdDir;
-                                ImGui::Text("FWD: { %f, %f, %f }", fwdDir.X, fwdDir.Y, fwdDir.Z);
+                             //  Forward Direction
+                             SDK::FVector fwdDir = pTarget.entFwdDir;
+                             ImGui::Text("FWD: { %f, %f, %f }", fwdDir.X, fwdDir.Y, fwdDir.Z);
 
-                                //  Distance
-                                float dist = GetDistanceToActor(pLocalPlayerChar, pTarget.pEntCharacter);
-                                ImGui::Text("DIST: %f", dist);
+                             //  Distance
+                             float dist = GetDistanceToActor(pLocalPlayerChar, pTarget.pEntCharacter);
+                             ImGui::Text("DIST: %f", dist);
 
-                                //  Class Name
-                                std::string czClassName = pTarget.pEntCharacter->GetFullName();
-                                ImGui::Text("CLASS NAME: %s", czClassName.c_str());
+                             //  Class Name
+                             std::string czClassName = pTarget.pEntCharacter->GetFullName();
+                             ImGui::Text("CLASS NAME: %s", czClassName.c_str());
 
-                                if (ImGui::Button("CLEAR TARGET"))
-                                {
-                                    Config.pTargetEntity.Clear();
-                                    Config.bSelectedTarget = false;
-                                }
-                            }
-                        }
-
-                        ImGui::EndChild();
+                             // 
+                             if (ImGui::Button("CLEAR TARGET", ImVec2(ImGui::GetContentRegionAvail().x, 40.0f)))
+                             {
+                                 g_Menu->pTargetEntity.Clear();
+                                 g_Menu->bSelectedTarget = false;
+                             }
+                         }
+                         else
+                         {
+                             g_Menu->pTargetEntity.Clear();
+                             g_Menu->bSelectedTarget = false;
+                         }
                     }
                 }
 
@@ -999,6 +1018,15 @@ namespace DX11_Base
         if (Config.isPalTags)
             RenderNearbyPalTags(ImColor(0.0f, 1.0f, 0.0f, 1.0f), Config.mPALTagDistance, 12.f, Config.isPalTags2DBox);
 
+        if (Config.isPartyTags)
+            RenderPartyMemberTags(ImColor(0.0f, 1.0f, 1.0f, 1.0f), Config.mPartyTagDistance, 12.f);
+
+        if (Config.isBaseWorkerTags)
+            RenderBaseMemberTags(ImColor(1.0f, 1.0f, 0.0f, 1.0f), Config.mBaseWorkerTagDistance, 12.f);
+
+        if (g_Menu->bSelectedTarget && g_Menu->pTargetEntity.bIsValid)
+            UnGUI::DrawActor(g_Menu->pTargetEntity.renderCTX);
+
         //  Display custom player waypoints on the canvas
         if (Config.db_waypoints.size() > 0)
             RenderWaypointsToScreen(12.f);
@@ -1025,6 +1053,14 @@ namespace DX11_Base
         //  Revive Player
         if ((GetAsyncKeyState(VK_F6) & 1))
             ReviveLocalPlayer();
+
+        //  Update Target Entity Information
+        if (g_Menu->bSelectedTarget && g_Menu->pTargetEntity.bIsValid)
+        {
+            g_Menu->pTargetEntity.Update();
+        
+            //  Control Target Transforms
+        }
 
         //  
         if (Config.IsSpeedHack)
@@ -1058,16 +1094,11 @@ namespace DX11_Base
             SetInfiniteAmmo(Config.IsInfinAmmo);
     }
 
-
-
-
-
     void GUI::TextCentered(const char* pText)
     {
-        ImVec2 textSize = ImGui::CalcTextSize(pText);
-        ImVec2 windowSize = ImGui::GetWindowSize();
-        ImVec2 textPos = ImVec2((windowSize.x - textSize.x) * 0.5f, (windowSize.y - textSize.y) * 0.5f);
-        ImGui::SetCursorPos(textPos);
+        float textWidth = ImGui::CalcTextSize(pText).x;
+        float windowWidth = ImGui::GetWindowSize().x;
+        ImGui::SetCursorPosX((windowWidth - textWidth) * 0.5f);
         ImGui::Text("%s", pText);
     }
 
@@ -1144,8 +1175,7 @@ namespace DX11_Base
 
         std::string actorName;
         SDK::FVector2D screenName;
-        SDK::FVector location = SDK::FVector(actorTrans.origin.X, actorTrans.origin.Y - actorTrans.bounds.Y, actorTrans.origin.Z);
-        if (/*WorldToScreen(location, &screenName) && */GetActorNickName(pActor, &actorName))
+        if (GetActorNickName(pActor, &actorName))
             DrawTextCentered(ImVec2(actorTrans.screenOrigin.X, actorTrans.screenOrigin.Y), color, actorName.c_str(), fontSize);
     }
 
@@ -1158,10 +1188,21 @@ namespace DX11_Base
         if (!actorTrans.bOnScreen)
             return;
 
-        SDK::FVector Min = actorTrans.origin - actorTrans.bounds;
-        SDK::FVector Max = actorTrans.origin + actorTrans.bounds;
-        SDK::FVector2D screenMin, screenMax;
-        if (WorldToScreen(Min, &screenMin) && WorldToScreen(Max, &screenMax))
-            ImGui::GetWindowDrawList()->AddRect(ImVec2(screenMin.X, screenMin.Y), ImVec2(screenMax.X, screenMax.Y), color);
+        ImGui::GetWindowDrawList()->AddRect(ImVec2(actorTrans.screenMin.X, actorTrans.screenMin.Y), ImVec2(actorTrans.screenMax.X, actorTrans.screenMax.Y), color);
+    }
+
+    void UnGUI::DrawActor(SRenderOptions ctx)
+    {
+        if (!ctx.bRenderReady)
+            return;
+
+        std::string nameTag;
+        SDK::APalCharacter* pCharacter = ctx.GetPalCharacter();
+
+        if (ctx.bNameTag && pCharacter && GetActorNickName(pCharacter, &nameTag))
+            DrawTextCentered(ctx.GetOriginPoint(), ctx.mColor, nameTag.c_str(), ctx.mFontSize);
+
+        if (ctx.b2DBox)
+            ImGui::GetWindowDrawList()->AddRect(ctx.GetMinPoint(), ctx.GetMaxPoint(), ctx.mColor);
     }
 }

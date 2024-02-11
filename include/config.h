@@ -13,6 +13,12 @@ public:
 	DWORD64 offset_Tick = 0x2AA9950;//APalPlayerCharacter::Tick // 48 89 5C 24 ? 57 48 83 EC 60 48 8B F9 E8 ? ? ? ? 48 8B | [IDA NOTE: 2ND RESULT]
 	//check
 	bool IsESP = false;
+	bool isPartyTags = false;
+	bool isPartyTags2DBox = false;
+	float mPartyTagDistance = 5.0f;		//	x 10.f
+	bool isBaseWorkerTags = false;
+	bool isBaseWorkerTags2DBox = false;
+	float mBaseWorkerTagDistance = 5.0f;	//	x 10.f
 	bool isPalTags = false;
 	bool isPalTags2DBox = false;
 	float mPALTagDistance = 5.0f;		//	x 10.f
@@ -27,6 +33,8 @@ public:
 	bool IsSpeedHack = false;
 	bool IsAttackModiler = false;
 	bool IsDefuseModiler = false;
+	bool IsFastCrafting = false;
+	bool IsFastWorkerCrafting = false;
 	bool IsInfStamina = false;
 	bool IsSafe = true;
 	bool IsInfinAmmo = false;
@@ -94,43 +102,6 @@ public:
 	std::vector<SWaypoint> db_waypoints;
 	std::vector<std::pair<std::string, SDK::UClass*>> db_filteredEnts;
 
-	struct STargetEntity
-	{
-		//	
-		SDK::APalCharacter* pEntCharacter;
-		SDK::FVector entLocation;
-		SDK::FRotator entRotation;
-		SDK::FVector entFwdDir;
-		SDK::FVector entOrigin;
-		SDK::FVector entBounds;
-		bool bIsValid = false;
-
-
-		//	
-		void Clear()
-		{
-			pEntCharacter = nullptr;
-			bIsValid = false;
-		}
-
-		//	
-		STargetEntity() {};
-		STargetEntity(SDK::APalCharacter* pChar)
-		{
-			if (!pChar)
-				return;
-			
-			pEntCharacter = pChar;
-			entLocation = pChar->K2_GetActorLocation();
-			entRotation = pChar->K2_GetActorRotation();
-			entFwdDir = pChar->GetActorForwardVector();
-			pChar->GetActorBounds(true, &entOrigin, &entBounds, true);
-			bIsValid = true;
-		}
-	};
-	bool bSelectedTarget = false;
-	STargetEntity pTargetEntity;
-
 	//static function
 	static bool InGame();
 	static SDK::UWorld* GetUWorld();
@@ -148,6 +119,9 @@ public:
 	static bool GetPartyPals(std::vector<SDK::AActor*>* outResult);
 	static bool GetPlayerDeathChests(std::vector<SDK::FVector>* outLocations);
 	static bool GetAllActorsofType(SDK::UClass* mType, std::vector<SDK::AActor*>* outArray, bool bLoopAllLevels = false, bool bSkipLocalPlayer = false);
+	static bool IsAlive(SDK::AActor* pCharacter);
+	static bool IsAPartyMember(SDK::APalCharacter* pCharacter);
+	static bool IsABaseWorker(SDK::APalCharacter* pCharacter, bool bLocalPlayerControlled = true);
 	static void Init();
 	static void Update(const char* filterText);
 	static const std::vector<std::string>& GetFilteredItems();
