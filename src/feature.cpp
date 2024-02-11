@@ -500,6 +500,37 @@ void SetCraftingSpeed(float mNewSpeed, bool bRestoreDefault)
 
 	if (mCraftSpeedArray.Count() > 0)
 		mCraftSpeedArray[0].Value = bRestoreDefault ? 1.0f : mNewSpeed;
+
+}
+
+void SetBasePalsCraftingSpeed(float mNewSpeed, bool bRestoreDefault)
+{
+
+	SDK::TArray<SDK::APalCharacter*> mPals;
+	if (!Config.GetTAllPals(&mPals))
+		return;
+
+	DWORD palsCount = mPals.Count();
+	for (int i = 0; i < palsCount; i++)
+	{
+		SDK::APalCharacter* obj = mPals[i];
+		if (!obj || !obj->IsA(SDK::APalMonsterCharacter::StaticClass()) || !Config.IsABaseWorker(obj))
+			continue;
+	
+		UPalCharacterParameterComponent* pParams = obj->CharacterParameterComponent;
+		if (!pParams)
+			return;
+
+		UPalIndividualCharacterParameter* ivParams = pParams->IndividualParameter;
+		if (!ivParams)
+			return;
+
+		FPalIndividualCharacterSaveParameter sParams = ivParams->SaveParameter;
+		TArray<FFloatContainer_FloatPair> mCraftSpeedArray = sParams.CraftSpeedRates.Values;
+
+		if (mCraftSpeedArray.Count() > 0)
+			mCraftSpeedArray[0].Value = bRestoreDefault ? 1.0f : mNewSpeed;
+	}
 }
 
 //	credit: emoisback
@@ -907,6 +938,50 @@ void RenderNearbyPalTags(ImColor color, float distance, float fontSize, bool b2D
 		if (b2DBox)
 			DX11_Base::UnGUI::DrawActor2DBoundingBox(obj, color);
 	}
+}
+void RenderPartyMemberTags(ImColor color, float distance, float fontSize)
+{
+	SDK::APalPlayerCharacter* pChar = Config.GetPalPlayerCharacter();
+	if (!pChar)
+		return;
+
+	SDK::TArray<SDK::APalCharacter*> mPals;
+	if (!Config.GetTAllPals(&mPals))
+		return;
+
+	DWORD palsCount = mPals.Count();
+	for (int i = 0; i < palsCount; i++)
+	{
+		SDK::APalCharacter* obj = mPals[i];
+		if (!obj || !obj->IsA(SDK::APalMonsterCharacter::StaticClass()) || !Config.IsAPartyMember(obj))
+			continue;
+
+		DX11_Base::UnGUI::SRenderOptions context = DX11_Base::UnGUI::SRenderOptions(obj, true, false, fontSize, color);
+		DX11_Base::UnGUI::DrawActor(context);
+	}
+}
+
+void RenderBaseMemberTags(ImColor color, float distance, float fontSize)
+{
+	SDK::APalPlayerCharacter* pChar = Config.GetPalPlayerCharacter();
+	if (!pChar)
+		return;
+
+	SDK::TArray<SDK::APalCharacter*> mPals;
+	if (!Config.GetTAllPals(&mPals))
+		return;
+
+	DWORD palsCount = mPals.Count();
+	for (int i = 0; i < palsCount; i++)
+	{
+		SDK::APalCharacter* obj = mPals[i];
+		if (!obj || !obj->IsA(SDK::APalMonsterCharacter::StaticClass()) || !Config.IsABaseWorker(obj))
+			continue;
+
+		DX11_Base::UnGUI::SRenderOptions context = DX11_Base::UnGUI::SRenderOptions(obj, true, false, fontSize, color);
+		DX11_Base::UnGUI::DrawActor(context);
+	}
+
 }
 
 ///	OLDER METHODS
