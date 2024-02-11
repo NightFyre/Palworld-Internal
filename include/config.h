@@ -34,6 +34,7 @@ public:
 	bool IsAttackModiler = false;
 	bool IsDefuseModiler = false;
 	bool IsFastCrafting = false;
+	bool IsFastWorkerCrafting = false;
 	bool IsInfStamina = false;
 	bool IsSafe = true;
 	bool IsInfinAmmo = false;

@@ -156,10 +156,11 @@ namespace DX11_Base
                 gWindow->DC.CursorPos.y += 5.f;
 
                 if (ImGui::Checkbox("FastCrafting", &Config.IsFastCrafting))
-                {
                     SetCraftingSpeed(9999.f, !Config.IsFastCrafting);
-                    SetBasePalsCraftingSpeed(9999.f, !Config.IsFastCrafting);
-                }
+                gWindow->DC.CursorPos.y += 5.f;
+
+                if (ImGui::Checkbox("FastWorkerCrafting", &Config.IsFastWorkerCrafting))
+                    SetCraftingSpeed(9999.f, !Config.IsFastWorkerCrafting);
                 gWindow->DC.CursorPos.y += 5.f;
 
                 ImGui::EndChild();
