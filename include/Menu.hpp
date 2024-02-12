@@ -13,17 +13,14 @@ namespace DX11_Base
 		bool b_ShowStyleEditor = false;
 		ImColor dbg_RAINBOW{};				//	RAINBOW THEME COLORS
 		bool dbg_RAINBOW_THEME = FALSE;		//	RAINBOW THEME BOOLEAN
-		float sOpacity = 0.80;				//	Opacity for SunShade Window
-		bool dbg_ALERTS = TRUE;
 
-
-		//	FORWARD DECLARE FUNCTIONS
+	public:
 		void Draw();
 		void MainMenu();
 		void HUD(bool* p_open);
 		void Loops();
 
-		//	INITIALIZE CLASS
+	public:
 		Menu()  noexcept = default;
 		~Menu() noexcept = default;
 		Menu(Menu const&) = delete;

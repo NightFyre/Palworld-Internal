@@ -1,8 +1,8 @@
 #pragma once
 #include "helper.h"
 
-namespace DX11_Base {
-
+namespace DX11_Base 
+{
 	class Console
 	{
 	public:
@@ -21,42 +21,41 @@ namespace DX11_Base {
 			teal,
 			red,
 			pink,
-			yellow ,
+			yellow,
 			white,
 			DEFAULT = white,
 		};
-		
+
 	public:
-		FILE* stream_in{};
-		FILE* stream_out{};
-		FILE* stream_error{};
-		Colors color;
-		HANDLE g_Handle{};
-		HWND g_hWnd{};
-		bool verbose{};
-		bool bShowConsole = true;
+		FILE*						stream_in{};
+		FILE*						stream_out{};
+		FILE*						stream_error{};
+		char						input[32]{};		//	@NOTE: 32 max char
+		char						input2[32]{};		//	@NOTE: 32 max char
+		bool						bShowConsole{ true };
 
-		//	INPUT BUFFERS
-		char input[32]{};
-		char input2[32]{};
+	public:
+		void						InitializeConsole(const char* ConsoleName, bool bShowWindow = true);
+		void						printdbg(const char* Text, Colors color = Colors::DEFAULT, ...);
+		void						scandbg(const char* Text, ...);
+		void						DestroyConsole();
+		void						SetConsoleVisibility(bool bShow);
+		HANDLE						GetHandle();
+		HWND						GetWindowHandle();
 
+	public:
 		explicit Console();
+		Console(const char* title);
+		Console(const char* title, bool bShow);
 		~Console() noexcept = default;
 		Console(Console const&) = delete;
 		Console(Console&&) = delete;
 		Console& operator=(Console const&) = delete;
 		Console& operator=(Console&&) = delete;
 
-		void InitializeConsole(const char* ConsoleName);
-		void printdbg(const char* Text, int Color = {}, ...);
-		void scandbg(const char* Text, ...);
-		void LogEvent(std::string TEXT, bool FLAG);
-		void DestroyConsole();
-		void SetConsoleVisibility(bool bShow);
-
-		//	FUNCTIONS
-		bool writeFile(const char* Path, const char* Text, unsigned int Length, DWORD * out = {});
-		bool readFile(const char* Path, char* Text, unsigned int Length, DWORD * out = {});
+	private:
+		HANDLE						pHandle{};
+		HWND						pHwnd{};
 	};
 	inline std::unique_ptr<Console> g_Console;
 }

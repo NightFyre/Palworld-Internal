@@ -13,13 +13,11 @@ namespace DX11_Base {
 	Hooking::~Hooking()
 	{
 		MH_RemoveHook(MH_ALL_HOOKS);
+		MH_Uninitialize();
 	}
 
-	void Hooking::Hook()
+	void Hooking::Init()
 	{
-		g_GameVariables->Init();
-		g_D3D11Window->Hook();
-		Config.Init();
 		MH_EnableHook(MH_ALL_HOOKS);
 #if CONSOLE_OUTPUT
 		g_Console->printdbg("Hooking::Hook Initialized\n", Console::Colors::green);
@@ -27,11 +25,9 @@ namespace DX11_Base {
 		return;
 	}
 
-	void Hooking::Unhook()
+	void Hooking::Shutdown()
 	{
-		g_D3D11Window->Unhook();
-		MH_DisableHook((Tick)(Config.ClientBase + Config.offset_Tick));
-		MH_RemoveHook((Tick)(Config.ClientBase + Config.offset_Tick));
+		g_D3D11Window->UnhookD3D();
 #if CONSOLE_OUTPUT
 		g_Console->DestroyConsole();
 #endif

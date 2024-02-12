@@ -3,9 +3,75 @@
 #include "include/Menu.hpp"
 
 config Config;
-
 Tick TickFunc;
 Tick OldTickFunc;
+
+bool DetourTick(SDK::APalPlayerCharacter* m_this, float DeltaSecond)
+{
+    bool result = OldTickFunc(m_this, DeltaSecond);
+    Config.GetUWorld();
+
+    SDK::APalPlayerCharacter* pPalPlayerCharacter = m_this;
+    if (!pPalPlayerCharacter)
+    {
+        Config.bIsValidInstance = false;
+        Config.localPlayer = nullptr;
+        return result;
+    }
+
+    SDK::APalPlayerController* pPalPlayerController = pPalPlayerCharacter->GetPalPlayerController();
+    if (!pPalPlayerController)
+    {
+        Config.bIsValidInstance = false;
+        Config.localPlayer = nullptr;
+        return result;
+    }
+
+    if (!pPalPlayerController->IsLocalPlayerController())
+    {
+        Config.bIsValidInstance = false;
+        Config.localPlayer = nullptr;
+        return result;
+    }
+
+    Config.bIsValidInstance = true;
+    Config.localPlayer = m_this;
+    DX11_Base::g_Menu->Loops();     //  sync with game thread
+    return result;
+}   //  @CRASH: palcrack!DetourTick() [A:\Github\collab\PalWorld-NetCrack\config.cpp:45] : SPEED HACK UPON LOADING WORLD
+//  @CRASH-UPDATE: optimized method of obtaining gWorld, watch for crashes when joining new worlds
+
+bool config::Init()
+{
+    Config.ClientBase = reinterpret_cast<__int64>(GetModuleHandle(0));
+  
+    __int64 gworld = signature("48 8B 05 ? ? ? ? EB 05").instruction(3).add(7).GetPointer();
+    __int64 TickPTR = signature("48 89 5C 24 08 57 48 83 EC 60 48 8B F9 E8 ?? ?? ?? ?? 48 8B 8F").GetPointer();
+    if (!gworld || !TickPTR)
+        return false;
+
+    Config.pGWorld = gworld;
+    Config.gWorld = Config.GetUWorld();
+
+    SDK::InitGObjects();
+    Config.kString = SDK::UKismetStringLibrary::GetDefaultObj();
+    Config.pPalUtility = SDK::UPalUtility::GetDefaultObj();
+
+    TickFunc = reinterpret_cast<Tick>(TickPTR);
+    if (MH_CreateHook(TickFunc, DetourTick, reinterpret_cast<void**>(&OldTickFunc)) != MH_OK)
+        return false;
+
+    //init database
+    ZeroMemory(&Config.db_filteredItems, sizeof(Config.db_filteredItems));
+    
+    return true;
+}
+
+void config::Shutdown()
+{
+    MH_DisableHook((Tick)(Config.ClientBase + Config.offset_Tick));
+    MH_RemoveHook((Tick)(Config.ClientBase + Config.offset_Tick));
+}
 
 void config::Update(const char* filterText)
 {
@@ -21,37 +87,6 @@ void config::Update(const char* filterText)
     std::sort(Config.db_filteredItems.begin(), Config.db_filteredItems.end());
 }
 const std::vector<std::string>& config::GetFilteredItems() { return Config.db_filteredItems; }
-
-bool DetourTick(SDK::APalPlayerCharacter* m_this, float DeltaSecond)
-{
-    bool result = OldTickFunc(m_this, DeltaSecond);
-
-    SDK::APalPlayerCharacter* pPalPlayerCharacter = m_this;
-    if (!pPalPlayerCharacter)
-    {
-        Config.localPlayer = nullptr;
-        return result;
-    }
-
-    SDK::APalPlayerController* pPalPlayerController = pPalPlayerCharacter->GetPalPlayerController();
-    if (!pPalPlayerController)
-    {
-        Config.localPlayer = nullptr;
-        return result;
-    }
-    
-    if (pPalPlayerController->IsLocalPlayerController())
-    {
-        Config.GetUWorld();
-        Config.localPlayer = m_this;
-        DX11_Base::g_Menu->Loops();
-    }
-    else
-        Config.localPlayer = nullptr;
-        
-    
-    return result;
-}   //  @CRASH: palcrack!DetourTick() [A:\Github\collab\PalWorld-NetCrack\config.cpp:45] : SPEED HACK UPON LOADING WORLD
 
 //  credit: liquidace
 bool config::InGame()
@@ -70,15 +105,13 @@ bool config::InGame()
 
 SDK::UWorld* config::GetUWorld()
 {
-    static uint64_t gworld_ptr = 0;
-    if (!gworld_ptr)
-    {
-        auto gworld = signature("48 8B 05 ? ? ? ? EB 05").instruction(3).add(7);
-        gworld_ptr = gworld.GetPointer();
-        if (gworld_ptr)
-            Config.gWorld = *(SDK::UWorld**)gworld_ptr;
-    }
-    return (*(SDK::UWorld**)(gworld_ptr));
+    __int64 pWorld = *(__int64*)Config.pGWorld;
+    if (!pWorld)
+        Config.gWorld = nullptr;
+    else
+        Config.gWorld = reinterpret_cast<SDK::UWorld*>(pWorld);
+
+    return Config.gWorld;
 }
 
 SDK::UPalCharacterImportanceManager* config::GetCharacterImpManager()
@@ -295,23 +328,4 @@ bool config::IsABaseWorker(SDK::APalCharacter* pChar, bool bLocalControlled)
 
     bool bResult = bLocalControlled ? pUtil->IsLocalPlayerCampPal(pChar) : pUtil->IsBaseCampPal(pChar);
     return bResult;
-}
-
-void config::Init()
-{
-    //register hook
-    Config.ClientBase = reinterpret_cast<__int64>(GetModuleHandle(0));
-
-    SDK::InitGObjects();
-
-    Config.gWorld = Config.GetUWorld();
-    Config.kString = SDK::UKismetStringLibrary::GetDefaultObj();
-    Config.pPalUtility = SDK::UPalUtility::GetDefaultObj();
-
-    TickFunc = (Tick)(Config.ClientBase + Config.offset_Tick);
-
-    MH_CreateHook(TickFunc, DetourTick, reinterpret_cast<void**>(&OldTickFunc));
-
-    //init database
-    ZeroMemory(&Config.db_filteredItems, sizeof(Config.db_filteredItems));
 }
