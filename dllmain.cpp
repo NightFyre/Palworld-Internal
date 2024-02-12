@@ -2,21 +2,24 @@
 #include "pch.h"
 #include "include/initialize.hpp"
 
-extern DWORD WINAPI MainThread_Initialize();
+extern DWORD WINAPI MainThread_Initialize(LPVOID dwModule);
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  dwCallReason, LPVOID lpReserved)
 {
     g_hModule = hModule;
 
-    switch (dwCallReason) {
-        case (DLL_PROCESS_ATTACH): {
+    switch (dwCallReason) 
+    {
+        case (DLL_PROCESS_ATTACH): 
+        {
             DisableThreadLibraryCalls(hModule);
-            CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)MainThread_Initialize, g_hModule, NULL, NULL);
+            CloseHandle(CreateThread(0, 0, MainThread_Initialize, g_hModule, 0, 0));
             break;
         }
-        case (DLL_PROCESS_DETACH): {
-            g_KillSwitch = TRUE;
+        case (DLL_PROCESS_DETACH): 
+        {
+            g_KillSwitch = true;
             break;
         }
     }
-    return TRUE;
+    return true;
 }

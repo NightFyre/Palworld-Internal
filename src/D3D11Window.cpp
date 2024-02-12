@@ -18,28 +18,12 @@ void SV_RAINBOW(float saturation, float value, float opacity)
 	}
 }
 
-typedef BOOL(WINAPI* hk_SetCursorPos)(int, int);
-hk_SetCursorPos origSetCursorPos = NULL;
-BOOL WINAPI HOOK_SetCursorPos(int X, int Y)
+namespace DX11_Base 
 {
-	if (DX11_Base::g_Menu->b_ShowMenu)
-		return FALSE;
-
-	return origSetCursorPos(X, Y);
-}
-
-bool HookCursor()
-{
-	if (MH_CreateHook(&SetCursorPos, &HOOK_SetCursorPos, reinterpret_cast<LPVOID*>(&origSetCursorPos)) != MH_OK)
-		return FALSE;
-
-	if (MH_EnableHook(&SetCursorPos) != MH_OK)
-		return FALSE;
-
-	return TRUE;
-}
-namespace DX11_Base {
 	static uint64_t* MethodsTable = NULL;
+
+	D3D11Window::D3D11Window() { }
+	D3D11Window::~D3D11Window() { }
 
 	//	@TODO: boolean for active window
 	LRESULT D3D11Window::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -52,22 +36,28 @@ namespace DX11_Base {
 		return CallWindowProc((WNDPROC)g_D3D11Window->m_OldWndProc, hWnd, msg, wParam, lParam);
 	}
 
-	/// <summary>
-	/// INITIALIZE
-	/// </summary>
-	bool D3D11Window::Hook()
+	HRESULT APIENTRY D3D11Window::HookPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 	{
-		if (InitHook()) {
+		g_D3D11Window->Overlay(pSwapChain);
+		return g_D3D11Window->oIDXGISwapChainPresent(pSwapChain, SyncInterval, Flags);
+	}
+
+	void APIENTRY D3D11Window::MJDrawIndexed(ID3D11DeviceContext* pContext, UINT IndexCount, UINT StartIndexLocation, INT BaseVertexLocation) { return; }
+
+	bool D3D11Window::HookD3D()
+	{
+		if (GetD3DContext()) 
+		{
 			CreateHook(8, (void**)&oIDXGISwapChainPresent, HookPresent);
 			CreateHook(12, (void**)&oID3D11DrawIndexed, MJDrawIndexed);
 			Sleep(1000);
 #if CONSOLE_OUTPUT
-			g_Console->printdbg("D3D11Window::Hook Initialized\n", Console::Colors::pink);
+			g_Console->printdbg("[+][D3D11Window::Hook] Initialized\n", Console::Colors::green);
 #endif
 			return TRUE;
 		}
 #if CONSOLE_OUTPUT
-		g_Console->printdbg("[+] D3D11Window::Hook Failed to Initialize\n", Console::Colors::red);
+		g_Console->printdbg("[+][D3D11Window::Hook] Failed to Initialize\n", Console::Colors::red);
 #endif
 		return FALSE;
 	}
@@ -82,7 +72,7 @@ namespace DX11_Base {
 		return TRUE;
 	}
 
-	bool D3D11Window::InitHook()
+	bool D3D11Window::GetD3DContext()
 	{
 		if (!InitWindow())
 			return FALSE;
@@ -167,7 +157,7 @@ namespace DX11_Base {
 			return FALSE;
 		}
 #if CONSOLE_OUTPUT
-		g_Console->printdbg("D3D11Window::Window Created\n", Console::Colors::pink);
+		g_Console->printdbg("[+][D3D11Window::InitWindow]\n", Console::Colors::green);
 #endif
 		return TRUE;
 	}
@@ -180,12 +170,12 @@ namespace DX11_Base {
 			return FALSE;
 		}
 #if CONSOLE_OUTPUT
-		g_Console->printdbg("D3D11Window::Window Destroyed\n", Console::Colors::pink);
+		g_Console->printdbg("[+][D3D11Window::DeleteWindow]\n", Console::Colors::green);
 #endif
 		return TRUE;
 	}
 
-	bool D3D11Window::Init(IDXGISwapChain* swapChain)
+	bool D3D11Window::InitializeImGui(IDXGISwapChain* swapChain)
 	{
 		if (SUCCEEDED(swapChain->GetDevice(__uuidof(ID3D11Device), (void**)&m_Device))) {
 			ImGui::CreateContext();
@@ -200,47 +190,34 @@ namespace DX11_Base {
 
 			DXGI_SWAP_CHAIN_DESC Desc;
 			swapChain->GetDesc(&Desc);
-			g_GameVariables->g_GameWindow = Desc.OutputWindow;
+			g_GameData->pHwnd = Desc.OutputWindow;
 
 			ID3D11Texture2D* BackBuffer;
 			swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&BackBuffer);
 			m_Device->CreateRenderTargetView(BackBuffer, NULL, &m_RenderTargetView);
 			BackBuffer->Release();
 
-			ImGui_ImplWin32_Init(g_GameVariables->g_GameWindow);
+			ImGui_ImplWin32_Init(g_GameData->pHwnd);
 			ImGui_ImplDX11_Init(m_Device, m_DeviceContext);
 			ImGui_ImplDX11_CreateDeviceObjects();
-			ImGui::GetIO().ImeWindowHandle = g_GameVariables->g_GameWindow;
-			m_OldWndProc = (WNDPROC)SetWindowLongPtr(g_GameVariables->g_GameWindow, GWLP_WNDPROC, (__int3264)(LONG_PTR)WndProc);
+			ImGui::GetIO().ImeWindowHandle = g_GameData->pHwnd;
+			m_OldWndProc = (WNDPROC)SetWindowLongPtr(g_GameData->pHwnd, GWLP_WNDPROC, (__int3264)(LONG_PTR)WndProc);
 			b_ImGui_Initialized = TRUE;
 			pImGui = GImGui;
 			pViewport = pImGui->Viewports[0];
 #if CONSOLE_OUTPUT
-			g_Console->printdbg("D3D11Window::Swapchain Initialized\n", Console::Colors::pink);
+			g_Console->printdbg("[+][D3D11Window::InitializeImGui]\n", Console::Colors::green);
 #endif
 			return 1;
 		}
 		b_ImGui_Initialized = FALSE;
 		return 0;
 	}
-	
-	/// <summary>
-	/// RENDER LOOP
-	/// </summary>
-	HRESULT APIENTRY D3D11Window::HookPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
-	{
-		g_D3D11Window->Overlay(pSwapChain);
-		return g_D3D11Window->oIDXGISwapChainPresent(pSwapChain, SyncInterval, Flags);
-	}
-
-	void APIENTRY D3D11Window::MJDrawIndexed(ID3D11DeviceContext* pContext, UINT IndexCount, UINT StartIndexLocation, INT BaseVertexLocation) {
-		return;
-	}
 
 	void D3D11Window::Overlay(IDXGISwapChain* pSwapChain)
 	{
 		if (!b_ImGui_Initialized)
-			Init(pSwapChain);
+			InitializeImGui(pSwapChain);
 
 		SV_RAINBOW(169, 169, 200);
 		ImGui_ImplDX11_NewFrame();
@@ -259,9 +236,9 @@ namespace DX11_Base {
 	/// <summary>
 	/// UNHOOK
 	/// </summary>
-	void D3D11Window::Unhook()
+	void D3D11Window::UnhookD3D()
 	{
-		SetWindowLongPtr(g_GameVariables->g_GameWindow, GWLP_WNDPROC, (LONG_PTR)m_OldWndProc);
+		SetWindowLongPtr(g_GameData->pHwnd, GWLP_WNDPROC, (LONG_PTR)m_OldWndProc);
 		DisableAll();
 		return;
 	}
@@ -280,10 +257,5 @@ namespace DX11_Base {
 		free(MethodsTable);
 		MethodsTable = NULL;
 		return;
-	}
-
-	D3D11Window::~D3D11Window()
-	{
-		Unhook();
 	}
 }
