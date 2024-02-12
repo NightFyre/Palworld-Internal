@@ -833,7 +833,7 @@ namespace DX11_Base
             //  Get Function Pointer Offset
             ImGui::InputTextWithHint("##INPUT", "INPUT GOBJECT fn NAME", inputBuffer_getFnAddr, 100);
             ImGui::SameLine();
-            if (ImGui::Button("GET fn", ImVec2(ImGui::GetContentRegionAvail().x, 20)))
+            if (ImGui::Button("GET fn", ImVec2(ImGui::GetContentRegionAvail().x, 40.0f)))
             {
                 std::string input = inputBuffer_getFnAddr;
                 SDK::UFunction* object = SDK::UObject::FindObject<SDK::UFunction>(input);
@@ -853,7 +853,7 @@ namespace DX11_Base
             //  Get Class pointer by name
             ImGui::InputTextWithHint("##INPUT_GETCLASS", "INPUT OBJECT CLASS NAME", inputBuffer_getClass, 100);
             ImGui::SameLine();
-            if (ImGui::Button("GET CLASS", ImVec2(ImGui::GetContentRegionAvail().x, 20)))
+            if (ImGui::Button("GET CLASS", ImVec2(ImGui::GetContentRegionAvail().x, 40.0f)))
             {
                 std::string input = inputBuffer_getClass;
                 SDK::UClass* czClass = SDK::UObject::FindObject<SDK::UClass>(input.c_str());
@@ -1010,35 +1010,37 @@ namespace DX11_Base
         //  Render a watermark for the module
         UnGUI::DrawTextCentered(top_center, g_Menu->dbg_RAINBOW, "PalWorld-NetCrack", 16.0f);
 
-        //  Display nearby NPC nametags on the canvas
-        if (Config.isNPCTags)
-            RenderNearbyNPCTags(ImColor(1.0f, 0.0f, 0.0f, 1.0f), Config.mNPCTagDistance, 12.f, Config.isNPCTags2Dbox);
+        if (Config.bIsValidInstance)
+        {
+            //  Display nearby NPC nametags on the canvas
+            if (Config.isNPCTags)
+                RenderNearbyNPCTags(ImColor(1.0f, 0.0f, 0.0f, 1.0f), Config.mNPCTagDistance, 12.f, Config.isNPCTags2Dbox);
 
-        //  Display nearby pal nametags on the canvas
-        if (Config.isPalTags)
-            RenderNearbyPalTags(ImColor(0.0f, 1.0f, 0.0f, 1.0f), Config.mPALTagDistance, 12.f, Config.isPalTags2DBox);
+            //  Display nearby pal nametags on the canvas
+            if (Config.isPalTags)
+                RenderNearbyPalTags(ImColor(0.0f, 1.0f, 0.0f, 1.0f), Config.mPALTagDistance, 12.f, Config.isPalTags2DBox);
 
-        if (Config.isPartyTags)
-            RenderPartyMemberTags(ImColor(0.0f, 1.0f, 1.0f, 1.0f), Config.mPartyTagDistance, 12.f);
+            if (Config.isPartyTags)
+                RenderPartyMemberTags(ImColor(0.0f, 1.0f, 1.0f, 1.0f), Config.mPartyTagDistance, 12.f);
 
-        if (Config.isBaseWorkerTags)
-            RenderBaseMemberTags(ImColor(1.0f, 1.0f, 0.0f, 1.0f), Config.mBaseWorkerTagDistance, 12.f);
+            if (Config.isBaseWorkerTags)
+                RenderBaseMemberTags(ImColor(1.0f, 1.0f, 0.0f, 1.0f), Config.mBaseWorkerTagDistance, 12.f);
 
-        if (g_Menu->bSelectedTarget && g_Menu->pTargetEntity.bIsValid)
-            UnGUI::DrawActor(g_Menu->pTargetEntity.renderCTX);
+            if (g_Menu->bSelectedTarget && g_Menu->pTargetEntity.bIsValid)
+                UnGUI::DrawActor(g_Menu->pTargetEntity.renderCTX);
 
-        //  Display custom player waypoints on the canvas
-        if (Config.db_waypoints.size() > 0)
-            RenderWaypointsToScreen(12.f);
+            //  Display custom player waypoints on the canvas
+            if (Config.db_waypoints.size() > 0)
+                RenderWaypointsToScreen(12.f);
 
 #if _DEBUG
-        if (Config.IsESP)
-            ESP();
+            if (Config.IsESP)
+                ESP();
 
-        if (Config.isDebugESP)
-            ESP_DEBUG(Config.mDebugESPDistance);
+            if (Config.isDebugESP)
+                ESP_DEBUG(Config.mDebugESPDistance);
 #endif
-
+        }
 
 
         ImGui::End();

@@ -3,6 +3,9 @@
 #include "database.h"
 #include "ItemList.hpp"
 
+//	@TODO: merge with game.hpp
+
+//	@TODO: implement in hooking
 typedef bool(*Tick)(SDK::APalPlayerCharacter* m_this, float DeltaSecond);
 
 class config
@@ -10,7 +13,7 @@ class config
 public:
 	//offsets
 	DWORD64 ClientBase = 0;
-	DWORD64 offset_Tick = 0x2997B30;//APalPlayerCharacter::Tick // 48 89 5C 24 ? 57 48 83 EC 60 48 8B F9 E8 ? ? ? ? 48 8B | [IDA NOTE: 2ND RESULT]
+	DWORD64 offset_Tick = 0x0;//APalPlayerCharacter::Tick // 48 89 5C 24 ? 57 48 83 EC 60 48 8B F9 E8 ? ? ? ? 48 8B | [IDA NOTE: 2ND RESULT]
 	//check
 	bool IsESP = false;
 	bool isPartyTags = false;
@@ -63,15 +66,19 @@ public:
 	float Pos[3] = { 0.0f, 0.0f, 0.0f };
 	char ItemName[255];
 	char inputTextBuffer[255] = "";
+
+	//	
+	bool bIsValidInstance{ false };
+	__int64 pGWorld = 0;
 	SDK::UWorld* gWorld = nullptr;
-	SDK::APalPlayerCharacter* localPlayer = NULL;
-	SDK::UPalPlayerInventoryData* pPlayerInventory = 0;
-	SDK::APalWeaponBase* pPlayerWeapon = 0;
-	SDK::UPalUtility* pPalUtility = 0;
-	SDK::UKismetStringLibrary* kString = 0;
+	SDK::APalPlayerCharacter* localPlayer = nullptr;
+	SDK::UPalPlayerInventoryData* pPlayerInventory = nullptr;
+	SDK::APalWeaponBase* pPlayerWeapon = nullptr;
+	SDK::UPalUtility* pPalUtility = nullptr;
+	SDK::UKismetStringLibrary* kString = nullptr;
+	SDK::UPalCharacterImportanceManager* UCIM = nullptr;
+	SDK::UObject* WorldContextObject = nullptr;
 	SDK::TArray<SDK::APalPlayerCharacter*> AllPlayers = {};
-	SDK::UPalCharacterImportanceManager* UCIM = NULL;
-	SDK::UObject* WorldContextObject = NULL;
 	int AddItemSlot = 0;
 	int AddItemCount = 2;
 
@@ -122,7 +129,8 @@ public:
 	static bool IsAlive(SDK::AActor* pCharacter);
 	static bool IsAPartyMember(SDK::APalCharacter* pCharacter);
 	static bool IsABaseWorker(SDK::APalCharacter* pCharacter, bool bLocalPlayerControlled = true);
-	static void Init();
+	static bool Init();
+	static void Shutdown();
 	static void Update(const char* filterText);
 	static const std::vector<std::string>& GetFilteredItems();
 };
