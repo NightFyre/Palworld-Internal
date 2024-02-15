@@ -119,6 +119,22 @@ namespace DX11_Base
                 ImGuiWindow* gWindow = ImGui::GetCurrentWindow();
                 float cursorX = 0.f;
 
+                if (ImGui::Checkbox("Time Dialation", &Config.IsTimeDialation) && !Config.IsTimeDialation)
+                {
+                    Config.TimeDialationModifier = 1.0f;
+                    SetTimeDialation(Config.TimeDialationModifier);
+                }
+                ImGui::SameLine();
+                cursorX = gWindow->DC.CursorPos.x += 10.f;
+                if (Config.IsTimeDialation)
+                {
+                    ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
+                    ImGui::SliderFloat("##TimeDialationModifier", &Config.TimeDialationModifier, 1, 10);
+                }
+                else
+                    ImGui::NewLine();
+                gWindow->DC.CursorPos.y += 5.f;
+
                 if (ImGui::Checkbox("SpeedHack", &Config.IsSpeedHack) && !Config.IsSpeedHack)
                 {
                     Config.SpeedModiflers = 1.0f;
@@ -1042,7 +1058,6 @@ namespace DX11_Base
 #endif
         }
 
-
         ImGui::End();
     }
 
@@ -1063,6 +1078,10 @@ namespace DX11_Base
         
             //  Control Target Transforms
         }
+
+        //
+        if (Config.IsTimeDialation)
+			SetTimeDialation(Config.TimeDialationModifier);
 
         //  
         if (Config.IsSpeedHack)

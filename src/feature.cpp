@@ -109,16 +109,12 @@ void UnlockAllEffigies()
 	{
 		UObject* object = objects->GetByIndex(i);
 
-		if (!object)
+		if (!object || !object->IsA(APalLevelObjectRelic::StaticClass()))
 			continue;
 
-		if (!object->IsA(APalLevelObjectRelic::StaticClass()))
+		APalLevelObjectObtainable* relic = reinterpret_cast<APalLevelObjectObtainable*>(object);
+		if (!relic)
 			continue;
-
-		APalLevelObjectObtainable* relic = (APalLevelObjectObtainable*)object;
-		if (!relic) {
-			continue;
-		}
 
 		pPalPlayerState->RequestObtainLevelObject_ToServer(relic);
 	}
@@ -254,8 +250,8 @@ void SetFullbright(bool bIsSet)
 	pViewport->mViewMode = bIsSet ? 1 : 3;
 }
 
-//	
-void SpeedHack(float mSpeed)
+//
+void SetTimeDialation(float mSpeed)
 {
 	UWorld* pWorld = Config.gWorld;
 	if (!pWorld)
@@ -270,8 +266,21 @@ void SpeedHack(float mSpeed)
 		return;
 
 	pWorld->PersistentLevel->WorldSettings->TimeDilation = mSpeed;
+}
 
-	//	pWorldSettings->TimeDilation = mSpeed;
+//  Credit: Omega172
+void SpeedHack(float mSpeed)
+{
+	SDK::APalPlayerCharacter* pPalPlayerCharacter = Config.GetPalPlayerCharacter();
+	if (!pPalPlayerCharacter)
+		return;
+
+	UPalCharacterMovementComponent* pMovementComponent = pPalPlayerCharacter->GetPalCharacterMovementComponent();
+	if (!pMovementComponent)
+		return;
+
+	pMovementComponent->MaxAcceleration = 2048 * mSpeed;
+	pMovementComponent->MaxWalkSpeed = 350 * mSpeed;
 }
 
 //	
@@ -405,19 +414,22 @@ void ResetStamina()
 	pParams->ResetSP();
 
 
-	//	Reset Pal Stamina ??
-	TArray<APalCharacter*> outPals;
-	Config.GetTAllPals(&outPals);
-	DWORD palsSize = outPals.Count();
-	for (int i = 0; i < palsSize; i++)
+	//	Reset Pal Stamina 
+	//	Credit: Omega172
+	std::vector<AActor*> outPals;
+	Config.GetAllActorsofType(APalCharacter::StaticClass(), &outPals);
+	for (AActor* pActor : outPals)
 	{
-		APalCharacter* cPal = outPals[i];
-		if (!cPal || cPal->IsA(APalMonsterCharacter::StaticClass()))
+		APalCharacter* pPal = static_cast<APalCharacter*>(pActor);
+		if (!pPal)
 			continue;
 
-		UPalCharacterParameterComponent* pPalParams = pPalCharacter->CharacterParameterComponent;
+		if (!pPal->IsLocallyControlled())
+			continue;
+
+		UPalCharacterParameterComponent* pPalParams = pPal->CharacterParameterComponent;
 		if (!pPalParams)
-			return;
+			continue;
 
 		pPalParams->ResetSP();
 	}

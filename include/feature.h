@@ -22,6 +22,8 @@ void ExploitFly(bool IsFly);
 
 void SetFullbright(bool bIsSet);
 
+void SetTimeDialation(float mSpeed);
+
 void SpeedHack(float mSpeed);
 
 void SetDemiGodMode(bool bIsSet);
