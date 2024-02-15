@@ -423,6 +423,9 @@ void ResetStamina()
 		if (!pPal)
 			continue;
 
+		if (pPal->IsLocallyControlled())
+			continue;
+
 		UPalCharacterParameterComponent* pPalParams = pPal->CharacterParameterComponent;
 		if (!pPalParams)
 			continue;
