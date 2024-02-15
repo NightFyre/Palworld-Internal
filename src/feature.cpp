@@ -250,6 +250,24 @@ void SetFullbright(bool bIsSet)
 	pViewport->mViewMode = bIsSet ? 1 : 3;
 }
 
+//
+void SetTimeDialation(float mSpeed)
+{
+	UWorld* pWorld = Config.gWorld;
+	if (!pWorld)
+		return;
+
+	ULevel* pLevel = pWorld->PersistentLevel;
+	if (!pLevel)
+		return;
+
+	AWorldSettings* pWorldSettings = pLevel->WorldSettings;
+	if (!pWorldSettings)
+		return;
+
+	pWorld->PersistentLevel->WorldSettings->TimeDilation = mSpeed;
+}
+
 //	
 void SpeedHack(float mSpeed)
 {
