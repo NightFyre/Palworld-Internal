@@ -268,7 +268,7 @@ void SetTimeDialation(float mSpeed)
 	pWorld->PersistentLevel->WorldSettings->TimeDilation = mSpeed;
 }
 
-//	
+//  Credit: Omega172
 void SpeedHack(float mSpeed)
 {
 	SDK::APalPlayerCharacter* pPalPlayerCharacter = Config.GetPalPlayerCharacter();
@@ -414,7 +414,8 @@ void ResetStamina()
 	pParams->ResetSP();
 
 
-	//	Reset Pal Stamina ??
+	//	Reset Pal Stamina 
+	//	Credit: Omega172
 	std::vector<AActor*> outPals;
 	Config.GetAllActorsofType(APalCharacter::StaticClass(), &outPals);
 	for (AActor* pActor : outPals)
