@@ -415,18 +415,17 @@ void ResetStamina()
 
 
 	//	Reset Pal Stamina ??
-	TArray<APalCharacter*> outPals;
-	Config.GetTAllPals(&outPals);
-	DWORD palsSize = outPals.Count();
-	for (int i = 0; i < palsSize; i++)
+	std::vector<AActor*> outPals;
+	Config.GetAllActorsofType(APalCharacter::StaticClass(), &outPals);
+	for (AActor* pActor : outPals)
 	{
-		APalCharacter* cPal = outPals[i];
-		if (!cPal || cPal->IsA(APalMonsterCharacter::StaticClass()))
+		APalCharacter* pPal = static_cast<APalCharacter*>(pActor);
+		if (!pPal)
 			continue;
 
-		UPalCharacterParameterComponent* pPalParams = pPalCharacter->CharacterParameterComponent;
+		UPalCharacterParameterComponent* pPalParams = pPal->CharacterParameterComponent;
 		if (!pPalParams)
-			return;
+			continue;
 
 		pPalParams->ResetSP();
 	}

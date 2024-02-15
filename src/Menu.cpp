@@ -1058,7 +1058,6 @@ namespace DX11_Base
 #endif
         }
 
-
         ImGui::End();
     }
 
