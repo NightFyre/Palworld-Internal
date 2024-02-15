@@ -12,7 +12,10 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  dwCallReason, LPVOID lpReserved)
         case (DLL_PROCESS_ATTACH): 
         {
             DisableThreadLibraryCalls(hModule);
-            CloseHandle(CreateThread(0, 0, MainThread_Initialize, g_hModule, 0, 0));
+
+            HANDLE hThread = CreateThread(nullptr, 0, MainThread_Initialize, hModule, 0, nullptr);
+            if (hThread)
+                CloseHandle(hThread);
             break;
         }
         case (DLL_PROCESS_DETACH): 

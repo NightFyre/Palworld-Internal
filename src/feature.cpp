@@ -109,16 +109,12 @@ void UnlockAllEffigies()
 	{
 		UObject* object = objects->GetByIndex(i);
 
-		if (!object)
+		if (!object || !object->IsA(APalLevelObjectRelic::StaticClass()))
 			continue;
 
-		if (!object->IsA(APalLevelObjectRelic::StaticClass()))
+		APalLevelObjectObtainable* relic = reinterpret_cast<APalLevelObjectObtainable*>(object);
+		if (!relic)
 			continue;
-
-		APalLevelObjectObtainable* relic = (APalLevelObjectObtainable*)object;
-		if (!relic) {
-			continue;
-		}
 
 		pPalPlayerState->RequestObtainLevelObject_ToServer(relic);
 	}
@@ -257,21 +253,16 @@ void SetFullbright(bool bIsSet)
 //	
 void SpeedHack(float mSpeed)
 {
-	UWorld* pWorld = Config.gWorld;
-	if (!pWorld)
+	SDK::APalPlayerCharacter* pPalPlayerCharacter = Config.GetPalPlayerCharacter();
+	if (!pPalPlayerCharacter)
 		return;
 
-	ULevel* pLevel = pWorld->PersistentLevel;
-	if (!pLevel)
+	UPalCharacterMovementComponent* pMovementComponent = pPalPlayerCharacter->GetPalCharacterMovementComponent();
+	if (!pMovementComponent)
 		return;
 
-	AWorldSettings* pWorldSettings = pLevel->WorldSettings;
-	if (!pWorldSettings)
-		return;
-
-	pWorld->PersistentLevel->WorldSettings->TimeDilation = mSpeed;
-
-	//	pWorldSettings->TimeDilation = mSpeed;
+	pMovementComponent->MaxAcceleration = 2048 * mSpeed;
+	pMovementComponent->MaxWalkSpeed = 350 * mSpeed;
 }
 
 //	
