@@ -251,7 +251,7 @@ void SetFullbright(bool bIsSet)
 }
 
 //
-void SetTimeDialation(float mSpeed)
+void WorldSpeedHack(float mSpeed)
 {
 	UWorld* pWorld = Config.gWorld;
 	if (!pWorld)
@@ -269,7 +269,7 @@ void SetTimeDialation(float mSpeed)
 }
 
 //  Credit: Omega172
-void SpeedHack(float mSpeed)
+void PlayerSpeedHack(float mSpeed)
 {
 	SDK::APalPlayerCharacter* pPalPlayerCharacter = Config.GetPalPlayerCharacter();
 	if (!pPalPlayerCharacter)
@@ -612,7 +612,7 @@ void RemoveTechPoints(__int32 mPoints)
 }
 
 //	
-void RemoveAncientTechPoint(__int32 mPoints)
+void RemoveAncientTechPoints(__int32 mPoints)
 {
 	APalPlayerState* mPlayerState = Config.GetPalPlayerState();
 	if (!mPlayerState)

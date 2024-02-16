@@ -22,9 +22,9 @@ void ExploitFly(bool IsFly);
 
 void SetFullbright(bool bIsSet);
 
-void SetTimeDialation(float mSpeed);
+void PlayerSpeedHack(float mSpeed);
 
-void SpeedHack(float mSpeed);
+void WorldSpeedHack(float mSpeed);
 
 void SetDemiGodMode(bool bIsSet);
 
@@ -105,4 +105,3 @@ void RenderNearbyPalTags(ImColor color = ImColor(1.0f, 1.0f,1.0f, 1.0f), float d
 void RenderPartyMemberTags(ImColor color = ImColor(1.0f, 1.0f,1.0f, 1.0f), float distance = 5.f, float fontSize = 8.0f);
 
 void RenderBaseMemberTags(ImColor color = ImColor(1.0f, 1.0f,1.0f, 1.0f), float distance = 5.f, float fontSize = 8.0f);
-

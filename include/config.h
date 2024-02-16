@@ -33,8 +33,8 @@ public:
 	bool IsTeleportAllToXhair = false;
 	bool IsDeathAura = false;
 	bool IsAimbot = false;
-	bool IsTimeDialation = false;
-	bool IsSpeedHack = false;
+	bool IsPlayerSpeedhack = false;
+	bool IsWorldSpeedHack = false;
 	bool IsAttackModiler = false;
 	bool IsDefuseModiler = false;
 	bool IsFastCrafting = false;
@@ -54,8 +54,8 @@ public:
 	bool bSkipLocalPlayer = true;
 	bool bisRandomName = false;
 	bool bisTeleporter = false;
-	float TimeDialationModifier = 1.0f;
-	float SpeedModiflers = 1.0f;
+	float PlayerSpeedModifier = 1.0f;
+	float WorldSpeedModiflers = 1.0f;
 	//def and value
 	float mDebugESPDistance = 5.0f;
 	float mDebugEntCapDistance = 10.0f;

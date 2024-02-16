@@ -119,33 +119,33 @@ namespace DX11_Base
                 ImGuiWindow* gWindow = ImGui::GetCurrentWindow();
                 float cursorX = 0.f;
 
-                if (ImGui::Checkbox("Time Dialation", &Config.IsTimeDialation) && !Config.IsTimeDialation)
+                if (ImGui::Checkbox("Player Speedhack", &Config.IsPlayerSpeedhack) && !Config.IsPlayerSpeedhack)
                 {
-                    Config.TimeDialationModifier = 1.0f;
-                    SetTimeDialation(Config.TimeDialationModifier);
+                    Config.PlayerSpeedModifier = 1.0f;
+                    PlayerSpeedHack(Config.PlayerSpeedModifier);
                 }
                 ImGui::SameLine();
                 cursorX = gWindow->DC.CursorPos.x += 10.f;
-                if (Config.IsTimeDialation)
+                if (Config.IsPlayerSpeedhack)
                 {
                     ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
-                    ImGui::SliderFloat("##TimeDialationModifier", &Config.TimeDialationModifier, 1, 10);
+                    ImGui::SliderFloat("##TimeDialationModifier", &Config.PlayerSpeedModifier, 1, 10);
                 }
                 else
                     ImGui::NewLine();
                 gWindow->DC.CursorPos.y += 5.f;
 
-                if (ImGui::Checkbox("SpeedHack", &Config.IsSpeedHack) && !Config.IsSpeedHack)
+                if (ImGui::Checkbox("World SpeedHack", &Config.IsWorldSpeedHack) && !Config.IsWorldSpeedHack)
                 {
-                    Config.SpeedModiflers = 1.0f;
-                    SpeedHack(Config.SpeedModiflers);
+                    Config.WorldSpeedModiflers = 1.0f;
+                    WorldSpeedHack(Config.WorldSpeedModiflers);
                 }
                 ImGui::SameLine();
                 cursorX = gWindow->DC.CursorPos.x += 10.f;
-                if (Config.IsSpeedHack)
+                if (Config.IsWorldSpeedHack)
                 {
                     ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
-                    ImGui::SliderFloat("##SpeedModifilers", &Config.SpeedModiflers, 1, 10);
+                    ImGui::SliderFloat("##SpeedModifilers", &Config.WorldSpeedModiflers, 1, 10);
                 }
                 else
                     ImGui::NewLine();
@@ -1080,12 +1080,12 @@ namespace DX11_Base
         }
 
         //
-        if (Config.IsTimeDialation)
-			SetTimeDialation(Config.TimeDialationModifier);
+        if (Config.IsPlayerSpeedhack)
+            PlayerSpeedHack(Config.PlayerSpeedModifier);
 
         //  
-        if (Config.IsSpeedHack)
-            SpeedHack(Config.SpeedModiflers);   //  @CRASH palcrack!DX11_Base::Menu::Loops() [A:\Github\collab\PalWorld-NetCrack\src\Menu.cpp:787] : UPON LOADING GAME WORLD
+        if (Config.IsWorldSpeedHack)
+            WorldSpeedHack(Config.WorldSpeedModiflers);   //  @CRASH palcrack!DX11_Base::Menu::Loops() [A:\Github\collab\PalWorld-NetCrack\src\Menu.cpp:787] : UPON LOADING GAME WORLD
 
         //  
         if (Config.IsAttackModiler)
