@@ -7,12 +7,8 @@
 */
 
 // Package: Engine
-
-#include "Basic.hpp"
-
-#include "Engine_classes.hpp"
+#include "../pch.h"
 #include "Engine_parameters.hpp"
-
 
 namespace SDK
 {

@@ -7,10 +7,7 @@
 */
 
 // Package: CoreUObject
-
-#include "Basic.hpp"
-
-#include "CoreUObject_classes.hpp"
+#include "../pch.h"
 #include "CoreUObject_parameters.hpp"
 
 

@@ -7,10 +7,7 @@
 */
 
 // Package: Pal
-
-#include "Basic.hpp"
-
-#include "Pal_classes.hpp"
+#include "../pch.h"
 #include "Pal_parameters.hpp"
 
 
