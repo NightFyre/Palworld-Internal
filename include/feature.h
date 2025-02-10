@@ -82,7 +82,7 @@ bool GetItemName(SDK::APalMapObject* pMap, std::string* outName);
 
 void ForgeActor(SDK::AActor* pTarget, float mDistance, float mHeight = 0.0f, float mAngle = 0.0f);
 
-void SendDamageToActor(SDK::APalCharacter* pTarget, int32 damage, bool bSpoofAttacker = false);
+void SendDamageToActor(SDK::APalCharacter* pTarget, __int32 damage, bool bSpoofAttacker = false);
 
 void DeathAura(__int32 dmgAmount, float mDistance, bool bIntensityEffect = false, bool bVisualEffect = false, SDK::EPalVisualEffectID visID = SDK::EPalVisualEffectID::None);
 

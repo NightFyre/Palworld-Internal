@@ -52,8 +52,6 @@ bool config::Init()
 
     Config.pGWorld = gworld;
     Config.gWorld = Config.GetUWorld();
-
-    SDK::InitGObjects();
     Config.kString = SDK::UKismetStringLibrary::GetDefaultObj();
     Config.pPalUtility = SDK::UPalUtility::GetDefaultObj();
 

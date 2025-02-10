@@ -303,7 +303,7 @@ namespace UC
 		}
 
 	public:
-		inline int32 Num() const { return NumElements; }
+		inline int32 Count() const { return NumElements; }
 		inline int32 Max() const { return MaxElements; }
 
 		inline bool IsValidIndex(int32 Index) const { return Data && Index >= 0 && Index < NumElements; }

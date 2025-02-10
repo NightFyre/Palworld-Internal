@@ -103,21 +103,22 @@ void UnlockAllEffigies()
 	if (!world)
 		return;
 
-	TUObjectArray* objects = world->GObjects;
-
-	for (int i = 0; i < objects->NumElements; ++i) 
-	{
-		UObject* object = objects->GetByIndex(i);
-
-		if (!object || !object->IsA(APalLevelObjectRelic::StaticClass()))
-			continue;
-
-		APalLevelObjectObtainable* relic = reinterpret_cast<APalLevelObjectObtainable*>(object);
-		if (!relic)
-			continue;
-
-		pPalPlayerState->RequestObtainLevelObject_ToServer(relic);
-	}
+	///	@ todo : implement
+	//	TUObjectArray* objects = world->GObjects;
+	//	
+	//	for (int i = 0; i < objects->NumElements; ++i) 
+	//	{
+	//		UObject* object = objects->GetByIndex(i);
+	//	
+	//		if (!object || !object->IsA(APalLevelObjectRelic::StaticClass()))
+	//			continue;
+	//	
+	//		APalLevelObjectObtainable* relic = reinterpret_cast<APalLevelObjectObtainable*>(object);
+	//		if (!relic)
+	//			continue;
+	//	
+	//		pPalPlayerState->RequestObtainLevelObject_ToServer(relic);
+	//	}
 }
 
 //	Credit: BennettStaley
@@ -216,10 +217,11 @@ void AnyWhereTP(FVector& vector, bool IsSafe)
 	if (!pPalPlayerController || !pPalPlayerState)
 		return;
 
+	///	@ todo: implement
 	//	vector = { vector.X,vector.Y + 100,vector.Z };
-	FGuid guid = pPalPlayerController->GetPlayerUId();
-	pPalPlayerController->Transmitter->Player->RegisterRespawnLocation_ToServer(guid, vector);
-	pPalPlayerState->RequestRespawn();
+	//	FGuid guid = pPalPlayerController->GetPlayerUId();	
+	//	pPalPlayerController->Transmitter->Player->RegisterRespawnLocation_ToServer(guid, vector);
+	//	pPalPlayerState->RequestRespawn();
 }
 
 //	
@@ -247,7 +249,8 @@ void SetFullbright(bool bIsSet)
 	if (!pViewport)
 		return;
 
-	pViewport->mViewMode = bIsSet ? 1 : 3;
+	///	@ todo: implement
+	//	pViewport->mViewMode = bIsSet ? 1 : 3;	
 }
 
 //
@@ -305,7 +308,7 @@ void SetDemiGodMode(bool bIsSet)
 		return;
 
 	//	attempt additional parameters
-	sParams.HP.Value = sParams.MaxHP.Value;
+	sParams.Hp.Value = sParams.MaxHP.Value;
 	sParams.MP.Value = sParams.MaxMP.Value;
 	sParams.FullStomach = sParams.MaxFullStomach;
 	sParams.PhysicalHealth = EPalStatusPhysicalHealthType::Healthful;
@@ -342,7 +345,7 @@ void SetPlayerNickname(std::string newName)
 		return;
 
 	FPalInstanceID charID = pCharHandle->ID;
-	pNetworkIV->UpdateCharacterNickName_ToServer(charID, FString(std::wstring(newName.begin(), newName.end()).c_str()));
+	//	pNetworkIV->UpdateCharacterNickName_ToServer(charID, FString(std::wstring(newName.begin(), newName.end()).c_str()));	//	@ todo: implement
 }
 
 void SetPlayerHealth(__int32 newHealth)
@@ -360,7 +363,7 @@ void SetPlayerHealth(__int32 newHealth)
 		newHealth = maxHP.Value;
 
 	FFixedPoint newHealthPoint = FFixedPoint(newHealth);
-	pPalPlayerCharacter->ReviveCharacter_ToServer(newHealthPoint);
+	//	pPalPlayerCharacter->ReviveCharacter_ToServer(newHealthPoint);	@ todo: implement
 }
 
 void SetPlayerInventoryWeight(float newWeight)
@@ -397,7 +400,7 @@ void ReviveLocalPlayer()
 
 	FFixedPoint64 maxHP = pParams->GetMaxHP();
 	FFixedPoint newHealth = FFixedPoint(maxHP.Value);
-	pPalPlayerCharacter->ReviveCharacter_ToServer(newHealth);
+	//	pPalPlayerCharacter->ReviveCharacter_ToServer(newHealth);	@ todo: implement
 }
 
 //	
@@ -442,7 +445,7 @@ void GiveExperiencePoints(__int32 mXP)
 	if (!pPalPlayerState)
 		return;
 
-	pPalPlayerState->GrantExpForParty(mXP);
+	//	pPalPlayerState->GrantExpForParty(mXP);	//	@ todo: implement 
 }
 
 //	
@@ -730,7 +733,7 @@ void ForgeActor(SDK::AActor* pTarget, float mDistance, float mHeight, float mAng
 }
 
 //	credit: 
-void SendDamageToActor(APalCharacter* pTarget, int32 damage, bool bSpoofAttacker)
+void SendDamageToActor(APalCharacter* pTarget, __int32 damage, bool bSpoofAttacker)
 {
 	APalPlayerState* pPalPlayerState = Config.GetPalPlayerState();
 	APalPlayerCharacter* pPalPlayerCharacter = Config.GetPalPlayerCharacter();
@@ -747,7 +750,7 @@ void SendDamageToActor(APalCharacter* pTarget, int32 damage, bool bSpoofAttacker
 	info.bAttackableToFriend = true;
 	info.IgnoreShield = true;
 	info.NativeDamageValue = damage;
-	pPalPlayerState->SendDamage_ToServer(pTarget, info);
+	//	pPalPlayerState->SendDamage_ToServer(pTarget, info);	//	@ todo: implement
 }
 
 //	 NOTE: only targets pals
@@ -829,14 +832,15 @@ void TeleportToMapMarker()
 	if (!pLocationMan)
 		return;
 
-	auto locations = pLocationMan->CustomLocations;
-	if (locations.Count() > 0)
-	{
-		auto mark = locations[0]->Location;
-		auto id = locations[0]->ID;
-		AnyWhereTP(mark, false);
-		pLocationMan->RemoveLocalCustomLocation(id);
-	}
+	///	@ todo: implement
+	//	auto locations = pLocationMan->CustomLocations;
+	//	if (locations.Count() > 0)
+	//	{
+	//		auto mark = locations[0]->Location;
+	//		auto id = locations[0]->ID;
+	//		AnyWhereTP(mark, false);
+	//		pLocationMan->RemoveLocalCustomLocation(id);
+	//	}
 }
 
 // credit: xCENTx

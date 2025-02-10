@@ -541,21 +541,22 @@ namespace DX11_Base
                                 }*/
                                 if (bIsPlayer)
                                 {
-                                    ImGui::SameLine();
-                                    if (ImGui::Button("MASK NAME")) // updates local player nickname ?? also potential crash due to nullptr
-                                    {
-                                        if (Config.GetPalPlayerCharacter() != NULL)
-                                        {
-                                            auto controller = Config.GetPalPlayerCharacter()->GetPalPlayerController();
-                                            if (controller != NULL)
-                                            {
-                                                auto player = (SDK::APalPlayerCharacter*)pChar;
-                                                SDK::FString fakename;
-                                                player->CharacterParameterComponent->GetNickname(&fakename);
-                                                Config.GetPalPlayerCharacter()->GetPalPlayerController()->Transmitter->NetworkIndividualComponent->UpdateCharacterNickName_ToServer(Config.GetPalPlayerCharacter()->CharacterParameterComponent->IndividualHandle->ID, fakename);
-                                            }
-                                        }
-                                    }
+                                    /// @ todo : implement
+                                    //  ImGui::SameLine();
+                                    //  if (ImGui::Button("MASK NAME")) // updates local player nickname ?? also potential crash due to nullptr
+                                    //  {
+                                    //      if (Config.GetPalPlayerCharacter() != NULL)
+                                    //      {
+                                    //          auto controller = Config.GetPalPlayerCharacter()->GetPalPlayerController();
+                                    //          if (controller != NULL)
+                                    //          {
+                                    //              auto player = (SDK::APalPlayerCharacter*)pChar;
+                                    //              SDK::FString fakename;
+                                    //              player->CharacterParameterComponent->GetNickname(&fakename);
+                                    //              Config.GetPalPlayerCharacter()->GetPalPlayerController()->Transmitter->NetworkIndividualComponent->UpdateCharacterNickName_ToServer(Config.GetPalPlayerCharacter()->CharacterParameterComponent->IndividualHandle->ID, fakename);
+                                    //          }
+                                    //      }
+                                    //  }
                                 }
                                 ImGui::SameLine();
                                 if (ImGui::Button("SELECT TARGET"))
@@ -778,6 +779,7 @@ namespace DX11_Base
 
         void TABDatabase()
         {
+            return;     //  @ todo : implement
             if (ImGui::BeginChild("CHILD WINDOW", ImVec2(0.f, 300.f)))
             {
                 ImGuiWindow* gWindow = ImGui::GetCurrentWindow();
@@ -943,11 +945,12 @@ namespace DX11_Base
                 ImGui::EndTabItem();
             }
 #if _DEBUG
-            if (ImGui::BeginTabItem("Database"))
-            {
-                Tabs::TABDatabase();
-                ImGui::EndTabItem();
-            }
+			/// @ todo : implement , returning early causes a crash when switching tabs because imgui loses track of the current window
+           //   if (ImGui::BeginTabItem("Database"))
+           //   {
+           //       Tabs::TABDatabase();
+           //       ImGui::EndTabItem();
+           //   }
 #endif
             if (ImGui::BeginTabItem("ITEMS"))
             {
