@@ -1,7 +1,8 @@
 #pragma once
 #include <Windows.h>
-#include <TlHelp32.h>
 #include <iostream>
+#include <exMemory\exMemory.hpp>
+#include <filesystem>
 
 #ifndef _DEBUG
 #define _DEBUG false
