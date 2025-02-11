@@ -1,6 +1,9 @@
 # PalWorld Internal
 > [!Note]
 > **THIS IS THE STEAMDECK VERSION**
+
+> [!Warning]
+> ### **THIS VERSION IS NO LONGER RECEIVING UPDATES**
 ## 
 
 <p align="center">
