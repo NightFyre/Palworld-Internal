@@ -1,6 +1,9 @@
 # PalWorld-NetCrack  
 > [!Note]
 > **THIS IS THE XBOX GAMEPASS VERSION**
+
+> [!Warning]
+> ### **THIS VERSION IS NO LONGER RECEIVING UPDATES**
 ## 
 
 <p align="center">
