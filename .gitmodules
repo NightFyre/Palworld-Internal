@@ -1,0 +1,3 @@
+[submodule "libs/exMemory"]
+	path = libs/exMemory
+	url = https://github.com/NightFyre/exMemory.git
